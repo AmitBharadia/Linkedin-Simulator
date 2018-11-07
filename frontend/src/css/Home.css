@@ -1,0 +1,85 @@
+.Home{
+    display:grid;
+    /*grid-template-columns: 50px auto repeat(8,1fr) ;  */
+    grid-template-rows: 650px repeat(7,1fr);
+}
+
+.button{
+    color:blue;
+    background-color: white;    
+}
+.my-tranparent {
+	background-color:transparent !important;
+	border-color:transparent;
+	background-image:none;
+    box-shadow:none;	
+    
+}
+.Home1{
+    width: 100%;
+    height: 100%;
+ 
+  /*background-position: center;  resize-mode: stretch;   */
+      background-repeat: no-repeat;
+      background-size: cover;
+    background-image: url('../images/HomeAway_Screen.jpeg');
+  }
+.center-align{
+    display:grid;
+    grid-template-rows: 150px 2fr 1fr 1fr 1fr;  
+}
+.center-text{    
+    grid-row:2/3;
+    display:grid;
+    grid-template-columns: 200px auto;
+}  
+.textFormat{
+    grid-column: 2/3;
+    font-family: Lato,Arial,Helvetica Neue,sans-serif;
+color: #fff;
+font-size: 50px;
+font-weight: 400;
+letter-spacing: .1px;
+text-align: left;
+line-height: normal;
+margin:0px;
+}
+.center-input{    
+    grid-row:3/4;
+    display:grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr 1fr;
+}
+.autocomplete_google{
+    grid-column: 2/3;
+    margin:10px;
+}
+.Arrival{
+    grid-column: 3/4;
+    margin:10px;
+}
+.Departure{
+    grid-column: 4/5;
+    margin:10px;
+}
+.guest{
+    grid-column: 5/6;   
+    margin:10px;
+}
+.search{
+    grid-column: 6/7;
+    margin:10px;
+}
+.bottom-text{    
+    grid-row:5/6;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.vacationStartsHere{
+    grid-column: 1/2;
+}
+.BookAndStay{
+    grid-column: 2/3;
+}
+.YourVacation{
+    grid-column: 3/4;
+}
