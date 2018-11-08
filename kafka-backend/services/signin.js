@@ -5,7 +5,7 @@ function handle_request(msg, callback) {
   console.log(
     "=====================In the kafka-backend Sigin====================="
   );
-  console.log("Request body: " + JSON.stringify(msg));
+  console.log("Request body:" + JSON.stringify(msg));
 
   Applicant.findOne({}).exec((err, applicant) => {
     if (err) {
