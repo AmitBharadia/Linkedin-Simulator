@@ -9,6 +9,7 @@ import store from "./store/index";
 //Routes to be placed here
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
+import Home from "./components/Home/Home";
 import postJob from "./components/Post Jobs";
 
 ReactDOM.render(
@@ -17,7 +18,8 @@ ReactDOM.render(
       <div>
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
-          <Route path="/postJob" component={postJob} />
+        <Route path="/home" component={Home} />
+        <Route path="/postJob" component={postJob} />
       </div>
     </Router>
   </Provider>,

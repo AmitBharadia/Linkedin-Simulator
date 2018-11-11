@@ -1,26 +1,23 @@
 const mongoose = require("mongoose");
 var CONST = require("../const");
 mongoose.Promise = global.Promise;
-// mongoose.connect(
-//   CONST.MONGO_URL,
-//   { useNewUrlParser: true }
-// );
 
 mongoose.connect(
   CONST.MONGO_URL,
   {
-    socketTimeoutMS: 0,
-    keepAlive: true,
-    reconnectTries: 30
+    useMongoClient: true
+  },
+  () => {
+    console.log(
+      "=================== Mongo DB connected Status : ",
+      mongoose.connection.readyState,
+      "======================="
+    );
   }
 );
-console.log(mongoose.connection.readyState);
 
-var Applicant = mongoose.model("Applicant", {
+var Applicant = mongoose.model("applicants", {
   username: {
-    type: String
-  },
-  password: {
     type: String
   },
   first_name: {
