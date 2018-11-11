@@ -10,6 +10,7 @@ import store from "./store/index";
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
+import postJob from "./components/Post Jobs";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
+        <Route path="/postJob" component={postJob} />
       </div>
     </Router>
   </Provider>,

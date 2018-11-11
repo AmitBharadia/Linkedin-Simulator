@@ -1,0 +1,26 @@
+.navbar
+{
+    background-color: #0077B5;
+    margin-bottom : 0;
+}
+
+.nav-item
+{
+    padding-left: 50px;
+}
+.notes
+{
+    background-color: #0077B5;
+}
+
+.jobs
+{
+    background-color: #0077B5;
+    min-height: 400px;
+}
+
+.hr
+{
+    padding: 0px;
+    margin: 0px;
+}
