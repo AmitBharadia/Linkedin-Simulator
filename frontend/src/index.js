@@ -9,7 +9,7 @@ import store from "./store/index";
 //Routes to be placed here
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
-import postJob from "./components/Post Jobs";
+import postJob from "./components/Post Jobs/index";
 
 ReactDOM.render(
   <Provider store={store}>
