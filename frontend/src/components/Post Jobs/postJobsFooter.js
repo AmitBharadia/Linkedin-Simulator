@@ -43,3 +43,5 @@ class postJobsFooter {
         )
     }
 }
+
+export default postJobsFooter;
