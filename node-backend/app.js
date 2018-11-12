@@ -4,15 +4,18 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
+var passport = require("passport");
 var bodyParser = require("body-parser");
 
 var CONST = require("./const");
 
 var app = express();
-app.use(cors());
+
+//Allows request from other origin an access
+app.use(cors({ origin: CONST.UI_SERVER_URL, credentials: true }));
 
 app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", CONST.SERVER_URL);
+  res.setHeader("Access-Control-Allow-Origin", CONST.UI_SERVER_URL);
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -27,6 +30,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Bring in defined Passport Strategy
+require("./passport/index")(passport);
+
+//set up middleware for authentication
+var requireAuth = passport.authenticate("jwt", { session: false });
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -36,11 +45,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static("property"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(passport.initialize());
 
 // var index = require('./routes/home');
 // app.use('/home', index);
@@ -50,6 +60,9 @@ app.use("/signup", signupRouter);
 
 var signinRouter = require("./routes/signin");
 app.use("/signin", signinRouter);
+
+var dummyRouter = require("./routes/dummy");
+app.use("/dummy", requireAuth, dummyRouter);
 
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
