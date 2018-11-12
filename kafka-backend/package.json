@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
-    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "formidable": "^1.1.1",
     "glob": "^7.1.2",
     "images-upload-middleware": "^1.1.1",
@@ -21,6 +20,7 @@
     "mongodb-autoincrement": "^1.0.1",
     "mongoose": "^4.13.17",
     "multer": "^1.3.0",
+    "mysql": "^2.16.0",
     "nodemailer": "^4.6.4",
     "nodemon": "^1.18.6",
     "passport": "^0.4.0",

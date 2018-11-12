@@ -14,6 +14,16 @@ class Signin extends Component {
   }
 
   render() {
+    var submitFormError = "";
+
+    if (this.props.status == "success") {
+      this.props.history.push("/home");
+    } else if (this.props.status == "error") {
+      submitFormError = (
+        <h5 class="text-danger text-center">{this.props.msg}</h5>
+      );
+    }
+
     const { handleSubmit } = this.props;
     return (
       <div>
@@ -25,6 +35,7 @@ class Signin extends Component {
           Don't miss your next opportunity. Sign in to stay updated on your
           professional world.
         </h2>
+        {submitFormError}
         <div class="row">
           <div class="col" />
           <div class="col">
@@ -67,7 +78,17 @@ class Signin extends Component {
           <div class="col" />
         </div>
 
-        <h5 class=" text-center pt-5">New to LinkedIn? Join now</h5>
+        <h5 class=" text-center pt-5">
+          New to LinkedIn?{" "}
+          <a
+            href=""
+            onClick={e => {
+              this.props.history.push("/signup");
+            }}
+          >
+            Join now
+          </a>
+        </h5>
       </div>
     );
   }
@@ -102,9 +123,9 @@ class Signin extends Component {
 }
 //Get the current state of the signup page
 const mapStateToProps = state => {
-  //console.log("Current State : " + JSON.stringify(state.login.authLogin));
   return {
-    //   authLogin: state.login.authLogin
+    status: state.signin.status,
+    msg: state.signin.msg
   };
 };
 
@@ -123,9 +144,6 @@ function validate(values) {
   if (!values.password) {
     errors.password = "Required";
   }
-
-  // If errors is empty, the form is fine to submit
-  // If errors has *any* properties, redux form assumes form is invalid
   return errors;
 }
 
