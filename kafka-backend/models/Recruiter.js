@@ -3,14 +3,20 @@ var CONST = require("../const");
 mongoose.Promise = global.Promise;
 mongoose.connect(
   CONST.MONGO_URL,
-  { useNewUrlParser: true }
+  {
+    useMongoClient: true
+  },
+  () => {
+    console.log(
+      "=================== Mongo DB connected Status : ",
+      mongoose.connection.readyState,
+      "======================="
+    );
+  }
 );
 
-var Recruiter = mongoose.model("user", {
-  email_address: {
-    type: String
-  },
-  password: {
+var Recruiter = mongoose.model("recruiter", {
+  username: {
     type: String
   },
   first_name: {
