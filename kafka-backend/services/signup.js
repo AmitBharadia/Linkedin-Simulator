@@ -8,6 +8,7 @@ function handle_request(msg, callback) {
     "=====================In the kafka-backend Signup====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
+  callback( null , " occured");
 
   if (!msg.isRecruiter) {
     createApplicant(msg, callback);
