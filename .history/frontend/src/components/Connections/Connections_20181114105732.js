@@ -55,39 +55,15 @@ class Connections extends Component {
               </div>
 
               <div className="col-lg-7" style={myStyles.div_md7}>
-                {/* <div className="row" style={myStyles.invitations}>
+                <div className="row" style={myStyles.invitations}>
                   <h3 style={myStyles.h3pending}>No pending invitations</h3>
-                </div> */}
-                <div className="row" style={myStyles.invitations} />
+                </div>
                 <br />
                 <br />
                 <div className="row" style={myStyles.youMayKnow}>
-                  <div
-                    className="row"
-                    style={{
-                      width: "100%",
-                      height: "50px",
-                      margin: "0px",
-                      borderBottom: "solid 1px lightgray"
-                    }}
-                  >
-                    <h3
-                      style={{
-                        width: "100%",
-                        height: "50px",
-                        margin: "0px",
-                        marginLeft: "20px",
-                        marginTop: "20px",
-                        fontSize: "1.8rem",
-                        color: "rgba(0,0,0,.9)",
-                        fontWeight: "400"
-                      }}
-                    >
-                      Recommended for you
-                    </h3>
-                  </div>
+                  <div className="row">People You May Know</div>
                   <div className="row">
-                    <div className="col-md-4" style={{ maxHeight: "320px" }}>
+                    <div className="col-md-4" style={{ "max-height": "320px" }}>
                       <div class="card" style={{ height: "320px" }}>
                         <img
                           class="card-img-top"
@@ -96,15 +72,15 @@ class Connections extends Component {
                           style={{
                             width: "50%",
                             height: "50%",
-                            marginTop: "20px",
-                            marginLeft: "50px"
+                            "margin-top": "20px",
+                            "margin-left": "50px"
                           }}
                         />
                         <div class="card-body">
                           <h4
                             class="card-title"
                             style={{
-                              textAlign: "center"
+                              "text-align": "center"
                             }}
                           >
                             John Doe
@@ -112,11 +88,11 @@ class Connections extends Component {
                           <p
                             class="card-text"
                             style={{
-                              textAlign: "center",
-                              lineHeight: "1.6rem!important",
-                              maxHeight: "3.2rem",
-                              fontSize: "1.2rem",
-                              fontWeight: "400",
+                              "text-align": "center",
+                              "line-height": "1.6rem!important",
+                              "max-height": "3.2rem",
+                              "font-size": "1.2rem",
+                              "font-weight": "400",
                               color: "rgba(0,0,0,.6)"
                             }}
                           >
@@ -129,12 +105,12 @@ class Connections extends Component {
                             href="#"
                             class="btn btn-primary"
                             style={{
-                              textAlign: "center",
-                              backgroundColor: "rgba(152,216,244,.25)",
+                              "text-align": "center",
+                              "background-color": "rgba(152,216,244,.25)",
                               color: "#006097",
-                              boxShadow: "inset 0 0 0 1px #006097",
+                              "box-shadow": "inset 0 0 0 1px #006097",
                               padding: "10 16px",
-                              marginLeft: "50px",
+                              "margin-left": "50px",
                               font: "400 13.3333px Arial"
                             }}
                           >
@@ -143,7 +119,7 @@ class Connections extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-4" style={{ maxHeight: "320px" }}>
+                    <div className="col-md-4" style={{ "max-height": "320px" }}>
                       <div class="card" style={{ height: "320px" }}>
                         <img
                           class="card-img-top"
@@ -152,15 +128,15 @@ class Connections extends Component {
                           style={{
                             width: "50%",
                             height: "50%",
-                            marginTop: "20px",
-                            marginLeft: "50px"
+                            "margin-top": "20px",
+                            "margin-left": "50px"
                           }}
                         />
                         <div class="card-body">
                           <h4
                             class="card-title"
                             style={{
-                              textAlign: "center"
+                              "text-align": "center"
                             }}
                           >
                             John Doe
@@ -168,11 +144,11 @@ class Connections extends Component {
                           <p
                             class="card-text"
                             style={{
-                              textAlign: "center",
-                              lineHeight: "1.6rem!important",
-                              maxHeight: "3.2rem",
-                              fontSize: "1.2rem",
-                              fontWeight: "400",
+                              "text-align": "center",
+                              "line-height": "1.6rem!important",
+                              "max-height": "3.2rem",
+                              "font-size": "1.2rem",
+                              "font-weight": "400",
                               color: "rgba(0,0,0,.6)"
                             }}
                           >
@@ -185,12 +161,12 @@ class Connections extends Component {
                             href="#"
                             class="btn btn-primary"
                             style={{
-                              textAlign: "center",
-                              backgroundColor: "rgba(152,216,244,.25)",
+                              "text-align": "center",
+                              "background-color": "rgba(152,216,244,.25)",
                               color: "#006097",
-                              boxShadow: "inset 0 0 0 1px #006097",
+                              "box-shadow": "inset 0 0 0 1px #006097",
                               padding: "10 16px",
-                              marginLeft: "50px",
+                              "margin-left": "50px",
                               font: "400 13.3333px Arial"
                             }}
                           >
@@ -199,7 +175,7 @@ class Connections extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-4" style={{ maxHeight: "320px" }}>
+                    <div className="col-md-4" style={{ "max-height": "320px" }}>
                       <div class="card" style={{ height: "320px" }}>
                         <img
                           class="card-img-top"
@@ -208,15 +184,15 @@ class Connections extends Component {
                           style={{
                             width: "50%",
                             height: "50%",
-                            marginTop: "20px",
-                            marginLeft: "50px"
+                            "margin-top": "20px",
+                            "margin-left": "50px"
                           }}
                         />
                         <div class="card-body">
                           <h4
                             class="card-title"
                             style={{
-                              textAlign: "center"
+                              "text-align": "center"
                             }}
                           >
                             John Doe
@@ -224,11 +200,11 @@ class Connections extends Component {
                           <p
                             class="card-text"
                             style={{
-                              textAlign: "center",
-                              lineHeight: "1.6rem!important",
-                              maxHeight: "3.2rem",
-                              fontSize: "1.2rem",
-                              fontWeight: "400",
+                              "text-align": "center",
+                              "line-height": "1.6rem!important",
+                              "max-height": "3.2rem",
+                              "font-size": "1.2rem",
+                              "font-weight": "400",
                               color: "rgba(0,0,0,.6)"
                             }}
                           >
@@ -241,12 +217,12 @@ class Connections extends Component {
                             href="#"
                             class="btn btn-primary"
                             style={{
-                              textAlign: "center",
-                              backgroundColor: "rgba(152,216,244,.25)",
+                              "text-align": "center",
+                              "background-color": "rgba(152,216,244,.25)",
                               color: "#006097",
-                              boxShadow: "inset 0 0 0 1px #006097",
+                              "box-shadow": "inset 0 0 0 1px #006097",
                               padding: "10 16px",
-                              marginLeft: "50px",
+                              "margin-left": "50px",
                               font: "400 13.3333px Arial"
                             }}
                           >

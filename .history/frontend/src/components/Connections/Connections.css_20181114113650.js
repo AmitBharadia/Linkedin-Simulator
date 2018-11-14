@@ -30,12 +30,12 @@ export default {
   span4: {
     marginBottom: "4px",
     color: "rgba(0,0,0,.9)",
-    fontSize: "1.4rem"
+    "font-size": "1.4rem"
   },
   span5: {
     marginBottom: "4px",
     color: "rgba(0,0,0,.6)",
-    fontSize: "1.0rem"
+    "font-size": "1.0rem"
   },
   continue: {
     color: "#0073b1",
