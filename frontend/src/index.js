@@ -13,6 +13,7 @@ import Home from "./components/Home/Home";
 import postJob from "./components/Post Jobs";
 
 ReactDOM.render(
+
   <Provider store={store}>
     <Router>
       <div>
@@ -25,3 +26,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+

@@ -18,3 +18,15 @@ export function signIn(values) {
     });
   };
 }
+
+export function postJob(values) {
+
+  return dispatch => {
+      console.log("Action started JobPost request", JSON.stringify(values));
+      
+      dispatch ({
+          type: CONST.POST_JOBS,
+          payload : values
+      })
+  }
+}
