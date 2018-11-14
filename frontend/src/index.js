@@ -11,6 +11,7 @@ import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
 import postJob from "./components/Post Jobs";
+import Profile from './components/Profile/Profile';
 
 ReactDOM.render(
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
         <Route path="/postJob" component={postJob} />
+        <Route path="/profile" component={Profile}/>
       </div>
     </Router>
   </Provider>,
