@@ -58,7 +58,6 @@ class postJob extends Component{
                       </div>
                     </div>
                 </nav>
-                <hr className="hr"></hr>
                 <div className="notes py-5 text-center">
                     <div className="container">
                         <div className="row">
