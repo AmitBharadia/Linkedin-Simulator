@@ -37,6 +37,7 @@ class postJob extends Component{
 
         return(
             <div className="searchJobs">
+
                 <postJobsNav />
                 <hr className="hr"></hr>
                 {page === 1 && <jobsFormFirst onSubmit={this.nextPage} />}
