@@ -5,6 +5,8 @@ import Navbar from "../Common/Navbar";
 
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { signIn } from "../../action/signin";
+import Columns from "react-bootstrap-columns";
 import Invitations from "./Invitations/Invitations";
 import Recommendations from "./Recommendations/Recommendations";
 import myStyles from "./Connections.css.js";
