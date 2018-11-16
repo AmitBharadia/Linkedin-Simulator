@@ -2,7 +2,8 @@ var connection = new require("./kafka/Connection");
 //topics files
 var signin = require("./services/signin");
 var signup = require("./services/signup");
-var searchPeople = require("./services/searchPeople")
+var postJobs = require("./services/postJobs");
+var searchPeople = require("./services/searchPeople");
 
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
@@ -38,4 +39,8 @@ function handleTopicRequest(topic_name, fname) {
 //second argument is a function that will handle this topic request
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
+
+handleTopicRequest("post_job", postJobs );
+
 handleTopicRequest("get_people", searchPeople);
+

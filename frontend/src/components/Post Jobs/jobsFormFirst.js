@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
 
+
+
 const jobsFormFirst = props => {
     const { handleSubmit } = props
     return (
@@ -55,7 +57,7 @@ const jobsFormFirst = props => {
                                         className="btn btn-primary btn-lg btn-block"
                                         id="searchJob"
                                         tabIndex="4"
-                                        component={this.renderField}
+                                        component={renderField}
                                     >
                                         Start Job Post
                                     </button>
@@ -66,25 +68,6 @@ const jobsFormFirst = props => {
                 </div>
             </div>
         </div>
-        // <form onSubmit={handleSubmit}>
-        //     <Field
-        //         name="firstName"
-        //         type="text"
-        //         component={renderField}
-        //         label="First Name"
-        //     />
-        //     <Field
-        //         name="lastName"
-        //         type="text"
-        //         component={renderField}
-        //         label="Last Name"
-        //     />
-        //     <div>
-        //         <button type="submit" className="next">
-        //             Next
-        //         </button>
-        //     </div>
-        // </form>
     )
 }
 

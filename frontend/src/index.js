@@ -10,7 +10,7 @@ import store from "./store/index";
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
-import postJob from "./components/Post Jobs";
+import postJob from "./components/Post Jobs/index";
 
 ReactDOM.render(
 
