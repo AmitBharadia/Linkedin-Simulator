@@ -4,16 +4,16 @@ var jwt = require("jsonwebtoken");
 var CONST = require("../const");
 var kafka = require("../kafka/client");
 
+
 //Setup for Aws S3
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk');
 const multer = require('multer');
-const fs = require('fs');
 
 aws.config.update({
-    secretAccessKey: 'eocyijlS/8Y2BDeiRUGXJ6F8ZijmGa15mGfaQ2v6',
-    accessKeyId: 'AKIAIXD2UYNVFTD6OE5Q',
-    region: 'us-east-1'
+    secretAccessKey: CONST.awsS3Key,
+    accessKeyId: CONST.awsS3Id,
+    region: CONST.awsS3Region
 });
 
 var s3 = new aws.S3();
@@ -22,7 +22,7 @@ var s3 = new aws.S3();
 const upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'linkedin-273/Resumes',
+        bucket: CONST.ResumesBucket,
         key: function (req, file, cb) {
             console.log(file);
             cb(null, file.originalname); //use Date.now() for unique file keys
