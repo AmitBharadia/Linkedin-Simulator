@@ -68,6 +68,9 @@ app.use("/postJob", postJobsRouter);
 var dummyRouter = require("./routes/dummy");
 app.use("/dummy", requireAuth, dummyRouter);
 
+var searchPeopleRouter = require("./routes/searchPeople");
+app.use("/search-people", searchPeopleRouter);
+
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
 
