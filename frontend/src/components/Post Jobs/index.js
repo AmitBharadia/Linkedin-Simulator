@@ -34,7 +34,16 @@ class postJob extends Component{
 
     postJob = (values) =>
     {
-        alert("Values before: " + JSON.stringify(values));
+
+        // alert("Values before: " + JSON.stringify(values));
+        // var body = new FormData();
+        // body.append("formdata", JSON.stringify(values));
+        // for(var key in values.files)
+        // {
+        //     body.append('files', values.files[key]);
+        // }
+        // this.props.postJobsAction(body);
+
         var formData = new FormData();
         var file;
         Object.keys(values).forEach((key) => {
@@ -52,7 +61,6 @@ class postJob extends Component{
         });
 
         this.props.postJobsAction(formData);
-        alert("Values : " + JSON.stringify(formData));
     }
 
 
@@ -69,7 +77,7 @@ class postJob extends Component{
                 {page === 2 && (
                     <JobsFormSecond
                         previousPage={this.previousPage}
-                        onSubmit={handleSubmit}
+                        onSubmit={this.nextPage}
                     />
                 )}
                 {page === 3 && (

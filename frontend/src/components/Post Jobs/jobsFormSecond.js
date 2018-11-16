@@ -5,10 +5,12 @@ import renderField from './renderField'
 import Dropzone from 'react-dropzone';
 import {postJobsAction} from "../../action/postJobs";
 import connect from "react-redux/es/connect/connect";
+import axios from "axios";
 const FILE_FIELD_NAME = 'files';
 
 
 class jobsFormSecond extends Component {
+
 
     constructor(props)
     {
@@ -45,14 +47,15 @@ class jobsFormSecond extends Component {
         );
     };
 
-    postJob = (data) => {
-
+    postJob(data)
+    {
         alert("Values before: " + JSON.stringify(data));
         var body = new FormData();
-        Object.keys(data).forEach((key) => {
-            body.append(key, data[key]);
-        });
-        body.append("files",this.renderDropzoneInput.files);
+        body.append("formdata", JSON.stringify(data));
+        for(var key in data.files)
+        {
+            body.append('files', data.files[key]);
+        }
         this.props.postJobsAction(body);
     }
 
@@ -64,7 +67,7 @@ class jobsFormSecond extends Component {
                 <div className="container">
                     <div className="flex-container mx-auto col-lg-10 col-10  border border-dark">
                         <h1 className="text-left mx-auto"> Step 1 : What do you want to post?</h1>
-                        <form className="text-left" onSubmit={handleSubmit(this.postJob.bind(this))}>
+                        <form className="text-left" onSubmit={handleSubmit}>
                             <div className="py-5 form-row">
                                 <div className="mx-auto col-lg-6">
                                     <Field
@@ -203,4 +206,4 @@ export default reduxForm({
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
     validate
-})(connect('',{postJobsAction})(jobsFormSecond))
+})(jobsFormSecond)
