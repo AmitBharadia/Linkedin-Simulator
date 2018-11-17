@@ -74,7 +74,7 @@ class postJob extends Component{
 
                 <PostJobsNav />
                 <hr className="hr"></hr>
-                {page === 1 && <jobsFormFirst onSubmit={this.nextPage} />}
+                {page === 1 && <JobsFormFirst onSubmit={this.nextPage} />}
 
                 {page === 2 && (
                     <JobsFormSecond
