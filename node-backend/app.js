@@ -67,6 +67,21 @@ app.use("/dummy", requireAuth, dummyRouter);
 var searchPeopleRouter = require("./routes/searchPeople");
 app.use("/search-people", searchPeopleRouter);
 
+var top5JobsRouter = require("./routes/top5Jobs");
+app.use("/top5jobs", top5JobsRouter);
+
+var top10JobsRouter = require("./routes/top10Jobs");
+app.use("/top10jobs", top10JobsRouter);
+
+var savedJobsRouter = require("./routes/savedJobs");
+app.use("/savedJobs", savedJobsRouter);
+
+var cityWiseJobsRouter = require("./routes/citywise");
+app.use("/cityWiseJobs", cityWiseJobsRouter);
+
+var clicksOnJobsRouter = require("./routes/clicks");
+app.use("/clicksOnJobs", clicksOnJobsRouter);
+
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
 

@@ -11,9 +11,8 @@ import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
 import postJob from "./components/Post Jobs";
-
+import Admin from "./components/Admin/admin";
 ReactDOM.render(
-
   <Provider store={store}>
     <Router>
       <div>
@@ -21,9 +20,9 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
         <Route path="/postJob" component={postJob} />
+        <Route path="/admin" component={Admin} />
       </div>
     </Router>
   </Provider>,
   document.getElementById("root")
 );
-
