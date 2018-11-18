@@ -1,14 +1,13 @@
 var express = require("express");
 var router = express.Router();
-
 var kafka = require("../kafka/client");
 
-router.post("/", function(req, res, next) {
+router.get("/", async function(req, res, next) {
   console.log(
-    "============================In of the rest request signup ====================="
+    "============================In of the rest request clicks ====================="
   );
   console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("post_signup", "response_signup", req.body, function(
+  kafka.make_request("get_cityWise", "response_admin", req.body, function(
     err,
     results
   ) {
@@ -20,7 +19,7 @@ router.post("/", function(req, res, next) {
       res.send({ status: "success", msg: "success", data: results });
     }
     console.log(
-      "============================out of the rest request signup ====================="
+      "============================Out of the rest request clicks ====================="
     );
   });
 });

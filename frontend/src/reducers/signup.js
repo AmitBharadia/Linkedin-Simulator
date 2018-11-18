@@ -10,7 +10,7 @@ export default function(state = signup_initialstate, action) {
     return {
       ...state,
       status: action.payload.status,
-      success: action.payload
+      msg: action.payload.msg
     };
   }
   if (action.type === "SIGNUP_ERROR") {
