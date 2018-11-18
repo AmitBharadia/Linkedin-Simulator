@@ -14,6 +14,7 @@ function renderField(field) {
     console.log("className : " + className);
     return (
         <div class="form-group form-control-lg has-danger">
+            <label>{field.label}</label>
             <input
                 class="form-control form-control-lg border border border-dark"
                 type={type}
