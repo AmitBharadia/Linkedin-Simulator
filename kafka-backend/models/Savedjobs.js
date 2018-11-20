@@ -16,20 +16,15 @@ mongoose.connect(
   }
 );
 
-var Applicant = mongoose.model("applicants", {
-  username: {
+var Savedjobs = mongoose.model("savedjobs", {
+  job_id: {
     type: String,
-    //required:true,
-    //unique:true
+    required: true
   },
-  first_name: {
-    type: String,
-    default:''
-  },
-  last_name: {
-    type: String,
-    default:''
+  savedDate:{ type:Date ,  default: new Date()},
+  applicant_id: {
+      type: String
   }
 });
 
-module.exports = { Applicant };
+module.exports = { Savedjobs };

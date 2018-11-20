@@ -22,7 +22,7 @@ function verifyToken(token){
         if (err) 
             resolve( { status:"error", msg:"token not verified"} );
         else 
-            resolve( { status:"success" ,userid: user.id  } ); 
+            resolve( { status:"success" , msg: user.id  } ); 
     });
 });
 }
