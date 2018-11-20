@@ -8,5 +8,6 @@ export const SIGNUP_SUCCESS = "signupSuccess";
 export const SEARCH_PEOPLE_SUCCESS = "searchPeopleSuccess";
 export const POST_JOBS = "postJobs";
 
-export const PROFILE="profile";
+export const PROFILE="PROFILE";
+export const GET_PROFILE="getprofile"
 

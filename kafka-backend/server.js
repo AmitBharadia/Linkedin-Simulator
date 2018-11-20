@@ -3,6 +3,8 @@ var connection = new require("./kafka/Connection");
 var signin = require("./services/signin");
 var signup = require("./services/signup");
 var searchPeople = require("./services/searchPeople")
+var profile=require("./services/profile");
+var getprofile=require("./services/getprofile");
 
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
@@ -39,3 +41,5 @@ function handleTopicRequest(topic_name, fname) {
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
 handleTopicRequest("get_people", searchPeople);
+handleTopicRequest("profile",profile);
+handleTopicRequest("getprofile",getprofile);
