@@ -9,7 +9,8 @@ function handle_request(msg,callback){
 
     console.log("=====================In the kafka-backend Profile=====================")
     console.log("Inside the get method of profile in services")
-    Profile.findOne({first_name:"trialnerr"})
+    console.log("Message details : " + JSON.stringify(msg));
+    Profile.findOne({user_id:msg.id})
         .then(exiprofile=>{
             if(exiprofile){
                 console.log("Success")

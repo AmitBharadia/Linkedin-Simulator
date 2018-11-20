@@ -24,7 +24,8 @@ export function getprofile(){
     console.log("Trying to get the details of profile from actions");
     return dispatch=>{
         console.log("Action started in dispatch of get profile")
-        axios.get(`${url}/profile/getprofile`)
+        if(localStorage.getItem("id")){
+            axios.get(`${url}/profile/getprofile`,{ params: localStorage.getItem("id") })
             .then(response=>{
                 console.log("Resposne received on the get side of profife",JSON.stringify(response.data));
                 dispatch({
@@ -35,5 +36,9 @@ export function getprofile(){
                
 
             })
+        }else{
+            alert(" ID not set. Please signin");
+        }
+      
     }
 }

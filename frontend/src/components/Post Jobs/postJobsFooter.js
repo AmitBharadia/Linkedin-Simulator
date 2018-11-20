@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-class postJobsFooter {
+class postJobsFooter extends Component{
 
     render()
     {

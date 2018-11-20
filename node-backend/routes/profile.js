@@ -31,8 +31,9 @@ router.put("/updateprofile",function(req,res,next){
 router.get("/getprofile",function(req,res,next){
     console.log("============================In of the rest request profile =====================");
     console.log("Inside the get profile of node backend")
+    console.log("Request query : " + JSON.stringify(req.query));
 
-    kafka.make_request("getprofile","response_getprofile",req.body,
+    kafka.make_request("getprofile","response_getprofile",req.query,
         function(err,result){
             if(err){
                 res.send({status:"error",msg:err});

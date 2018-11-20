@@ -27,6 +27,9 @@ var Profile=new Schema({
     first_name:{
         type:String
     },
+    user_id:{
+        type:String
+    },
     last_name:{
         type:String
     },
