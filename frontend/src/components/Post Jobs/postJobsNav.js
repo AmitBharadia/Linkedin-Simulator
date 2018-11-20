@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import "./postJobs.css";
 
-class postJobsNav{
+class postJobsNav extends Component{
 
     render()
     {
