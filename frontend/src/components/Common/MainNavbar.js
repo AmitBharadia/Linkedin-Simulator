@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./common.css";
 import cookie from "react-cookies";
 import { Field, reduxForm, change } from "redux-form";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
+import { browserHistory } from "react-router";
 import { connect } from "react-redux";
 import { searchPeople } from "../../action/searchPeople";
 
@@ -28,7 +29,6 @@ class MainNavbar extends Component {
             class="form-inline"
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
           >
-
             <Field
               className="form-control form-control-lg"
               placeholder="Search"
@@ -45,7 +45,13 @@ class MainNavbar extends Component {
         </div>
         <ul className="navbar-nav mx-auto">
           <li className="nav-item pb-0 pt-0">
-            <a className="nav-link text-light text-center pb-0 pt-0" href="#">
+            <a
+              className="nav-link text-light text-center pb-0 pt-0"
+              href="#"
+              onClick={() => {
+                browserHistory.push("/home");
+              }}
+            >
               <span
                 id="feed-tab-icon"
                 class="nav-item__icon"
@@ -132,7 +138,13 @@ class MainNavbar extends Component {
                   class="inactive-item svg-icon"
                 />
               </svg>
-              <h4>Jobs</h4>
+
+              <h4>
+                {" "}
+                {localStorage.getItem("type") == "recruiter"
+                  ? "Post Jobs"
+                  : "Jobs"}
+              </h4>
             </a>{" "}
           </li>
           <li className="nav-item">
@@ -174,7 +186,27 @@ class MainNavbar extends Component {
               <a class="dropdown-item" href="#">
                 <h5>My Profile</h5>
               </a>
-              <a class="dropdown-item" href="#">
+              {localStorage.getItem("type") == "recruiter" && (
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  onClick={e => {
+                    browserHistory.push("/admin");
+                  }}
+                >
+                  <h5>Dashboard</h5>
+                </a>
+              )}
+
+              <a
+                class="dropdown-item"
+                href="#"
+                onClick={e => {
+                  localStorage.clear();
+
+                  browserHistory.push("/signin");
+                }}
+              >
                 <h5>Log out</h5>
               </a>
             </div>
