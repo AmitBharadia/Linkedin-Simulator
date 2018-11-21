@@ -93,6 +93,10 @@ var clicksOnJobsRouter = require("./routes/clicks");
 app.use("/clicksOnJobs", clicksOnJobsRouter);
 
 
+
+var deleteProfileRouter = require("./routes/deleteProfile");
+app.use("/deleteProfile", deleteProfileRouter);
+
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
 

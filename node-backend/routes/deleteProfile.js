@@ -2,12 +2,12 @@ var express = require("express");
 var router = express.Router();
 var kafka = require("../kafka/client");
 
-router.get("/", async function(req, res, next) {
+router.post("/", async function(req, res, next) {
   console.log(
-    "============================In of the rest request savedJobs ====================="
+    "============================In of the rest request delete ====================="
   );
   console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("get_savedJobs", "response_admin", req.body, function(
+  kafka.make_request("post_delete", "response_admin", req.body, function(
     err,
     results
   ) {
@@ -16,10 +16,10 @@ router.get("/", async function(req, res, next) {
     if (err) {
       res.send({ status: "error", msg: err });
     } else {
-      res.send({ status: "success", msg: "success", data: results });
+      res.send({ status: "success", msg: "success" });
     }
     console.log(
-      "============================Out of the rest request savedJobs ====================="
+      "============================Out of the rest request delete ====================="
     );
   });
 });
