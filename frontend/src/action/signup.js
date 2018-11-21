@@ -5,6 +5,7 @@ axios.defaults.withCredentials = true;
 export function signup(values) {
   return dispatch => {
     console.log("Action started on Singup request", JSON.stringify(values));
+   
     axios.post(`${url}/signup`, values).then(response => {
       console.log("Response recieved: " + JSON.stringify(response.data));
 
