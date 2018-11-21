@@ -7,7 +7,7 @@ router.get("/", async function(req, res, next) {
     "============================In of the rest request clicks ====================="
   );
   console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("get_clicks", "response_admin", req.body, function(
+  kafka.make_request("get_clicks", "response_topic", req.body, function(
     err,
     results
   ) {

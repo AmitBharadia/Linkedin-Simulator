@@ -63,8 +63,7 @@ class ModalProfile extends Component{
         console.log("Onsubmit values of profile",values);
         //this.props.signIn(values);
         const data={
-            values,
-            countryName:this.state.selectedCountry.name,
+            values  
             
         }
         console.log("Onsubmit data of profile",data);
@@ -85,7 +84,7 @@ render(){
             
             {/* <svg cursor="pointer" onClick={this.openModalEditProfile} viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon" focusable="false"><path d="M21,13H13v8H11V13H3V11h8V3h2v8h8v2Z" class="large-icon" style={{"fill": "currentColor"}}></path></svg> */}
             {/* <button onClick={this.openModalEditProfile} style={{'min-height': '48px','width': '40%','position': 'relative','backgroundColor': '#f4a742','borderColor': '#f4a742','color': '#fff','text-shadow': 'none','line-height': '24px','margin-bottom': '0','font-weight': '400','text-align': 'center','cursor': 'pointer','border': '1px solid transparent','padding': '11px 32px','font-size': '1rem'}}>Edit Profile</button> */}
-            <svg cursor="pointer" onClick={this.openModalEditProfile} viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon" focusable="false"><path d="M21.71,5L19,2.29a1,1,0,0,0-1.41,0L4,15.85,2,22l6.15-2L21.71,6.45A1,1,0,0,0,22,5.71,1,1,0,0,0,21.71,5ZM6.87,18.64l-1.5-1.5L15.92,6.57l1.5,1.5ZM18.09,7.41l-1.5-1.5,1.67-1.67,1.5,1.5Z" class="large-icon" style={{"fill": "#006097","display":"block","marginLeft":"100px"}}></path></svg>
+            {localStorage.getItem("id")==this.props.match.params.id && <svg cursor="pointer" onClick={this.openModalEditProfile} viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon" focusable="false"><path d="M21.71,5L19,2.29a1,1,0,0,0-1.41,0L4,15.85,2,22l6.15-2L21.71,6.45A1,1,0,0,0,22,5.71,1,1,0,0,0,21.71,5ZM6.87,18.64l-1.5-1.5L15.92,6.57l1.5,1.5ZM18.09,7.41l-1.5-1.5,1.67-1.67,1.5,1.5Z" class="large-icon" style={{"fill": "#006097","display":"block","marginLeft":"100px"}}></path></svg>}
             <Modal open={openEditProfile} onClose={this.closeModalEditProfile} center dialogClassName="my-modal">
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <h2 style={{'marginTop':'50px'}}>Edit Profile</h2>
