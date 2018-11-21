@@ -21,7 +21,7 @@ router.get("/", async function(req, res, next) {
   //send body to kafka server
   kafka.make_request(
     "getAllJobs",
-    "responseAllJobs",
+    "response_topic",
     {  applicant_id:verify.msg , query:q },
     function(err, result) {
       

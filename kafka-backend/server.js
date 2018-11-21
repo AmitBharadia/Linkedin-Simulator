@@ -55,14 +55,11 @@ function handleTopicRequest(topic_name, fname) {
 //second argument is a function that will handle this topic request
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
-<<<<<<< HEAD
 handleTopicRequest("getAllJobs", getAllJobs);
 handleTopicRequest("savejob", savejob);
 handleTopicRequest("getsavedjobs", getsavedjobs);
 handleTopicRequest("applyjob", applyjob);
-=======
 handleTopicRequest("get_people", searchPeople);
-
 handleTopicRequest("profile", profile);
 handleTopicRequest("getprofile", getprofile);
 handleTopicRequest("get_top5Jobs", top5Jobs);
@@ -72,4 +69,3 @@ handleTopicRequest("get_clicks", clicksOnJobs);
 handleTopicRequest("get_savedJobs", savedJobs);
 handleTopicRequest("post_job", postJobs);
 handleTopicRequest("post_delete", deleteProfile);
->>>>>>> 3ffd606d2419e364931cd2abf52ada0af960fad9

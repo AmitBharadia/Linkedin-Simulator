@@ -13,7 +13,7 @@ router.get("/", async function(req, res, next) {
     //send body to kafka server    
     kafka.make_request(
       "getsavedjobs",
-      "responsegetsavedjobs",
+      "response_topic",
       { applicant_id:verify.msg },
       function(err, result) {        
           if (err){
