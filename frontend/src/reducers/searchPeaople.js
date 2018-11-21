@@ -4,7 +4,7 @@ var intial = {
   msg: ""
 };
 export default function(state = intial, action) {
-  console.log("Action payload " + JSON.stringify(action.payload));
+  //console.log("Action payload " + JSON.stringify(action.payload));
   if (action.type === CONST.SEARCH_PEOPLE_SUCCESS) {
     return {
       ...state,
