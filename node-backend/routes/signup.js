@@ -13,11 +13,11 @@ router.post("/", function(req, res, next) {
     results
   ) {
     console.log("in result");
-    console.log(results);
+    console.log("Result ", results, " Error:", err);
     if (err) {
-      res.send({ status: "error", msg: "System Error, Try Again." });
+      res.send({ status: "error", msg: err });
     } else {
-      res.send({ auth: results });
+      res.send({ status: "success", msg: "success", data: results });
     }
     console.log(
       "============================out of the rest request signup ====================="

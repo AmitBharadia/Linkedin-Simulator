@@ -36,6 +36,7 @@ router.post("/", function(req, res, next) {
         res.send({
           status: "success",
           msg: "",
+          data:user,
           token: "Bearer " + token
         });
       }
