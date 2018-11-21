@@ -2,7 +2,7 @@ import * as CONST from "../Const/index";
 var signin_initialstate = {
   status: "",
   msg: "",
-  data:"",
+  data: "",
   token: ""
 };
 export default function(state = signin_initialstate, action) {
@@ -23,9 +23,7 @@ export default function(state = signin_initialstate, action) {
   }
   if (action.type === "LOGOUT") {
     return {
-      ...state,
-      status: "",
-      msg: ""
+      state: undefined
     };
   }
   return state;

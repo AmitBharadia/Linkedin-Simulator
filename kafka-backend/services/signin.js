@@ -9,7 +9,9 @@ async function handle_request(msg, callback) {
   console.log("Message body:" + JSON.stringify(msg));
   var user = msg;
   let queryString =
-    "select * from user_cred where username= " + mysql.escape(user.username);
+    "select * from user_cred where username= " +
+    mysql.escape(user.username) +
+    " AND isDeleted='No'";
 
   console.log(queryString);
 
