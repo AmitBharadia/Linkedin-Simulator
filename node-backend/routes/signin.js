@@ -13,7 +13,7 @@ router.post("/", function(req, res, next) {
   //send body to kafka server
   kafka.make_request(
     "post_signin",
-    "response_signin",
+    "response_topic",
     {
       username: req.body.username,
       password: req.body.password

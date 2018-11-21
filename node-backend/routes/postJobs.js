@@ -39,7 +39,7 @@ router.post("/", upload.single('files'),function(req, res, next) {
     console.log("Request Body: " + JSON.stringify(req.body));
     //send body to kafka server
     kafka.make_request(
-        "post_job","response_postJob",req.body,
+        "post_job","response_topic",req.body,
         function(err, doc) {
             console.log("in result");
             console.log("Result ", doc, " Error:", err);

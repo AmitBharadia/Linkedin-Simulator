@@ -3,7 +3,7 @@ var CONST = require("../const");
 
 /*
 function generateToken(user) {
-  var user = {
+  var user = {  
    email : user.email,
    userid: user.userid
   };

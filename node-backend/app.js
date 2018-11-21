@@ -6,6 +6,7 @@ var logger = require("morgan");
 var cors = require("cors");
 var passport = require("passport");
 var bodyParser = require("body-parser");
+var cache = require('express-redis-cache')({ expire: 60 });
 
 var CONST = require("./const");
 
@@ -68,25 +69,36 @@ var dummyRouter = require("./routes/dummy");
 app.use("/dummy", requireAuth, dummyRouter);
 
 var searchPeopleRouter = require("./routes/searchPeople");
-app.use("/search-people", searchPeopleRouter);
+app.use("/search-people", cache.route(),searchPeopleRouter);
+
+
+var ProfileRouter=require("./routes/profile");
+app.use("/profile",ProfileRouter);
+
+
 
 var networkRouter = require("./routes/network");
 app.use("/network", networkRouter);
 
 var top5JobsRouter = require("./routes/top5Jobs");
-app.use("/top5jobs", top5JobsRouter);
+app.use("/top5jobs",cache.route(), top5JobsRouter);
 
 var top10JobsRouter = require("./routes/top10Jobs");
-app.use("/top10jobs", top10JobsRouter);
+app.use("/top10jobs", cache.route(),top10JobsRouter);
 
 var savedJobsRouter = require("./routes/savedJobs");
-app.use("/savedJobs", savedJobsRouter);
+app.use("/savedJobs", cache.route(),savedJobsRouter);
 
 var cityWiseJobsRouter = require("./routes/citywise");
-app.use("/cityWiseJobs", cityWiseJobsRouter);
+app.use("/cityWiseJobs", cache.route(),cityWiseJobsRouter);
 
 var clicksOnJobsRouter = require("./routes/clicks");
-app.use("/clicksOnJobs", clicksOnJobsRouter);
+app.use("/clicksOnJobs", cache.route(),clicksOnJobsRouter);
+
+
+
+var deleteProfileRouter = require("./routes/deleteProfile");
+app.use("/deleteProfile", deleteProfileRouter);
 
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
