@@ -2,6 +2,11 @@ var connection = new require("./kafka/Connection");
 //topics files
 var signin = require("./services/signin");
 var signup = require("./services/signup");
+var getAllJobs = require("./services/getAllJobs");
+var getsavedjobs = require("./services/getsavedjobs");
+var applyjob = require("./services/applyjob");
+var savejob = require("./services/savejob");
+
 
 var searchPeople = require("./services/searchPeople");
 var profile = require("./services/profile");
@@ -19,7 +24,7 @@ var deleteProfile = require("./services/deleteProfile");
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
-  console.log("server is running ");
+  //console.log("server is running ");
   consumer.on("message", function(message) {
     console.log("message received for " + topic_name + " ", fname);
     console.log(JSON.stringify(message.value));
@@ -50,6 +55,12 @@ function handleTopicRequest(topic_name, fname) {
 //second argument is a function that will handle this topic request
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
+<<<<<<< HEAD
+handleTopicRequest("getAllJobs", getAllJobs);
+handleTopicRequest("savejob", savejob);
+handleTopicRequest("getsavedjobs", getsavedjobs);
+handleTopicRequest("applyjob", applyjob);
+=======
 handleTopicRequest("get_people", searchPeople);
 
 handleTopicRequest("profile", profile);
@@ -61,3 +72,4 @@ handleTopicRequest("get_clicks", clicksOnJobs);
 handleTopicRequest("get_savedJobs", savedJobs);
 handleTopicRequest("post_job", postJobs);
 handleTopicRequest("post_delete", deleteProfile);
+>>>>>>> 3ffd606d2419e364931cd2abf52ada0af960fad9
