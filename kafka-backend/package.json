@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
     "formidable": "^1.1.1",
     "glob": "^7.1.2",
     "images-upload-middleware": "^1.1.1",

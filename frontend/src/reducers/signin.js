@@ -2,6 +2,7 @@ import * as CONST from "../Const/index";
 var signin_initialstate = {
   status: "",
   msg: "",
+  data: "",
   token: ""
 };
 export default function(state = signin_initialstate, action) {
@@ -9,7 +10,8 @@ export default function(state = signin_initialstate, action) {
     return {
       ...state,
       status: action.payload.status,
-      msg: action.payload.msg
+      msg: action.payload.msg,
+      data: action.payload.data
     };
   }
   if (action.type === "SIGNIN_ERROR") {
@@ -21,9 +23,7 @@ export default function(state = signin_initialstate, action) {
   }
   if (action.type === "LOGOUT") {
     return {
-      ...state,
-      status: "",
-      msg: ""
+      state: undefined
     };
   }
   return state;

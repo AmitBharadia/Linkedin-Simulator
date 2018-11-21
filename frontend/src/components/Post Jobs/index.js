@@ -3,23 +3,26 @@ import { Field, reduxForm } from "redux-form";
 import './postJobs.css'
 import handleSubmit from "redux-form/es/handleSubmit";
 import Link from "react-router-dom/es/Link";
-import postJobsNav from "./postJobsNav";
-import postJobsFooter from "./postJobsFooter";
-import jobsFormFirst from "./jobsFormFirst";
-import jobsFormSecond from "./jobsFormSecond";
-import jobsFormThird from "./jobsFormThird";
+import PostJobsNav from "./postJobsNav";
+import PostJobsFooter from "./postJobsFooter";
+import JobsFormFirst from "./jobsFormFirst";
+import JobsFormSecond from "./jobsFormSecond";
+import JobsFormThird from "./jobsFormThird";
 import PropTypes from 'prop-types';
+import connect from "react-redux/es/connect/connect";
+import {postJobsAction} from "../../action/postJobs";
 
 
 class postJob extends Component{
 
-    constructor(props) {
+        constructor(props) {
         super(props)
         this.nextPage = this.nextPage.bind(this)
         this.previousPage = this.previousPage.bind(this)
         this.state = {
             page: 1
         }
+        this.postJob = this.postJob.bind(this);
     }
     nextPage() {
         this.setState({ page: this.state.page + 1 })
@@ -27,6 +30,37 @@ class postJob extends Component{
 
     previousPage() {
         this.setState({ page: this.state.page - 1 })
+    }
+
+    postJob = (values) =>
+    {
+
+        // alert("Values before: " + JSON.stringify(values));
+        // var body = new FormData();
+        // body.append("formdata", JSON.stringify(values));
+        // for(var key in values.files)
+        // {
+        //     body.append('files', values.files[key]);
+        // }
+        // this.props.postJobsAction(body);
+
+        var formData = new FormData();
+        var file;
+        Object.keys(values).forEach((key) => {
+            if(key != "files")
+            {
+                formData.append(key,values[key]);
+            }
+
+        else {
+            file = values[key];
+            }});
+
+        file.forEach(file => {
+            formData.append("files", file);
+        });
+
+        this.props.postJobsAction(formData);
     }
 
 
@@ -37,24 +71,26 @@ class postJob extends Component{
 
         return(
             <div className="searchJobs">
-                <postJobsNav />
+
+                <PostJobsNav />
                 <hr className="hr"></hr>
                 {page === 1 && <jobsFormFirst onSubmit={this.nextPage} />}
+
                 {page === 2 && (
-                    <jobsFormSecond
+                    <JobsFormSecond
                         previousPage={this.previousPage}
                         onSubmit={this.nextPage}
                     />
                 )}
                 {page === 3 && (
-                    <jobsFormThird
+                    <JobsFormThird
                         previousPage={this.previousPage}
-                        onSubmit={onSubmit}
+                        onSubmit={this.postJob}
                     />
                 )}
 
 
-                <postJobsFooter />
+                {page === 1 && <PostJobsFooter/> }
             </div>
     )
     }
@@ -66,9 +102,4 @@ postJob.propTypes = {
     onSubmit: PropTypes.func.isRequired
 }
 
-export default postJob;
-
-// export default reduxForm({
-//     validate,
-//     form: 'postJobs'
-// })(postJob);
+export default (connect('',{postJobsAction})(postJob));

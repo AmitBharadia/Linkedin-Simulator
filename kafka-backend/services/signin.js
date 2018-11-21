@@ -8,27 +8,10 @@ async function handle_request(msg, callback) {
   );
   console.log("Message body:" + JSON.stringify(msg));
   var user = msg;
-  // Applicant.findOne({ username: msg.username }).exec((err, applicant) => {
-  //   if (err) {
-  //     console.log("Error occured while user log in");
-  //     callback(null, null);
-  //   } else if (applicant) {
-  //     console.log("User details: ", applicant);
-  //     if (bcrypt.compareSync(msg.password, applicant.password)) {
-  //       console.log("It is a valid user");
-  //       callback(null, applicant);
-  //     } else {
-  //       console.log("Incorrect password");
-  //       callback(err, "Invalid Password");
-  //     }
-  //   }
-  //   console.log(
-  //     "============================Out of the kafka-backend Signin====================="
-  //   );
-  // });
-
   let queryString =
-    "select * from user_cred where username= " + mysql.escape(user.username);
+    "select * from user_cred where username= " +
+    mysql.escape(user.username) +
+    " AND isDeleted='No'";
 
   console.log(queryString);
 

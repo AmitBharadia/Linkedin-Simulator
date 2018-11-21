@@ -6,6 +6,7 @@ import { Field, reduxForm, change } from "redux-form";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup } from "../../action/signup";
+import * as CONST from "./../../Const/";
 
 class Signup extends Component {
   onSubmit(values) {
@@ -14,9 +15,15 @@ class Signup extends Component {
   }
 
   render() {
-    if (this.props.isSignpDone) {
+    var submitFormError = "";
+    if (this.props.status == "success") {
       this.props.history.push("/signin");
+    } else if (this.props.status == "error") {
+      submitFormError = (
+        <h5 class="text-danger text-center">{this.props.msg}</h5>
+      );
     }
+
     const { handleSubmit } = this.props;
     return (
       <div>
@@ -25,6 +32,7 @@ class Signup extends Component {
         <br />
         <h1 class="text-center">Be great at what you do</h1>
         <h2 class="font-weight-light text-center">Get started - it's free.</h2>
+        {submitFormError}
         <div class="row">
           <div class="col" />
           <div class="col">
@@ -133,7 +141,8 @@ class Signup extends Component {
 //Get the current state of the signup page
 const mapStateToProps = state => {
   return {
-    isSignpDone: state.signup.success
+    status: state.signup.status,
+    msg: state.signup.msg
   };
 };
 
