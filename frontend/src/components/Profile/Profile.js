@@ -5,8 +5,9 @@ import ModalExperience from "./ModalExperience";
 import ModalEducation from "./ModalEducation";
 import { dummy } from "../../action/dummy";
 import { connect } from "react-redux";
-import "./Prof.css";
+import "./prof.css";
 import { getprofile } from "../../action/profile";
+import jobsFormThird from "../Post Jobs/jobsFormThird";
 
 
 
@@ -34,8 +35,9 @@ class Profile extends Component{
     }
   componentDidMount(){
       console.log("Hello");
-      this.props.getprofile();
-      console.log("Hi")
+      this.props.getprofile({id:
+        this.props.match.params.id
+        });
      
       
   }
@@ -86,7 +88,7 @@ render(){
         // console.log("fisrt nam",first_name);
         // }
 
-        let expDetails=this.state.experience.map((expdata,i)=>{
+        let expDetails=!this.state.experience ? "": this.state.experience.map((expdata,i)=>{
             if(expdata.experienceTitle && expdata.experienceCompany){
             return(
                 <div class="card mb-3" width="250" style={{"border":"none"}}>
@@ -102,7 +104,7 @@ render(){
         }
         })
 
-        let eduDetails=this.state.education.map((edudata,i)=>{
+        let eduDetails=!this.state.education ? "":this.state.education.map((edudata,i)=>{
             if(edudata.educationSchool && edudata.educationDegree){
             return(
                 <div class="card mb-3" width="250" style={{"border":"none"}}>

@@ -1,8 +1,9 @@
 const Profile = require("../models/Profile");
-
+var { User } = require("../models/User");
+var mongoose =require("mongoose");
 function handle_request(msg, callback) {
   console.log(
-    "=====================In the kafka-backend Profile====================="
+    "=====================In the kafka-backend update profile====================="
   );
   console.log("Request body:" + JSON.stringify(msg));
 
@@ -95,10 +96,10 @@ function handle_request(msg, callback) {
     console.log("++++++++++++++++++++++++++++++++++***********************");
   }
 
-  User.findOne({ id: msg.id }).then(profile => {
+  User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }).then(profile => {
     if (profile) {
       if (profileData) {
-        User.findOneAndUpdate({ id: msg.id }, { $set: profileData }).then(
+        User.findOneAndUpdate({ _id: mongoose.Types.ObjectId(msg.id) }, { $set: profileData }).then(
           (profile, err) => {
             console.log("Error ", err, " profile ", profile);
             if (err) {
@@ -106,10 +107,11 @@ function handle_request(msg, callback) {
             }
             if (profile) {
               console.log("Primary details updated");
-              //callback(null,profile);
-            } else {
-              //  callback("No profile available",null);
-            }
+              callback(null,profile);
+            } 
+            console.log(
+              "=====================out of  the kafka-backend update profile====================="
+            );
           }
         );
       }
@@ -131,9 +133,15 @@ function handle_request(msg, callback) {
         } else {
           callback("No profile available", null);
         }
+        console.log(
+          "=====================out of  the kafka-backend update profile====================="
+        );
       });
     } else {
       callback("No profile available", null);
+      console.log(
+        "=====================out of  the kafka-backend update profile====================="
+      );
     }
   });
 }

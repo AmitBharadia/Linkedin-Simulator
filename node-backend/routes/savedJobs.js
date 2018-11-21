@@ -7,7 +7,7 @@ router.get("/", async function(req, res, next) {
     "============================In of the rest request savedJobs ====================="
   );
   console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("get_savedJobs", "response_admin", req.body, function(
+  kafka.make_request("get_savedJobs", "response_topic", req.body, function(
     err,
     results
   ) {

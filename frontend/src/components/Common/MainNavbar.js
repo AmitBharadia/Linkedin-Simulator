@@ -217,9 +217,16 @@ class MainNavbar extends Component {
                 <h4>Me</h4>
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">
-                  <h5>My Profile</h5>
-                </a>
+              
+                <a
+                    class="dropdown-item"
+                    href="#"
+                    onClick={e => {
+                      browserHistory.push("/profile/"+localStorage.getItem("id"));
+                    }}
+                  >
+                    <h5>My Profile</h5>
+                  </a>
                 {localStorage.getItem("type") == "recruiter" && (
                   <a
                     class="dropdown-item"

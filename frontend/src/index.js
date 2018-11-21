@@ -26,7 +26,7 @@ ReactDOM.render(
         <Route path="/home" component={Home} />
         <Route path="/postJob" component={postJob} />
 
-        <Route path="/profile" component={Profile}/>
+        <Route path="/profile/:id" component={Profile}/>
 
         <Route path="/admin" component={Admin} />
 

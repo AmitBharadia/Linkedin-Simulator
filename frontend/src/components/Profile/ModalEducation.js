@@ -73,7 +73,7 @@ class ModalEducation extends Component{
             <div>
                 <div className="ml-5 mr-5 mt-5">
                 
-                <svg cursor="pointer"  onClick={this.openModalEditEducation} viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon" focusable="false"><path d="M21,13H13v8H11V13H3V11h8V3h2v8h8v2Z" class="large-icon" style={{"fill": "#006097"}}></path></svg>
+                {localStorage.getItem("id")==this.props.match.params.id && <svg cursor="pointer"  onClick={this.openModalEditEducation} viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon" focusable="false"><path d="M21,13H13v8H11V13H3V11h8V3h2v8h8v2Z" class="large-icon" style={{"fill": "#006097"}}></path></svg>}
                         {/* <button onClick={this.openModalEditEducation} style={{'min-height': '48px','width': '40%','position': 'relative','backgroundColor': '#f4a742','borderColor': '#f4a742','color': '#fff','text-shadow': 'none','line-height': '24px','margin-bottom': '0','font-weight': '400','text-align': 'center','cursor': 'pointer','border': '1px solid transparent','padding': '11px 32px','font-size': '1rem'}}>Edit Education  </button> */}
                       
             <Modal data-dismiss="modal" open={openEditEducation} onClose={this.closeModalEditEducation} center dialogClassName="my-modal">
