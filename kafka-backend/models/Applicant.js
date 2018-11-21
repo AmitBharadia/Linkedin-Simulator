@@ -9,7 +9,7 @@ mongoose.connect(
   },
   () => {
     console.log(
-      "=================== Mongo DB connected Status : ",
+      "=================== Mongo DB connected applicant Status : ",
       mongoose.connection.readyState,
       "======================="
     );

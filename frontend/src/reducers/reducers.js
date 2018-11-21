@@ -6,13 +6,20 @@ import postJob from "./postJobs";
 
 import searchPeaople from "./searchPeaople";
 
+import profile from "./profile";
+
+
 import { reducer as formReducer } from "redux-form";
 
 export default combineReducers({
   form: formReducer,
   signup,
   signin,
+
+  profile,
+
   postJob,
  searchPeaople
+
 
 });
