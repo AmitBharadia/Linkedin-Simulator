@@ -1,20 +1,20 @@
 import * as CONST from "../Const/index";
-var allJobs_initialstate = {
+var savedJobs_initialstate = {
   status: "",
   msg: "",
-  savedjobs:""
+  appliedjobs:""
 };
 
-export default function(state = allJobs_initialstate, action) {  
-    if (action.type === CONST.JOB_SEARCH_SUCCESS) {
+export default function(state = savedJobs_initialstate, action) {  
+    if (action.type === CONST.SAVED_JOBS_SUCCESS) {
     return {
       ...state,
       status: action.payload.status,
       msg: action.payload.msg,
-      savedjobs: action.payload.savedjobs
+      appliedjobs:""
     };
   }
-  if (action.type === CONST.JOB_SEARCH_ERROR) {
+  if (action.type === CONST.SAVED_JOBS_ERROR) {
     return {
       ...state,
       status: "error",

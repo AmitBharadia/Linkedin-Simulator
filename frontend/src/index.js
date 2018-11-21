@@ -12,6 +12,8 @@ import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
 //import postJob from "./components/Post Jobs";
 import allJobs from "./components/allJobs/allJobs";
+import savedJobs from "./components/savedJobs/savedJobs";
+import jobApply from "./components/jobApply/jobApply";
 
 ReactDOM.render(
 
@@ -22,6 +24,9 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
         <Route path="/allJobs" component={allJobs} />
+        <Route path="/savedJobs" component={savedJobs} />
+        <Route path="/jobApply" component={jobApply} />
+
       </div>
     </Router>
   </Provider>,

@@ -3,8 +3,9 @@ var connection = new require("./kafka/Connection");
 var signin = require("./services/signin");
 var signup = require("./services/signup");
 var getAllJobs = require("./services/getAllJobs");
-var savejob = require("./services/savejob");
+var getsavedjobs = require("./services/getsavedjobs");
 var applyjob = require("./services/applyjob");
+var savejob = require("./services/savejob");
 
 
 function handleTopicRequest(topic_name, fname) {
@@ -43,4 +44,5 @@ handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
 handleTopicRequest("getAllJobs", getAllJobs);
 handleTopicRequest("savejob", savejob);
+handleTopicRequest("getsavedjobs", getsavedjobs);
 handleTopicRequest("applyjob", applyjob);

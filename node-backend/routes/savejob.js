@@ -3,23 +3,19 @@ var router = express.Router();
 var kafka = require("../kafka/client");
 var {verifyToken}=require("./verifyToken");
 
-
 router.get("/", async function(req, res, next) {
   
-    //console.log(req.headers.authorization);
     let verify= await verifyToken(req.get("Authorization"));
     console.log(verify);   
     if(verify.status == "error")
         res.send( { status:"error" , msg: verify.msg });
     else{    
-    //send body to kafka server
-    
+    //send body to kafka server    
     kafka.make_request(
       "getsavedjobs",
       "responsegetsavedjobs",
-      { job_id : req.body.job_id , applicant_id:verify.msg },
-      function(err, result) {
-        
+      { applicant_id:verify.msg },
+      function(err, result) {        
           if (err){
               res.send({ status:"error", msg:"System Error, Try Again." });
           }else{
@@ -34,7 +30,8 @@ router.get("/", async function(req, res, next) {
 
 router.post("/", async function(req, res, next) {
   
-  //console.log(req.headers.authorization);
+    //console.log(req.headers.authorization);
+
   let verify= await verifyToken(req.get("Authorization"));
   console.log(verify);   
   if(verify.status == "error")
@@ -45,7 +42,8 @@ router.post("/", async function(req, res, next) {
   kafka.make_request(
     "savejob",
     "responsesavejob",
-    { job_id : req.body.job_id , applicant_id:verify.msg },
+    { job_uuid : req.body.job_uuid , applicant_id:verify.msg , recruiter_id:req.body.recruiter_id , location:req.body.location,
+    position:req.body.position, company:req.body.company },
     function(err, result) {
       
         if (err){

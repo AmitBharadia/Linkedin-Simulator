@@ -29,7 +29,7 @@ var Jobs = mongoose.model("jobs", {
   location: {
     type: String
   },
-  Recruiter_id: {
+  recruiter_id: {
       type: String,
      // required: true
   },
@@ -61,7 +61,7 @@ var Jobs = mongoose.model("jobs", {
       type: String
   },
   easyApply: {
-    type: Boolean 
+    type: String 
   },
   required_experience: {
     type: String

@@ -7,3 +7,9 @@ export const SIGNUP_SUCCESS = "signupSuccess";
 export const POST_JOBS = "postJobs";
 export const JOB_SEARCH_SUCCESS = "jobSearchSuccess";
 export const JOB_SEARCH_ERROR = "jobSearchError";
+export const JOB_SAVE_ERROR = "jobSaveError";
+export const JOB_SAVE_SUCCESS = "jobSaveSuccess";
+
+
+export const SAVED_JOBS_ERROR = "savedJobsError";
+export const SAVED_JOBS_SUCCESS = "savedJobsSuccess";

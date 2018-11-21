@@ -17,14 +17,28 @@ mongoose.connect(
 );
 
 var Savedjobs = mongoose.model("savedjobs", {
-  job_id: {
+  job_uuid: {
     type: String,
     required: true
   },
-  savedDate:{ type:Date ,  default: new Date()},
   applicant_id: {
       type: String
-  }
+  },
+  recruiter_id:{
+    type: String
+  },
+  position:{
+   type:String 
+  },
+  company:{
+    type:String
+  },
+  location:{
+    type: String
+  },
+  savedDate:{ type:Date ,  default: new Date() }
+
+  
 });
 
 module.exports = { Savedjobs };

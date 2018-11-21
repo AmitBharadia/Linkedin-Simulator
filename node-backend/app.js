@@ -62,10 +62,10 @@ var signinRouter = require("./routes/signin");
 app.use("/signin", signinRouter);
 
 var getAllJobsRouter = require("./routes/getAllJobs");
-app.use("/getAllJobs", getAllJobsRouter);
+app.use("/getAllJobs",requireAuth, getAllJobsRouter);
 
 var savejobRouter = require("./routes/savejob");
-app.use("/save", requireAuth, savejobRouter);
+app.use("/save",requireAuth, savejobRouter);
 
 var applyjobRouter = require("./routes/applyjob");
 app.use("/apply", requireAuth, applyjobRouter);

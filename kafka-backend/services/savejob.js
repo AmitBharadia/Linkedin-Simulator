@@ -5,7 +5,8 @@ async function handle_request(msg, callback){
     
     console.log("In handle request:"+ JSON.stringify(msg));    
    
-    let newjob=new Savedjobs({ "job_id":msg.job_id , "applicant_id":msg.applicant_id });
+    let newjob=new Savedjobs({ "job_uuid":msg.job_uuid , "applicant_id":msg.applicant_id ,"location":msg.location ,"position":msg.position,
+"company":msg.company , "recruiter_id":msg.recruiter_id});
 try{
     let x= await newjob.save( ) ;
     callback(null , { status:"success",msg:x });
