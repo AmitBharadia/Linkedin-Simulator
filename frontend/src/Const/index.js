@@ -13,3 +13,10 @@ export const PROFILE = "PROFILE";
 export const GET_PROFILE = "getprofile";
 export const GET_ALL_CONNECTIONS = "getAllConnections";
 export const GET_CONNECTIONS_COUNT = "getConnectionCount";
+export const JOB_SEARCH_SUCCESS = "jobSearchSuccess";
+export const JOB_SEARCH_ERROR = "jobSearchError";
+export const JOB_SAVE_ERROR = "jobSaveError";
+export const JOB_SAVE_SUCCESS = "jobSaveSuccess";
+
+export const SAVED_JOBS_ERROR = "savedJobsError";
+export const SAVED_JOBS_SUCCESS = "savedJobsSuccess";

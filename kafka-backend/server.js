@@ -2,6 +2,10 @@ var connection = new require("./kafka/Connection");
 //topics files
 var signin = require("./services/signin");
 var signup = require("./services/signup");
+var getAllJobs = require("./services/getAllJobs");
+var getsavedjobs = require("./services/getsavedjobs");
+var applyjob = require("./services/applyjob");
+var savejob = require("./services/savejob");
 
 var getInvitations = require("./services/getInvitations");
 var getRecommendations = require("./services/getRecommendations");
@@ -24,7 +28,7 @@ var getAllConnection = require("./services/getAllConnection");
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
-  console.log("server is running ");
+  //console.log("server is running ");
   consumer.on("message", function(message) {
     console.log("message received for " + topic_name + " ", fname);
     console.log(JSON.stringify(message.value));
@@ -65,6 +69,10 @@ handleTopicRequest("accept_connection", acceptConnection);
 handleTopicRequest("get_connection_count", getConnectionCount);
 handleTopicRequest("get_all_connections", getAllConnection);
 
+handleTopicRequest("getAllJobs", getAllJobs);
+handleTopicRequest("savejob", savejob);
+handleTopicRequest("getsavedjobs", getsavedjobs);
+handleTopicRequest("applyjob", applyjob);
 handleTopicRequest("get_people", searchPeople);
 
 handleTopicRequest("profile", profile);
