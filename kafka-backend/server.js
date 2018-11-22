@@ -65,6 +65,7 @@ function handleTopicRequest(topic_name, fname) {
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
 
+
 handleTopicRequest("post_invitations", getInvitations);
 handleTopicRequest("get_recommendations", getRecommendations);
 handleTopicRequest("remove_connection", removeConnection);
@@ -79,7 +80,6 @@ handleTopicRequest("savejob", savejob);
 handleTopicRequest("getsavedjobs", getsavedjobs);
 handleTopicRequest("applyjob", applyjob);
 handleTopicRequest("get_people", searchPeople);
-
 handleTopicRequest("profile", profile);
 handleTopicRequest("getprofile", getprofile);
 handleTopicRequest("get_top5Jobs", top5Jobs);

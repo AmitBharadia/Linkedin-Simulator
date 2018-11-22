@@ -1,7 +1,11 @@
 import axios from "axios";
 import * as CONST from "../Const/index";
 var url = CONST.ROOT_URL;
-//axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
+axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
+  ? localStorage.getItem("token")
+  : "";
+
 export function get_recommendation() {
   console.log("Action started on get recommendation request");
   return dispatch => {

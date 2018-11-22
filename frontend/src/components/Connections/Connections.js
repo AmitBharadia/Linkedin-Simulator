@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import cookie from "react-cookies";
 import { Redirect } from "react-router";
-import Navbar from "../Common/Navbar";
+import MainNavbar from "../Common/MainNavbar";
 
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -25,7 +25,7 @@ class Connections extends Component {
     return (
       <div>
         <div>
-          <Navbar />
+          <MainNavbar />
           <br />
           <br />
           <div className="container">

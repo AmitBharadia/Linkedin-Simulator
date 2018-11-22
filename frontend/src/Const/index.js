@@ -9,6 +9,7 @@ export const SEARCH_PEOPLE_SUCCESS = "searchPeopleSuccess";
 export const POST_JOBS = "postJobs";
 
 export const MY_POSTED_JOBS = "myPostedJobs";
+
 export const GET_RECOMMENDATIONS = "getRecommendations";
 export const GET_INVITATIONS = "getInvitations";
 export const PROFILE = "PROFILE";
