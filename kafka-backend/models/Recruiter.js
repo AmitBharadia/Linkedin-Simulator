@@ -8,7 +8,7 @@ mongoose.connect(
   },
   () => {
     console.log(
-      "=================== Mongo DB connected Status : ",
+      "=================== Mongo DB connected Recruiter Status : ",
       mongoose.connection.readyState,
       "======================="
     );

@@ -8,7 +8,7 @@ router.post("/", function(req, res, next) {
     "============================In of the rest request signup ====================="
   );
   console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("post_signup", "response_signup", req.body, function(
+  kafka.make_request("post_signup", "response_topic", req.body, function(
     err,
     results
   ) {

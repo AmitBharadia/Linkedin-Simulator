@@ -9,7 +9,7 @@ mongoose.connect(
   },
   () => {
     console.log(
-      "=================== Mongo DB connected Status : ",
+      "=================== Mongo DB connected applicant Status : ",
       mongoose.connection.readyState,
       "======================="
     );
@@ -18,13 +18,17 @@ mongoose.connect(
 
 var Applicant = mongoose.model("applicants", {
   username: {
-    type: String
+    type: String,
+    //required:true,
+    //unique:true
   },
   first_name: {
-    type: String
+    type: String,
+    default:''
   },
   last_name: {
-    type: String
+    type: String,
+    default:''
   }
 });
 

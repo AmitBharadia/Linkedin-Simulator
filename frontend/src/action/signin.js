@@ -12,15 +12,15 @@ export function signIn(values) {
         localStorage.setItem("token", response.data.token);
       }
 
-      if (response.data.data.id) {
+      if (response.data.data && response.data.data.id) {
         localStorage.setItem("id", response.data.data.id);
       }
 
-      if (response.data.data.type) {
+      if (response.data.data && response.data.data.type) {
         localStorage.setItem("type", response.data.data.type);
       }
 
-      if (response.data.data.username) {
+      if (response.data.data && response.data.data.username) {
         localStorage.setItem("username", response.data.data.username);
       }
 
