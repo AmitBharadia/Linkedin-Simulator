@@ -3,6 +3,7 @@ import signin from "./signin";
 import signup from "./signup";
 
 import postJob from "./postJobs";
+import myJobs from "./myPostedJobs";
 
 import searchPeaople from "./searchPeaople";
 
@@ -13,6 +14,7 @@ export default combineReducers({
   signup,
   signin,
   postJob,
- searchPeaople
+ searchPeaople,
+ myJobs
 
 });

@@ -11,6 +11,7 @@ import JobsFormThird from "./jobsFormThird";
 import PropTypes from 'prop-types';
 import connect from "react-redux/es/connect/connect";
 import {postJobsAction} from "../../action/postJobs";
+import Redirect from "react-router/es/Redirect";
 
 
 class postJob extends Component{
@@ -35,19 +36,11 @@ class postJob extends Component{
     postJob = (values) =>
     {
 
-        // alert("Values before: " + JSON.stringify(values));
-        // var body = new FormData();
-        // body.append("formdata", JSON.stringify(values));
-        // for(var key in values.files)
-        // {
-        //     body.append('files', values.files[key]);
-        // }
-        // this.props.postJobsAction(body);
-
         var formData = new FormData();
+        formData.append("recruiter_id",localStorage.getItem("id"));
         var file;
         Object.keys(values).forEach((key) => {
-            if(key != "files")
+            if(key !== "files")
             {
                 formData.append(key,values[key]);
             }
@@ -58,23 +51,25 @@ class postJob extends Component{
 
         file.forEach(file => {
             formData.append("files", file);
+            formData.append("filename", file.name);
         });
 
         this.props.postJobsAction(formData);
+        this.props.history.push("/myJobPosts");
     }
 
 
-    render()
-    {
-        const { onSubmit } = this.props;
-        const { page } = this.state;
+    render() {
+        const {onSubmit} = this.props;
+        const {page} = this.state;
 
-        return(
+        if(localStorage.getItem("type") === 'recruiter') {
+            return (
             <div className="searchJobs">
 
-                <PostJobsNav />
+                <PostJobsNav/>
                 <hr className="hr"></hr>
-                {page === 1 && <JobsFormFirst onSubmit={this.nextPage} />}
+                {page === 1 && <JobsFormFirst onSubmit={this.nextPage}/>}
 
                 {page === 2 && (
                     <JobsFormSecond
@@ -90,9 +85,16 @@ class postJob extends Component{
                 )}
 
 
-                {page === 1 && <PostJobsFooter/> }
+                {page === 1 && <PostJobsFooter/>}
             </div>
-    )
+        )
+    }
+    else
+        {
+            return(
+                this.props.history.push("/signin")
+            );
+        }
     }
 
 

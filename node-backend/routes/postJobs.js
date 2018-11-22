@@ -22,7 +22,8 @@ var s3 = new aws.S3();
 const upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: CONST.ResumesBucket,
+        bucket: CONST.CompanyLogosBucket,
+        acl: 'public-read',
         key: function (req, file, cb) {
             console.log(file);
             cb(null, file.originalname); //use Date.now() for unique file keys
@@ -36,6 +37,14 @@ router.post("/", upload.single('files'),function(req, res, next) {
         "============================In of the rest request postJob ====================="
     );
 
+    // var params = {Bucket: CONST.ResumesBucket, Key: req.body.filename};
+    // var url = s3.getSignedUrl('getObject', params);
+    // console.log('The URL is : ', url);
+
+    var url = "https://s3.amazonaws.com/linkedin-273/CompanyLogo/" + req.body.filename;
+    console.log('The URL is : ', url);
+
+    req.body.company_logo = url;
     console.log("Request Body: " + JSON.stringify(req.body));
     //send body to kafka server
     kafka.make_request(

@@ -9,6 +9,7 @@ var top10Jobs = require("./services/top10jobs");
 var clicksOnJobs = require("./services/clicksOnJob");
 var savedJobs = require("./services/savedJobs");
 var postJobs = require("./services/postJobs");
+var postedJobs = require("./services/postedJobs");
 
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
@@ -51,3 +52,4 @@ handleTopicRequest("get_top10Jobs", top10Jobs);
 handleTopicRequest("get_clicks", clicksOnJobs);
 handleTopicRequest("get_savedJobs", savedJobs);
 handleTopicRequest("post_job", postJobs);
+handleTopicRequest("posted_job", postedJobs);

@@ -12,6 +12,8 @@ import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
 import Admin from "./components/Admin/admin";
 import postJob from "./components/Post Jobs/index";
+import GetPostedJobs from "./components/Post Jobs/getPostedJobs";
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -21,6 +23,7 @@ ReactDOM.render(
         <Route path="/home" component={Home} />
         <Route path="/postJob" component={postJob} />
         <Route path="/admin" component={Admin} />
+        <Route path="/myJobPosts" component={GetPostedJobs} />
       </div>
     </Router>
   </Provider>,
