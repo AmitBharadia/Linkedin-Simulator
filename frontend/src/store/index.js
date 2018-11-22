@@ -8,7 +8,7 @@ const composePlugin =
   (window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()) ||
   compose;
-const createStoreWithMiddleware = applyMiddleware(promise, thunk, logger)(
+const createStoreWithMiddleware = applyMiddleware(promise, thunk)(
   createStore
 );
 const store = createStoreWithMiddleware(RootReducer, composePlugin);

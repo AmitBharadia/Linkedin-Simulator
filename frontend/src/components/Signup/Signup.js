@@ -17,7 +17,7 @@ class Signup extends Component {
   render() {
     var submitFormError = "";
     if (this.props.status == "success") {
-      this.props.history.push(CONST.ROOT_URL + "/signin");
+      this.props.history.push("/signin");
     } else if (this.props.status == "error") {
       submitFormError = (
         <h5 class="text-danger text-center">{this.props.msg}</h5>

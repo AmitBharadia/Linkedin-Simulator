@@ -26,10 +26,10 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+const serverAtPort=server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
-
+serverAtPort.timeout=240000;
 /**
  * Normalize a port into a number, string, or false.
  */

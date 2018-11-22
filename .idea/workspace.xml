@@ -32,7 +32,7 @@
           <entry key="html" value="1" />
           <entry key="jade" value="3" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="241" />
+          <entry key="js" value="246" />
           <entry key="json" value="1" />
           <entry key="png" value="1" />
           <entry key="rnc" value="1" />
@@ -46,7 +46,7 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="1" />
           <entry key="Jade" value="3" />
-          <entry key="JavaScript" value="243" />
+          <entry key="JavaScript" value="248" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -55,7 +55,7 @@
           <entry key="CSS" value="158" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="9194" />
+          <entry key="JavaScript" value="9203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -64,7 +64,7 @@
         <counts>
           <entry key="css" value="158" />
           <entry key="html" value="6" />
-          <entry key="js" value="9194" />
+          <entry key="js" value="9203" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
@@ -81,11 +81,64 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-backend/routes/postJobs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-393">
               <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/Const/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-36">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#28#54#0" expanded="true" />
+                <element signature="e#259#307#0" expanded="true" />
+                <element signature="e#587#638#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/reducers/reducers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node-backend/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -136,18 +189,13 @@
         <option value="$PROJECT_DIR$/frontend/src/action/postJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/jobsFormSecond.js" />
         <option value="$PROJECT_DIR$/frontend/src/reducers/myJobs.js" />
-        <option value="$PROJECT_DIR$/frontend/src/reducers/reducers.js" />
         <option value="$PROJECT_DIR$/frontend/src/reducers/postJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/postJobsNav.js" />
         <option value="$PROJECT_DIR$/frontend/Main.js" />
         <option value="$PROJECT_DIR$/frontend/src/Main.js" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/frontend/src/App.js" />
-        <option value="$PROJECT_DIR$/frontend/src/index.js" />
         <option value="$PROJECT_DIR$/kafka-backend/services/postedJObs.js" />
-        <option value="$PROJECT_DIR$/node-backend/app.js" />
-        <option value="$PROJECT_DIR$/kafka-backend/server.js" />
-        <option value="$PROJECT_DIR$/frontend/src/Const/index.js" />
         <option value="$PROJECT_DIR$/node-backend/kafka/kafkarpc.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/getPostedJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/reducers/myPostedJobs.js" />
@@ -162,6 +210,11 @@
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/validate.js" />
         <option value="$PROJECT_DIR$/node-backend/const/index.js" />
         <option value="$PROJECT_DIR$/node-backend/routes/postJobs.js" />
+        <option value="$PROJECT_DIR$/frontend/src/Const/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/reducers/reducers.js" />
+        <option value="$PROJECT_DIR$/node-backend/app.js" />
+        <option value="$PROJECT_DIR$/kafka-backend/server.js" />
       </list>
     </option>
   </component>
@@ -204,13 +257,12 @@
             <path>
               <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="node-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="node-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="kafka-backend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,12 +329,12 @@
       <workItem from="1542227775653" duration="24620000" />
       <workItem from="1542406031098" duration="4614000" />
       <workItem from="1542668681700" duration="2473000" />
-      <workItem from="1542913835308" duration="73000" />
+      <workItem from="1542913835308" duration="438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116550000" />
+    <option name="totallyTimeSpent" value="116915000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -295,6 +347,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1784534" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -499,13 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kafka-backend/kafka/Connection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -530,13 +576,6 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/reducers/searchPeaople.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/reducers/postJobs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -555,13 +594,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/getImage.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node-backend/routes/getImage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -601,13 +633,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Const/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -615,13 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="21" column="114" selection-start-line="21" selection-start-column="114" selection-end-line="21" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node-backend/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2289">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
         </state>
       </provider>
     </entry>
@@ -664,6 +685,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-393">
           <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/Const/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#28#54#0" expanded="true" />
+            <element signature="e#259#307#0" expanded="true" />
+            <element signature="e#587#638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node-backend/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
