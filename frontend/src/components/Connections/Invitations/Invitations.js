@@ -23,7 +23,7 @@ class Invitations extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
+  componentWillMount() {
     console.log("component mount");
     this.props.get_invitations();
   }

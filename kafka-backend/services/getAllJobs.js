@@ -3,15 +3,23 @@ var { Jobs } = require("../models/Jobs");
 var { Savedjobs } = require("../models/Savedjobs");
 
 async function handle_request(msg, callback){
-    
-    //console.log("In handle request:"+ JSON.stringify(msg));    
+    console.log(
+        "=====================In the kafka-backend get all jobs====================="
+      );
+    console.log("In handle request:"+ JSON.stringify(msg));    
     try{ 
         let jobs= await getAllJobs(msg.query);
         let savedjobs= await getSavedJobs(msg.applicant_id);
         callback( null , {status:"success" , msg:jobs , savedjobs:savedjobs});
+        console.log(
+            "=====================Out of the kafka-backend get all jobs====================="
+          );
       }
     catch (error) {
             callback( null, { status: "error" ,msg:error });
+            console.log(
+                "=====================In the kafka-backend get all jobs====================="
+              );
         }    
 }
 
