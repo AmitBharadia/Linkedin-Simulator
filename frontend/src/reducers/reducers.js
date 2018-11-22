@@ -9,6 +9,7 @@ import  profile  from "./profile";
 
 
 import postJob from "./postJobs";
+import myJobs from "./myPostedJobs";
 
 import searchPeaople from "./searchPeaople";
 
@@ -24,8 +25,8 @@ export default combineReducers({
   searchPeaople,
   network,
   postJob,
+ myJobs,
   savedJobs,
   allJobs,
   profile,
-  postJob
 });
