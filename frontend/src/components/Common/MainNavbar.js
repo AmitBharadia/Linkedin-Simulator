@@ -151,7 +151,12 @@ class MainNavbar extends Component {
             </li>
             <li className="nav-item">
               {" "}
-              <a className="nav-link text-light text-center pb-0 pt-0" href="#">
+              <a className="nav-link text-light text-center pb-0 pt-0" href="#"  onClick={e => {
+                      localStorage.getItem("type") == "recruiter"
+                      ?  browserHistory.push("/postJob")
+                      :  browserHistory.push("/allJobs");
+                     
+                    }}>
                 <svg
                   viewBox="0 0 24 24"
                   width="24px"

@@ -6,11 +6,10 @@ function handle_request(msg, callback) {
     "=====================In the kafka-backend update profile====================="
   );
   console.log("Request body:" + JSON.stringify(msg));
-
-  console.log("Inside profile of KEtan");
   const profileData = {};
   const newExp = {};
   const newEdu = {};
+
 
   if (msg.values.firstName) {
     profileData.first_name = msg.values.firstName;
@@ -144,6 +143,7 @@ function handle_request(msg, callback) {
       );
     }
   });
+
 }
 
 exports.handle_request = handle_request;
