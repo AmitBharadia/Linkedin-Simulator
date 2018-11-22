@@ -59,7 +59,7 @@ class allJobs extends Component {
         <div class="">
               <div class="card flex-row flex-wrap border-right-0 border-left-0">
                 <div class="card-header border-0">
-                  <img src="//placehold.it/200" alt="" />
+                  <img src={this.state.allJobs[index].company_logo} alt="" />
                 </div>
                 <div class="card-block px-2 pt-5 pl-5">
                   <h1 class="card-title">
@@ -133,7 +133,7 @@ class allJobs extends Component {
         <div class="">
           <div class="card flex-row flex-wrap border-right-0 border-left-0">
             <div class="card-header border-0">
-              <img src="//placehold.it/200" alt="" />
+              <img src={this.state.allJobs[index].company_logo} alt="" />
             </div>
             <div class="card-block px-2 pt-5 pl-5">
               <h1 class="card-title"> {this.state.allJobs[index].position} </h1>
@@ -272,7 +272,7 @@ class allJobs extends Component {
             <div class="">
               <div class="card flex-row flex-wrap border-right-0 border-left-0">
                 <div class="card-header border-0">
-                  <img src="//placehold.it/200" alt="" />
+                  <img src="nextProps.allJobs.msg[0].company_logo" alt="" />
                 </div>
                 <div class="card-block px-2 pt-5 pl-5">
                   <h1 class="card-title">
@@ -356,7 +356,7 @@ class allJobs extends Component {
             <div class="">
               <div class="card flex-row flex-wrap border-right-0 border-left-0">
                 <div class="card-header border-0">
-                  <img src="//placehold.it/200" alt="" />
+                  <img src={nextProps.allJobs.msg[0].company_logo} alt="" />
                 </div>
                 <div class="card-block px-2 pt-5 pl-5">
                   <h1 class="card-title">
@@ -420,16 +420,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                  Salesforce IT accelerates the success of the Salesforce family
-                  through the best implementation of Salesforce on the planet.
-                  We value Trust, Scale, and Integration. We relentlessly pursue
-                  these values with the help of modern, lean, and self-governing
-                  Scrum teams. As part of Salesforce IT, you will play a key
-                  role in a smart, creative, and fun team. You will make a
-                  meaningful difference in product delivery. Come grow with us
-                  in an environment where professional development is
-                  encouraged, volunteerism is the norm, and innovation is a
-                  daily occurrence.
+                {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>

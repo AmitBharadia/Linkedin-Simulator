@@ -125,7 +125,9 @@ class MainNavbar extends Component {
             </li>
             <li className="nav-item">
               {" "}
-              <a className="nav-link text-light text-center pb-0 pt-0" href="#">
+              <a className="nav-link text-light text-center pb-0 pt-0" href="#" onClick={() => {
+                  browserHistory.push("/connections");
+                }}>
                 <svg
                   viewBox="0 0 24 24"
                   width="24px"
@@ -147,6 +149,7 @@ class MainNavbar extends Component {
                   />
                 </svg>
                 <h4>My Networks</h4>
+               
               </a>{" "}
             </li>
             <li className="nav-item">

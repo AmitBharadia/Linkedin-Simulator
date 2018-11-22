@@ -9,7 +9,7 @@
     background-position: 50% 50%;
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.9);
-    height: 100px;
+    height: 200px;
     overflow-wrap: break-word;
     text-align: center;
     text-decoration: none solid rgba(0, 0, 0, 0.9);
@@ -53,3 +53,57 @@
     font: normal normal 400 normal 16px / 24px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
     outline: rgba(0, 0, 0, 0.9) none 0px;
 }/*#DIV_3:before*/
+
+
+#IMG_55:after {
+    box-sizing: border-box;
+    color: rgb(0, 115, 177);
+    cursor: pointer;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-decoration: none solid rgb(0, 115, 177);
+    word-break: break-word;
+    column-rule-color: rgb(0, 115, 177);
+    caret-color: rgb(0, 115, 177);
+    border: 0px none rgb(0, 115, 177);
+    font: normal normal 600 normal 16px / 24px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    outline: rgb(0, 115, 177) none 0px;
+}/*#IMG_55:after*/
+
+#IMG_55:before {
+    box-sizing: border-box;
+    color: rgb(0, 115, 177);
+    cursor: pointer;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-decoration: none solid rgb(0, 115, 177);
+    word-break: break-word;
+    column-rule-color: rgb(0, 115, 177);
+    caret-color: rgb(0, 115, 177);
+    border: 0px none rgb(0, 115, 177);
+    font: normal normal 600 normal 16px / 24px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    outline: rgb(0, 115, 177) none 0px;
+}/*#IMG_55:before*/
+
+#IMG_55 {
+
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1.5px 3px 0px inset, rgba(0, 0, 0, 0.15) 0px 1.5px 3px 0px;
+    box-sizing: border-box;
+    color: rgb(0, 115, 177);
+    cursor: pointer;
+    height: 200px;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-decoration: none solid rgb(0, 115, 177);
+    width: 200px;
+    word-break: break-word;
+    column-rule-color: rgb(0, 115, 177);
+
+    caret-color: rgb(0, 115, 177);
+    background: rgb(179, 182, 185) none repeat scroll 0px 0px / auto padding-box content-box;
+    border: 1.99653px solid rgb(255, 255, 255);
+    border-radius: 49.9% 49.9% 49.9% 49.9%;
+    font: normal normal 600 normal 16px / 24px -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
+    outline: rgb(0, 115, 177) none 0px;
+}/*#IMG_55*/

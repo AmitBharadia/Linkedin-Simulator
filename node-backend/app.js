@@ -85,7 +85,7 @@ var ProfileRouter = require("./routes/profile");
 app.use("/profile", ProfileRouter);
 
 var networkRouter = require("./routes/network");
-app.use("/network", networkRouter);
+app.use("/network", requireAuth, networkRouter);
 
 var top5JobsRouter = require("./routes/top5Jobs");
 app.use("/top5jobs", cache.route(), top5JobsRouter);
