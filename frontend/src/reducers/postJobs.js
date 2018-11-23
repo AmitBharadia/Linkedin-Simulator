@@ -1,9 +1,5 @@
 import {POST_JOBS} from "../Const/index";
-var postJobs_initialstate = {
-    status: "",
-    msg: "",
-    token: ""
-};
+
 
 export default function (state = {},action)
 {

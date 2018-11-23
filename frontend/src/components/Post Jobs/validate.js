@@ -12,6 +12,15 @@ function validate(values) {
     if (!values.location) {
         errors.location = "Enter Location";
     }
+    if (!values.files) {
+        errors.files = "Please upload your company logo";
+    }
+    if (!values.type) {
+        errors.type = "Enter the type of employment";
+    }
+    if (!values.Seniority) {
+        errors.Seniority = "Enter Seniority";
+    }
 
     // If errors is empty, the form is fine to submit
     // If errors has *any* properties, redux form assumes form is invalid

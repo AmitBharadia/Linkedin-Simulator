@@ -1,5 +1,4 @@
 var {Jobs} = require("../models/Jobs");
-//require("../../Homwaway Backend/mongoose");
 
 async function handle_request(msg, callback) {
     console.log(
@@ -9,14 +8,13 @@ async function handle_request(msg, callback) {
 
     Jobs.create(
         {
-            job_id: '1234',
-            recruiter_id: '1234',
+            recruiter_id: msg.recruiter_id,
             position: msg.position,
             location: msg.location,
             description: msg.description,
             easyApply: msg.easyApply,
             company: msg.company,
-            //company_logo :
+            company_logo : msg.company_logo,
             industry : msg.industry,
             seniority : msg.seniority,
             required_experience : msg.required_experience

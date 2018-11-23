@@ -1,3 +1,4 @@
+
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
@@ -38,3 +39,4 @@ var Jobs = mongoose.model("jobs", {
 });
 
 module.exports = { Jobs };
+

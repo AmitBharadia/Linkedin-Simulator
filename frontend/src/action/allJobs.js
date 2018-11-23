@@ -3,6 +3,9 @@ import * as CONST from "../Const/index";
 
 var url = CONST.ROOT_URL;
 axios.defaults.withCredentials = true;
+axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
+  ? localStorage.getItem("token")
+  : "";
 
 export function INIT() {
   return dispatch => {
