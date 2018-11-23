@@ -1,4 +1,4 @@
-const Profile = require("../models/Profile");
+
 var { User } = require("../models/User");
 var mongoose = require("mongoose");
 function handle_request(msg, callback) {
@@ -9,8 +9,12 @@ function handle_request(msg, callback) {
   const profileData = {};
   const newExp = {};
   const newEdu = {};
-
+  msg.values = msg;
   if (msg.values) {
+
+    if (msg.values.profile_url) {
+      profileData.profile_url = msg.values.profile_url;
+    }
     if (msg.values.firstName) {
       profileData.first_name = msg.values.firstName;
     }

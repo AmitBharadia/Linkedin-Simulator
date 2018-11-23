@@ -442,38 +442,6 @@ class allJobs extends Component {
       <div>
         <MainNavbar />
         <JobFiltersNavBar />
-        <div>
-          {/* <label class="maincontainer">
-            {" "}
-            Easy Apply
-            <input
-              type="checkbox"
-              name="easyApply"
-              onChange={this.setEasyApply.bind(this)}
-            />
-            <span class="checkmark" />
-          </label>
-
-          <input
-            type="text"
-            placeholder="position"
-            name="position"
-            onChange={this.onChange}
-          />
-          <input
-            type="text"
-            placeholder="company"
-            name="company"
-            onChange={this.onChange}
-          />
-          <input
-            type="text"
-            placeholder="location"
-            name="location"
-            onChange={this.onChange}
-          /> */}
-        </div>
-
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm">
