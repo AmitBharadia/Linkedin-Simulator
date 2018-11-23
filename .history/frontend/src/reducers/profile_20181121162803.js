@@ -1,10 +1,10 @@
-const profile_initialstate = {
+var profile_initialstate = {
   status: "",
   msg: "",
   profile: {}
 };
 
-export default function(state = { status: "", msg: "", profile: {} }, action) {
+export default function(state = {}, action) {
   if (action.type === "PROFILE") {
     console.log("In reducer of profile");
     return {

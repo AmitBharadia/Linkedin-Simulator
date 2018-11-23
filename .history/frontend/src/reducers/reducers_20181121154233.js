@@ -4,7 +4,7 @@ import signup from "./signup";
 
 import allJobs from "./allJobs";
 import savedJobs from "./savedJobs";
-import profile from "./profile";
+import { profile } from "../action/profile";
 
 import postJob from "./postJobs";
 
@@ -12,12 +12,15 @@ import searchPeaople from "./searchPeaople";
 
 import network from "./network";
 
+import profile from "./profile";
+
 import { reducer as formReducer } from "redux-form";
 
 export default combineReducers({
   form: formReducer,
   signup,
   signin,
+
   searchPeaople,
   network,
   postJob,

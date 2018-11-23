@@ -4,7 +4,7 @@ import signup from "./signup";
 
 import allJobs from "./allJobs";
 import savedJobs from "./savedJobs";
-import profile from "./profile";
+import { profile } from "../action/profile";
 
 import postJob from "./postJobs";
 
@@ -18,6 +18,7 @@ export default combineReducers({
   form: formReducer,
   signup,
   signin,
+
   searchPeaople,
   network,
   postJob,
