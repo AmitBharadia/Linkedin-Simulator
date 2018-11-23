@@ -15,7 +15,7 @@ router.post("/", async function(req, res, next) {
   //send body to kafka server
   kafka.make_request(
     "applyjob",
-    "responseapplyjob",
+    "response_topic",
     { job_id : req.body.job_id , applicant_id:verify.msg },
     function(err, result) {
       
