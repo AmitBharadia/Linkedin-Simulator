@@ -25,6 +25,24 @@ export function INIT() {
   };
 }
 
+export function filter(values) {
+  return dispatch => {
+    axios
+      .get(`${url}/getAllJobs`, { params: values })
+      .then(response => {
+        //console.log("Response recieved: " + JSON.stringify(response.data));
+
+        dispatch({
+          type: CONST.JOB_SEARCH_SUCCESS,
+          payload: response.data
+        });
+      })
+      .catch(error => {
+        dispatch({ type: CONST.JOB_SEARCH_ERROR, payload: error });
+      });
+  };
+}
+
 export function SAVE(job_uuid, recruiter_id, position, company, location) {
   return dispatch => {
     axios

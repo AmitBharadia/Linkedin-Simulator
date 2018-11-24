@@ -43,8 +43,6 @@ ReactDOM.render(
         <Route path="/admin" component={Admin} />
         <Route path="/allConnections" component={AllConnections} />
         <Route path="/profile/:id" component={Profile} />
-
-        <Route path="/admin" component={Admin} />
         <Route path="/myJobPosts" component={GetPostedJobs} />
       </div>
     </Router>
