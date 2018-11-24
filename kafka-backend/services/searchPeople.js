@@ -1,6 +1,7 @@
 var bcrypt = require("bcryptjs");
 var { Applicant } = require("../models/Applicant");
 var { Recruiter } = require("../models/Recruiter");
+var { User }=require("../models/User")
 var query = require("../query/userCreation.js");
 
 function handle_request(msg, callback) {
@@ -8,7 +9,7 @@ function handle_request(msg, callback) {
     "=====================In the kafka-backend Search People====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  Applicant.find(
+  User.find(
     {
       first_name: { $regex: msg.name, $options: "i" }
     },
