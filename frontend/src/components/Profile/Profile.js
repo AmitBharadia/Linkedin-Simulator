@@ -5,7 +5,7 @@ import ModalExperience from "./ModalExperience";
 import ModalEducation from "./ModalEducation";
 import { dummy } from "../../action/dummy";
 import { connect } from "react-redux";
-// import "./prof.css";
+import "./prof.css";
 import { getprofile } from "../../action/profile";
 import jobsFormThird from "../Post Jobs/jobsFormThird";
 

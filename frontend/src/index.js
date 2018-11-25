@@ -24,7 +24,6 @@ import allJobs from "./components/allJobs/allJobs";
 import savedJobs from "./components/savedJobs/savedJobs";
 import jobApply from "./components/jobApply/jobApply";
 
-import Profile from "./components/Profile/Profile";
 import Admin from "./components/Admin/admin";
 import postJob from "./components/Post Jobs/index";
 
@@ -52,7 +51,7 @@ ReactDOM.render(
         <Route path="/connections" component={Connections} />
         <Route path="/admin" component={Admin} />
         <Route path="/allConnections" component={AllConnections} />
-        <Route path="/profile/:id" component={Profile} />
+
         <Route path="/myJobPosts" component={GetPostedJobs} />
       </div>
     </Router>
