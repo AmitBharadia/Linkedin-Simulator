@@ -5,7 +5,7 @@ axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
   : "";
 
 axios.defaults.withCredentials = true;
-export function searchPeople(value) {
+export function searchPeople(value,history) {
   return dispatch => {
     console.log("Action started on search people request");
     axios
@@ -17,6 +17,7 @@ export function searchPeople(value) {
           type: CONST.SEARCH_PEOPLE_SUCCESS,
           payload: response.data
         });
+        history.push("/search-people")
       });
   };
 }
