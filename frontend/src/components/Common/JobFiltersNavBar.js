@@ -3,191 +3,177 @@ import { Field, reduxForm, change } from "redux-form";
 import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "../Post Jobs/postJobs.css";
+import * as myactions from "../../action/allJobs";
 
 class JobFiltersNavBar extends Component {
+
+  onSubmit(values) {
+    console.log(values);
+    var companyList=[]
+    if(values["Google"]){
+      companyList.push("google")
+    }
+    values["company"]=companyList;
+    this.props.filter(values);
+  }
+
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div>
-        <nav className="navbar navbar-toggler navbar-expand-md  bg-light">
-          <div className="container">
+        <nav className="navbar navbar-toggler navbar-expand-lg  bg-light">
+          <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbar6">
               {" "}
-              <form
-              class="form-inline"
-             // onSubmit={handleSubmit(this.onSubmit.bind(this))}
-            >
-            <div class="mr-5">
-              <Field
-                className="form-control form-control-lg "
-                placeholder="Search"
-                type="search"
-                name="location"
-                placeholder="Location"
-                aria-label="Search"
-                component={this.renderField}
-              />
-              </div>
-            <Field
-                className="form-control form-control-lg ml-3"
-                placeholder="Search"
-                type="search"
-                name="company"
-                placeholder="Company"
-                aria-label="Search"
-                component={this.renderField}
-              />
-            
-           
-              <ul className="navbar-nav mx-auto">
-                <li class="nav-item dropdown mr-2 ml-2">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <h3> Company  </h3>
+              <ul className="navbar-nav mx-auto ">
+                <li class="nav-item">
+                  <a class="nav-link pull-left text-secondary" href="#" onClick={()=>{
+                    this.props.history.push("/savedJobs");
+                  }}>
+                    <h3>
+                      <u>Saved Jobs </u>
+                    </h3>
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">
-                      <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name"
-                        label="FaceBook"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                    <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name1"
-                        label="Google"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                    <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name1"
-                        label="Twitter"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                  </div>
                 </li>
-                <li class="nav-item dropdown mr-4">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <h3>Experience  </h3>
+
+                <li class="nav-item">
+                  <a class="nav-link mr-5 text-secondary" href="#">
+                    <h3>
+                      <u>Applied Jobs</u>{" "}
+                    </h3>
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
-                      <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name"
-                        label="Internship"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name"
-                        label="Entry"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                    <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name1"
-                        label="Medium"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                    <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name1"
-                        label="Expert"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                  </div>
                 </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
+                <form
+                  class="form-inline"
+                   onSubmit={handleSubmit(this.onSubmit.bind(this))}
+                >
+                  <Field
+                    className="form-control form-control-lg"
+                    name="position"
+                    placeholder="Search Jobs"
+                    component={this.renderField}
+                  />
+                  <p class="mr-5" />
+                  <Field
+                    className="form-control form-control-lg"
+                    name="location"
+                    placeholder="Location" 
+                    component={this.renderField}
+                  />
+
+                  <li class="nav-item dropdown mr-2 ml-2">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <h3> Company </h3>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="checkbox"
+                          name="Facebook"
+                          label="FaceBook"
+                          component={this.renderField}
+                        />
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="checkbox"
+                          name="Google"
+                          label="Google"
+                          component={this.renderField}
+                        />
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="checkbox"
+                          name="Twitter"
+                          label="Twitter"             
+                          component={this.renderField}
+                        />
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown mr-4">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <h3>Experience </h3>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="radio"
+                          name="experience"
+                          label=" Intern "
+                          value="intern"
+                          component={this.renderField}
+                        />
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="radio"
+                          name="experience"
+                          label="Entry"
+                          value="entry"
+                          component={this.renderField}
+                        />
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="radio"
+                          name="experience"
+                          label="Medium"
+                          value="medium"
+                          component={this.renderField}
+                        />
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <Field
+                          className="form-control form-control-lg"
+                          placeholder="Search"
+                          type="radio"
+                          name="experience"
+                          label="Expert"
+                          value="expert"
+                          component={this.renderField}
+                        />
+                      </a>
+                    </div>
+                  </li>
+
+                  <button
+                    class="btn btn-outline-primary btn-lg ml-5"
+                    type="submit"
                   >
-                    <h3>Location  </h3>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">
-                      <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name"
-                        label="San Jose"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                    <a class="dropdown-item" href="#">
-                    <Field
-                        className="form-control form-control-lg"
-                        placeholder="Search"
-                        type="checkbox"
-                        name="name1"
-                        label="San Diego"
-                        aria-label="Search"
-                        component={this.renderField}
-                      />
-                    </a>
-                  </div>
-                </li>
+                    Search
+                  </button>
+                </form>
               </ul>
-              <button class="btn btn-outline-primary btn-lg ml-5" type="submit">
-                Search
-              </button>
-              </form>
             </div>
           </div>
         </nav>
@@ -202,9 +188,7 @@ class JobFiltersNavBar extends Component {
       placeholder,
       value
     } = field;
-    const className = `form-group  ${
-      touched && error ? "has-danger" : ""
-    }`;
+    const className = `form-group  ${touched && error ? "has-danger" : ""}`;
     console.log("className : " + className);
     return (
       <div class="form-group pull-left ml-0 has-danger">
@@ -220,20 +204,18 @@ class JobFiltersNavBar extends Component {
       </div>
     );
   }
+
+
+
 }
+const optionsList = [{id: 1, name: 'Optoin1'}, {id: 2, name: 'Option 2'}, {id: 3, name: 'Option 3'}]     
 
-//export default JobFiltersNavBar;
-//Get the current state of the signup page
-const mapStateToProps = state => {
-  return {};
-};
 
-//export default Signin;
 export default reduxForm({
   form: "FiltersSearchForm"
 })(
   connect(
-    mapStateToProps,
-    {}
+    null,
+    myactions
   )(withRouter(JobFiltersNavBar))
 );

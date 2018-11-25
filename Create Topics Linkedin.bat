@@ -34,5 +34,6 @@ call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getAllJobs
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getsavedjobs
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic savejob
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic posted_job
 
 PAUSE

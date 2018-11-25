@@ -12,8 +12,8 @@ class Profile extends Component {
             <a href="" id="A_4">
               <img
 
-                src="https://media.licdn.com/dms/image/C5603AQEqgYpgcdt-Sg/profile-displayphoto-shrink_100_100/0?e=1547683200&amp;v=beta&amp;t=OGK1W9t5IfzVDM80ex0DtDiqrdgNNojUiHCA8w3lrVg"
-                id="IMG_55"
+                src=""
+                id="IMG_5"
               />
             </a>{" "}
             <a href="" id="A_6">

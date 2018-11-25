@@ -1,4 +1,4 @@
-const Profile = require("../models/Profile");
+
 var { User } = require("../models/User");
 var mongoose = require("mongoose");
 

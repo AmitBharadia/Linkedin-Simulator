@@ -5,7 +5,7 @@ import ModalExperience from "./ModalExperience";
 import ModalEducation from "./ModalEducation";
 import { dummy } from "../../action/dummy";
 import { connect } from "react-redux";
-// import "./prof.css";
+import "./prof.css";
 import { getprofile } from "../../action/profile";
 import jobsFormThird from "../Post Jobs/jobsFormThird";
 
@@ -25,7 +25,8 @@ class Profile extends Component {
       profileSummary: "",
       countryName: "",
       experience: [],
-      education: []
+      education: [],
+      profile_url:""
     };
   }
   componentDidMount() {
@@ -51,7 +52,8 @@ class Profile extends Component {
         profileSummary: newChangedProps.profile.profile.result.profileSummary,
         countryName: newChangedProps.profile.profile.result.countryName,
         experience: newChangedProps.profile.profile.result.experience,
-        education: newChangedProps.profile.profile.result.education
+        education: newChangedProps.profile.profile.result.education,
+        profile_url:newChangedProps.profile.profile.result.profile_url,
       });
     }
   }
@@ -112,8 +114,9 @@ class Profile extends Component {
             );
           }
         });
-
+        console.log(this.state.profile_url)
     return (
+  
       <div>
         <MainNavbar />
         <br />
@@ -126,9 +129,7 @@ class Profile extends Component {
                 <div id="DIV_3" class="border" />{" "}
                 <a href="" id="A_4">
                   <img
-                    height="128"
-                    width="128"
-                    src="https://media.licdn.com/dms/image/C5603AQEqgYpgcdt-Sg/profile-displayphoto-shrink_200_200/0?e=1548288000&v=beta&t=2-VVqwm5PuvK-aSIOIVhiPMp0ErVpUB0vKTPEAH-yTM"
+                    src={this.state.profile_url} 
                     id="IMG_55"
                   />
                 </a>

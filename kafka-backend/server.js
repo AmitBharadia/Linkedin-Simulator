@@ -40,7 +40,7 @@ function handleTopicRequest(topic_name, fname) {
     var data = JSON.parse(message.value);
 
     fname.handle_request(data.data, function(err, res) {
-      console.log("Result :" + res + " Error : " + err);
+      console.log("Result :" + JSON.stringify(res) + " Error : " + err);
       var payloads = [
         {
           topic: data.replyTo,

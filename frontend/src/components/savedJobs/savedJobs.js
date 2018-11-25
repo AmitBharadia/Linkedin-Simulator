@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import {bindActionCreators} from 'redux';
 
 import * as myactions from '../../action/savedJobs';
-import Navbar from "../Common/Navbar";
+import MainNavBar from "../Common/MainNavbar";
 
 class savedJobs extends Component {
     constructor(props){
@@ -42,11 +42,39 @@ class savedJobs extends Component {
 
                 return (
                     <div key={item._id} >
-                    <h3 ><font color="blue" size="4"> {item.position} </font> </h3>
+                    {/* <h3 ><font color="blue" size="4"> {item.position} </font> </h3>
                     <p> location : {item.location} </p> 
                     <p> company : {item.company} </p>                     
-                    <p> description : {item.description} </p>    
+                    <p> description : {item.description} </p>     */}
 
+              <div class="card border-left-0">
+                <div class="card-body ">
+                  <h2 class="card-title text-primary">{item.position}</h2>
+                  <p class="card-text h4 font-weight-bold">{item.company}</p>
+                  <p class="card-text h4 font-weight-light">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="24px"
+                      height="24px"
+                      x="0"
+                      y="0"
+                      preserveAspectRatio="xMinYMin meet"
+                      class="artdeco-icon"
+                      focusable="false"
+                    >
+                      <path
+                        d="M8,4a2,2,0,1,0,2,2A2,2,0,0,0,8,4ZM8,7.13A1.13,1.13,0,1,1,9.13,6,1.13,1.13,0,0,1,8,7.13ZM8,1A5,5,0,0,0,3,6a5.37,5.37,0,0,0,.41,2S5.91,13,7.22,15.52A0.86,0.86,0,0,0,8,16H8a0.86,0.86,0,0,0,.78-0.48C10.09,13,12.59,8,12.59,8A5.37,5.37,0,0,0,13,6,5,5,0,0,0,8,1Zm2.88,6.24L8,12.92,5.12,7.24A3.49,3.49,0,0,1,4.88,6a3.13,3.13,0,0,1,6.25,0A3.49,3.49,0,0,1,10.88,7.24Z"
+                        class="small-icon"
+                      />
+                    </svg>
+                    {item.location}
+                  </p>
+
+                  <p class="card-text font-weight-light h4 pl-2">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
                     </div>
                 );
              });
@@ -65,8 +93,8 @@ class savedJobs extends Component {
 
          return (
             <div>
-                <Navbar />    
-                    <h1>Saved Jobs</h1>                   
+                <MainNavBar />    
+                    <h1 class="font-weight-light pl-5 pt-5 ml-5">Saved Jobs</h1>                   
 
                      <div class="container">
                      <div class="row">
