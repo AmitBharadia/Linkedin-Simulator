@@ -220,7 +220,11 @@ class allJobs extends Component {
       if (nextProps.allJobs.msg.length) {
         xx = nextProps.allJobs.msg.map((item, index) => {
           return (
-            <div key={item._id} onClick={() => this.myClick(item._id, index)}>
+            <div key={item._id} onClick={() => this.myClick(item._id, index)
+            //Action for Analytics
+            
+            
+            }>
               <div class="card border-left-0 ml-3">
                 <div class="card-body pl-5">
                   <h2 class="card-title text-primary">{item.position}</h2>
@@ -329,16 +333,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                  Salesforce IT accelerates the success of the Salesforce family
-                  through the best implementation of Salesforce on the planet.
-                  We value Trust, Scale, and Integration. We relentlessly pursue
-                  these values with the help of modern, lean, and self-governing
-                  Scrum teams. As part of Salesforce IT, you will play a key
-                  role in a smart, creative, and fun team. You will make a
-                  meaningful difference in product delivery. Come grow with us
-                  in an environment where professional development is
-                  encouraged, volunteerism is the norm, and innovation is a
-                  daily occurrence.
+                {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>

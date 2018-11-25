@@ -9,6 +9,11 @@ class JobFiltersNavBar extends Component {
 
   onSubmit(values) {
     console.log(values);
+    var companyList=[]
+    if(values["Google"]){
+      companyList.push("google")
+    }
+    values["company"]=companyList;
     this.props.filter(values);
   }
 
@@ -118,9 +123,10 @@ class JobFiltersNavBar extends Component {
                         <Field
                           className="form-control form-control-lg"
                           placeholder="Search"
-                          type="checkbox"
-                          name="intern"
-                          label="Intern"
+                          type="radio"
+                          name="experience"
+                          label=" Intern "
+                          value="intern"
                           component={this.renderField}
                         />
                       </a>
@@ -128,9 +134,10 @@ class JobFiltersNavBar extends Component {
                         <Field
                           className="form-control form-control-lg"
                           placeholder="Search"
-                          type="checkbox"
-                          name="entry"
+                          type="radio"
+                          name="experience"
                           label="Entry"
+                          value="entry"
                           component={this.renderField}
                         />
                       </a>
@@ -138,9 +145,10 @@ class JobFiltersNavBar extends Component {
                         <Field
                           className="form-control form-control-lg"
                           placeholder="Search"
-                          type="checkbox"
-                          name="medium"
+                          type="radio"
+                          name="experience"
                           label="Medium"
+                          value="medium"
                           component={this.renderField}
                         />
                       </a>
@@ -148,9 +156,10 @@ class JobFiltersNavBar extends Component {
                         <Field
                           className="form-control form-control-lg"
                           placeholder="Search"
-                          type="checkbox"
-                          name="expert"
+                          type="radio"
+                          name="experience"
                           label="Expert"
+                          value="expert"
                           component={this.renderField}
                         />
                       </a>
@@ -196,33 +205,11 @@ class JobFiltersNavBar extends Component {
     );
   }
 
-  renderField(field) {
-    //console.log("Field Details : " + JSON.stringify(field));
-    const {
-      meta: { touched, error },
-      type,
-      placeholder,
-      value
-    } = field;
-    const className = `form-group form-control-lg ${
-      touched && error ? "has-danger" : ""
-    }`;
-    console.log("className : " + className);
-    return (
-      <div class="form-group form-control-lg has-danger">
-        <label>{field.label}</label>
-        <input
-          class="form-control form-control-lg border border border-dark"
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          {...field.input}
-        />
-        <div class={{ className }}>{touched ? error : ""}</div>
-      </div>
-    );
-  }
+
+
 }
+const optionsList = [{id: 1, name: 'Optoin1'}, {id: 2, name: 'Option 2'}, {id: 3, name: 'Option 3'}]     
+
 
 export default reduxForm({
   form: "FiltersSearchForm"

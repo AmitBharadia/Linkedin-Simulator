@@ -65,13 +65,11 @@ app.use("/signin", signinRouter);
 var getAllJobsRouter = require("./routes/getAllJobs");
 app.use("/getAllJobs", requireAuth, getAllJobsRouter);
 
-
 var getPostedJobsRouter = require("./routes/getPostedJobs");
 app.use("/myPostedJobs", getPostedJobsRouter);
 
 var savejobRouter = require("./routes/savejob");
 app.use("/save", requireAuth, savejobRouter);
-
 
 var applyjobRouter = require("./routes/applyjob");
 app.use("/apply", requireAuth, applyjobRouter);
@@ -109,7 +107,6 @@ app.use("/clicksOnJobs", cache.route(), clicksOnJobsRouter);
 
 var deleteProfileRouter = require("./routes/deleteProfile");
 app.use("/deleteProfile", deleteProfileRouter);
-
 
 // var getImageRouter = require('./routes/getImage');
 // app.use('/getImage', getImageRouter);
