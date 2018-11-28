@@ -37,7 +37,7 @@ class MainNavbar extends Component {
 
   onSubmit(values) {
     console.log(values);
-    this.props.searchPeople(values);
+    this.props.searchPeople(values,this.props.history);
   }
 
   render() {
