@@ -28,6 +28,7 @@ import Admin from "./components/Admin/admin";
 import postJob from "./components/Post Jobs/index";
 
 import GetPostedJobs from "./components/Post Jobs/getPostedJobs";
+import Messaging from "./components/Messagging/index";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -53,6 +54,7 @@ ReactDOM.render(
         <Route path="/allConnections" component={AllConnections} />
 
         <Route path="/myJobPosts" component={GetPostedJobs} />
+        <Route path="/messaging" component={Messaging}></Route>
       </div>
     </Router>
   </Provider>,
