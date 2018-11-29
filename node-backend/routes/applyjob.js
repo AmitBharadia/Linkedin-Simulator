@@ -3,7 +3,6 @@ var router = express.Router();
 var kafka = require("../kafka/client");
 var {verifyToken}=require("./verifyToken");
 
-
 router.post("/", async function(req, res, next) {
   
   console.log(req.headers.authorization);
@@ -12,11 +11,12 @@ router.post("/", async function(req, res, next) {
   if(verify.status == "error")
       res.send( { status:"error" , msg: verify.msg });
   else{    
-  //send body to kafka server
+
+    //recruiter_id, job_id, applicant_id, city, applied_date, job_name , resume(file link) , email address , workAuthorization (yes/no) ,  H1BSponsorship(yes/no)
   kafka.make_request(
     "applyjob",
     "response_topic",
-    { job_id : req.body.job_id , applicant_id:verify.msg },
+    { details:req.body , applicant_id:verify.msg   },
     function(err, result) {
       
         if (err){
