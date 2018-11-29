@@ -30,6 +30,11 @@ var postedJobs = require("./services/postedJobs");
 var deleteProfile = require("./services/deleteProfile");
 var getAllConnection = require("./services/getAllConnection");
 
+var getChatList= require("./services/getChatList");
+var getMessageDetails = require("./services/getMessageDetails");
+var sendMessage=require("./services/sendMessage");
+var getBasicDetails=require("./services/getBasicDetails");
+
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
@@ -40,7 +45,7 @@ function handleTopicRequest(topic_name, fname) {
     var data = JSON.parse(message.value);
 
     fname.handle_request(data.data, function(err, res) {
-      console.log("Result :" + res + " Error : " + err);
+      console.log("Result :" + JSON.stringify(res) + " Error : " + err);
       var payloads = [
         {
           topic: data.replyTo,
@@ -92,3 +97,8 @@ handleTopicRequest("post_job", postJobs);
 handleTopicRequest("posted_job", postedJobs);
 
 handleTopicRequest("post_delete", deleteProfile);
+
+handleTopicRequest("getChatList",getChatList);
+handleTopicRequest("getMessageDetails",getMessageDetails);
+handleTopicRequest("sendMessage",sendMessage)
+handleTopicRequest("getBasicDetails",getBasicDetails)

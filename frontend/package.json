@@ -8,6 +8,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.5.2",
     "react-cookies": "^0.1.0",
+    "react-country-region-selector": "^1.4.2",
     "react-date-picker": "^7.0.0",
     "react-dom": "^16.5.2",
     "react-dropdown-date": "0.0.16",

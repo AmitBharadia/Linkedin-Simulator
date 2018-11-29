@@ -8,6 +8,7 @@ import { bindActionCreators } from "redux";
 import * as myactions from "../../action/allJobs";
 import MainNavbar from "../Common/MainNavbar";
 import JobFiltersNavBar from "../Common/JobFiltersNavBar";
+
 import "./allJobs.css";
 
 class allJobs extends Component {
@@ -18,7 +19,6 @@ class allJobs extends Component {
       xx: "",
       yy: "",
       savedjobs: [],
-
       company: "",
       easyApply: true,
       position: "",
@@ -57,74 +57,67 @@ class allJobs extends Component {
     if (status) {
       let yy = (
         <div class="">
-              <div class="card flex-row flex-wrap border-right-0 border-left-0">
-                <div class="card-header border-0">
-                  <img src={this.state.allJobs[index].company_logo} alt="" />
-                </div>
-                <div class="card-block px-2 pt-5 pl-5">
-                  <h1 class="card-title">
-                    {" "}
-                    {this.state.allJobs[index].position}{" "}
-                  </h1>
-                  <h3 class="card-title font-weight-light">
-                    {" "}
-                    {this.state.allJobs[index].location}
-                  </h3>
-                  <div class="mt-5 pt-3">
-                    <button
-                      type="button"
-                      class="btn btn-lg btn-outline-primary mr-3"
-                                  onClick={() => this.props.UNSAVE(job_uuid)}
-                    >
-                      <h3>Unsave</h3>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-lg btn-primary"
-                      onClick={() => this.apply(job_uuid)}
-                    >
-                      <h3>Apply</h3>
-                    </button>
-                  </div>
-                </div>
-                <div class="w-100" />
-                <div class="card-group text-left w-100 ">
-                  <div class="card border-left-0">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Job</h3>
-                      <p class="card-text h5 font-weight-light">15 Applicant</p>
-                      <p class="card-text h5 font-weight-light">
-                        Experience Level
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Company</h3>
-                      <p class="card-text h5 font-weight-light">
-                        1504 Employee
-                      </p>
-                      <p class="card-text h5 font-weight-light">Internet</p>
-                    </div>
-                  </div>
-                  <div class="card border-right-0 ">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Connection</h3>
-                      <p class="card-text h5 font-weight-light">1 Connection</p>
-                      <p class="card-text h5 font-weight-light">
-                        125 Company Alumini
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="pt-5">
-                <h2 class="font-weight-light">Job description</h2>
-                <h4 class="font-weight-light">
-                  {this.state.allJobs[index].description}
-                </h4>
+          <div class="card flex-row flex-wrap border-right-0 border-left-0">
+            <div class="card-header border-0">
+              <img src={this.state.allJobs[index].company_logo} alt="" />
+            </div>
+            <div class="card-block px-2 pt-5 pl-5">
+              <h1 class="card-title"> {this.state.allJobs[index].position} </h1>
+              <h3 class="card-title font-weight-light">
+                {" "}
+                {this.state.allJobs[index].location}
+              </h3>
+              <div class="mt-5 pt-3">
+                <button
+                  type="button"
+                  class="btn btn-lg btn-outline-primary mr-3"
+                  onClick={() => this.props.UNSAVE(job_uuid)}
+                >
+                  <h3>Unsave</h3>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-lg btn-primary"
+                  onClick={() => this.apply(job_uuid)}
+                >
+                  <h3>Apply</h3>
+                </button>
               </div>
             </div>
+            <div class="w-100" />
+            <div class="card-group text-left w-100 ">
+              <div class="card border-left-0">
+                <div class="card-body">
+                  <h3 class="card-title font-weight-light">Job</h3>
+                  <p class="card-text h5 font-weight-light">15 Applicant</p>
+                  <p class="card-text h5 font-weight-light">Experience Level</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title font-weight-light">Company</h3>
+                  <p class="card-text h5 font-weight-light">1504 Employee</p>
+                  <p class="card-text h5 font-weight-light">Internet</p>
+                </div>
+              </div>
+              <div class="card border-right-0 ">
+                <div class="card-body">
+                  <h3 class="card-title font-weight-light">Connection</h3>
+                  <p class="card-text h5 font-weight-light">1 Connection</p>
+                  <p class="card-text h5 font-weight-light">
+                    125 Company Alumini
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5">
+            <h2 class="font-weight-light">Job description</h2>
+            <h4 class="font-weight-light">
+              {this.state.allJobs[index].description}
+            </h4>
+          </div>
+        </div>
       );
       console.log(yy);
       this.setState({ yy });
@@ -227,7 +220,11 @@ class allJobs extends Component {
       if (nextProps.allJobs.msg.length) {
         xx = nextProps.allJobs.msg.map((item, index) => {
           return (
-            <div key={item._id} onClick={() => this.myClick(item._id, index)}>
+            <div key={item._id} onClick={() => this.myClick(item._id, index)
+            //Action for Analytics
+            
+            
+            }>
               <div class="card border-left-0 ml-3">
                 <div class="card-body pl-5">
                   <h2 class="card-title text-primary">{item.position}</h2>
@@ -336,16 +333,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                  Salesforce IT accelerates the success of the Salesforce family
-                  through the best implementation of Salesforce on the planet.
-                  We value Trust, Scale, and Integration. We relentlessly pursue
-                  these values with the help of modern, lean, and self-governing
-                  Scrum teams. As part of Salesforce IT, you will play a key
-                  role in a smart, creative, and fun team. You will make a
-                  meaningful difference in product delivery. Come grow with us
-                  in an environment where professional development is
-                  encouraged, volunteerism is the norm, and innovation is a
-                  daily occurrence.
+                {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>
@@ -420,7 +408,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                {nextProps.allJobs.msg[0].description}
+                  {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>
@@ -442,37 +430,6 @@ class allJobs extends Component {
       <div>
         <MainNavbar />
         <JobFiltersNavBar />
-        <div>
-          {/* <label class="maincontainer">
-            {" "}
-            Easy Apply
-            <input
-              type="checkbox"
-              name="easyApply"
-              onChange={this.setEasyApply.bind(this)}
-            />
-            <span class="checkmark" />
-          </label>
-
-          <input
-            type="text"
-            placeholder="position"
-            name="position"
-            onChange={this.onChange}
-          />
-          <input
-            type="text"
-            placeholder="company"
-            name="company"
-            onChange={this.onChange}
-          />
-          <input
-            type="text"
-            placeholder="location"
-            name="location"
-            onChange={this.onChange}
-          /> */}
-        </div>
 
         <div class="container-fluid">
           <div class="row">

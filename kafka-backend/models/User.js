@@ -25,6 +25,8 @@ var User = mongoose.model("users", {
   },
   last_name: {
     type: String
+  }, profile_url: {
+    type: String
   },
   type: {
     type: String,
