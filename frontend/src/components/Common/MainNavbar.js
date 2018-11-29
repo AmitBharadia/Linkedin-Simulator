@@ -10,6 +10,7 @@ import { logout } from "../../action/logout";
 import axios from "axios";
 import * as CONST from "../../Const/index";
 
+
 class MainNavbar extends Component {
   constructor(props) {
     super();
@@ -37,7 +38,7 @@ class MainNavbar extends Component {
 
   onSubmit(values) {
     console.log(values);
-    this.props.searchPeople(values,this.props.history);
+    this.props.searchPeople(values, this.props.history);
   }
 
   render() {
@@ -111,7 +112,7 @@ class MainNavbar extends Component {
                       <path
                         d="M22,8.45L12.85,2.26a1.5,1.5,0,0,0-1.69,0L2,8.45,3.06,10,4,9.37V19a1,1,0,0,0,1,1h5V15h4v5h5a1,1,0,0,0,1-1V9.37L20.94,10Z"
                         class="active-item svg-icon"
-                        //style={"fill-opacity: 1"}
+                      //style={"fill-opacity: 1"}
                       />
                       <path
                         d="M22,9.45L12.85,3.26a1.5,1.5,0,0,0-1.69,0L2,9.45,3.06,11,4,10.37V20a1,1,0,0,0,1,1h6V16h2v5h6a1,1,0,0,0,1-1V10.37L20.94,11ZM18,19H15V15a1,1,0,0,0-1-1H10a1,1,0,0,0-1,1v4H6V8.89l6-4,6,4V19Z"
@@ -126,8 +127,8 @@ class MainNavbar extends Component {
             <li className="nav-item">
               {" "}
               <a className="nav-link text-light text-center pb-0 pt-0" href="#" onClick={() => {
-                  browserHistory.push("/connections");
-                }}>
+                browserHistory.push("/connections");
+              }}>
                 <svg
                   viewBox="0 0 24 24"
                   width="24px"
@@ -149,17 +150,17 @@ class MainNavbar extends Component {
                   />
                 </svg>
                 <h4>My Networks</h4>
-               
+
               </a>{" "}
             </li>
             <li className="nav-item">
               {" "}
-              <a className="nav-link text-light text-center pb-0 pt-0" href="#"  onClick={e => {
-                      localStorage.getItem("type") == "recruiter"
-                      ?  browserHistory.push("/postJob")
-                      :  browserHistory.push("/allJobs");
-                     
-                    }}>
+              <a className="nav-link text-light text-center pb-0 pt-0" href="#" onClick={e => {
+                localStorage.getItem("type") == "recruiter"
+                  ? browserHistory.push("/postJob")
+                  : browserHistory.push("/allJobs");
+
+              }}>
                 <svg
                   viewBox="0 0 24 24"
                   width="24px"
@@ -191,7 +192,11 @@ class MainNavbar extends Component {
             </li>
             <li className="nav-item">
               {" "}
-              <a className="nav-link text-light text-center pt-0 pb-0" href="#">
+
+              <a className="nav-link text-light text-center pt-0 pb-0" href="#" onClick={() => {
+                browserHistory.push("/messaging")
+              }}>
+
                 <svg
                   viewBox="0 0 24 24"
                   width="24px"
@@ -213,6 +218,8 @@ class MainNavbar extends Component {
                   />
                 </svg>
                 <h4>Messaging</h4>
+
+
               </a>{" "}
             </li>
             <li className="nav-item dropdown">
@@ -222,19 +229,19 @@ class MainNavbar extends Component {
                 id="navbarDropdown"
                 data-toggle="dropdown"
               >
-                <h4>Me</h4>
+                <h4>{localStorage.getItem("first_name") || "Me"}</h4>
               </a>
               <div class="dropdown-menu">
-              
+
                 <a
-                    class="dropdown-item"
-                    href="#"
-                    onClick={e => {
-                      browserHistory.push("/profile/"+localStorage.getItem("id"));
-                    }}
-                  >
-                    <h5>My Profile</h5>
-                  </a>
+                  class="dropdown-item"
+                  href="#"
+                  onClick={e => {
+                    browserHistory.push("/profile/" + localStorage.getItem("id"));
+                  }}
+                >
+                  <h5>My Profile</h5>
+                </a>
                 {localStorage.getItem("type") == "recruiter" && (
                   <a
                     class="dropdown-item"
@@ -285,7 +292,7 @@ class MainNavbar extends Component {
     } = field;
     const className = `form-group form-control-lg ${
       touched && error ? "has-danger" : ""
-    }`;
+      }`;
     console.log("className : " + className);
     return (
       <div class="form-group form-control-lg has-danger">

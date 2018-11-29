@@ -1,74 +1,90 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MainNavbar from "../Common/MainNavbar";
-import "./index.css"
+import axios from "axios";
+import * as CONST from "../../Const/index";
+
+import "./index.css";
 class Messaging extends Component {
     constructor(props) {
         super(props);
         this.state = {
             "peopleList": [],
-            "chat_reciever_id": "2",
-            "messageList": []
+            "messageList": [],
+            "message": "",
+            "currentChatBuddy": ""
+        }
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        axios
+            .get(CONST.ROOT_URL + "/chatList", {
+                params: { id: localStorage.getItem("id") }
+            })
+            .then(res => {
+                console.log("Status: " + res.status);
+                console.log("Data: " + JSON.stringify(res.data.data));
+                if (res.status == 200) {
+                    this.setState({
+                        peopleList: res.data.data
+                    });
+                }
+            });
+
+
+
+    }
+    updateMessageList(id2) {
+        axios
+            .get(CONST.ROOT_URL + "/messages", {
+                params: { id1: localStorage.getItem("id"), id2: id2 }
+            })
+            .then(res => {
+                console.log("Status: " + res.status);
+                console.log("Data: " + JSON.stringify(res.data.data));
+                if (res.status == 200) {
+                    this.setState({
+                        messageList: res.data.data,
+                        message:""
+                    });
+                }
+            });
+    }
+
+    onSubmit() {
+        if (this.state.message != "" && localStorage.getItem("id") ) {
+            axios
+                .post(CONST.ROOT_URL + "/sendMessage", {
+                    desc: this.state.message,
+                    from_id: localStorage.getItem("id"),
+                    to_id: this.state.currentChatBuddy.id,
+                    from_name: localStorage.getItem('first_name'),
+                    to_name: this.state.currentChatBuddy.name
+                })
+                .then(res => {
+                    console.log("Status: " + res.status);
+                    console.log("Data: " + JSON.stringify(res.data.data));
+                    if (res.status == 200) {
+                        this.updateMessageList(this.state.currentChatBuddy.id);   
+                         
+                    }   
+                });
         }
     }
 
-    componentDidMount(){
-        this.setState({
-            peopleList:[{
-                "id": "2",
-                "name": "Sunil Rajput",
-                "img_src": "https://ptetutorials.com/images/user-profile.png"
-            }, {
-                "id": "3",
-                "name": "Sunil Rajput",
-                "img_src": "https://ptetutorials.com/images/user-profile.png"
-            }, {
-                "id": "4",
-                "name": "Sunil Rajput",
-                "img_src": "https://ptetutorials.com/images/user-profile.png"
-            }]
-        })
-    }
-    updateMessageList(id ){
-        this.setState({
-            "messageList": [
-                {
-                    "_id": "5bfe4fa472323e1a5bb28c24qwe",
-                    "from_id":id,
-                    "to_id": "1",
-                    "desc": "Hi 1",
-                    "date": "2016-05-18T16:00:00Z"
-                },
-                {
-                    "_id": "5bfe4fa472323e1a5bb28c2qwe4",
-                    "from_id": "1",
-                    "to_id": id,
-                    "desc": "Hi "+id,
-                    "date": "2016-05-18T16:00:00Z"
-                }, {
-                    "_id": "5bfe4fa472323e1qwea5bb28c24",
-                    "from_id": id,
-                    "to_id": "1",
-                    "desc": "how are you? 1",
-                    "date": "2016-05-18T16:00:00Z"
-                }
-            ]
-
-        })
-    }
     render() {
-        localStorage.setItem("id", "1");
-
         var chatListDiv = "";
         var messgeListDiv = "";
-        if (this.state.peopleList) {
+        if (this.state.peopleList.length > 0) {
             chatListDiv = this.state.peopleList.map((people) => {
                 return (
-                    <div class="chat_list" onClick={()=>{
-                        // this.setState({
-                        //     chat_reciever_id: people.id
-                        // })
-                            this.updateMessageList(people.id)
+                    <div class="chat_list" onClick={() => {
+                        this.setState({
+                            currentChatBuddy: people
+                        })
+
+                        this.updateMessageList(people.id)
                     }}>
                         <div class="chat_people">
                             <div class="chat_img"> <img src={people.img_src} /> </div>
@@ -90,15 +106,15 @@ class Messaging extends Component {
                             <div class="received_msg">
                                 <div class="received_withd_msg">
                                     <p>{message.desc}</p>
-                                    <span class="time_date"> {message.date}</span></div>
+                                    <span class="time_date"> {message.post_date}</span></div>
                             </div>
                         </div>
                     );
                 } else {
                     return (<div class="outgoing_msg" >
                         <div class="sent_msg">
-                        <p>{message.desc}</p>
-                            <span class="time_date">{message.date}</span> </div>
+                            <p>{message.desc}</p>
+                            <span class="time_date">{message.post_date}</span> </div>
                     </div >);
                 }
 
@@ -109,7 +125,7 @@ class Messaging extends Component {
             <div>
                 <MainNavbar></MainNavbar>
                 <div class="container">
-                    <h3 class=" text-center">Messaging</h3>
+        
                     <div class="messaging">
                         <div class="inbox_msg">
                             <div class="inbox_people">
@@ -117,13 +133,13 @@ class Messaging extends Component {
                                     <div class="recent_heading">
                                         <h4>Recent</h4>
                                     </div>
-                                    <div class="srch_bar">
+                                    {/* <div class="srch_bar">
                                         <div class="stylish-input-group">
                                             <input type="text" class="search-bar" placeholder="Search" />
                                             <span class="input-group-addon">
                                                 <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                                             </span> </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div class="inbox_chat">
                                     {chatListDiv}
@@ -135,15 +151,19 @@ class Messaging extends Component {
                                 </div>
                                 <div class="type_msg">
                                     <div class="input_msg_write">
-                                        <input type="text" class="write_msg" placeholder="Type a message" />
-                                        <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                        <input type="text" class="write_msg"  value={this.state.message} placeholder="Type a message" onChange={(e) => {
+                                            this.setState({
+                                                message: e.target.value
+                                            })
+                                        }} />
+                                        <button class="msg_send_btn" type="button" onClick={this.onSubmit}><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
 
-                        <p class="text-center top_spac"> Design by <a target="_blank" href="#">Sunil Rajput</a></p>
+
 
                     </div></div>
             </div>
