@@ -19,14 +19,14 @@ export default {
     width: "70%",
     height: "70%",
     marginTop: "20px",
-    marginLeft: "30px",
+    marginLeft: "50px",
     borderRadius: "50%"
   },
   cardtext: {
     textAlign: "center",
     lineHeight: "1.6rem!important",
     maxHeight: "3.2rem",
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     fontWeight: "400",
     color: "rgba(0,0,0,.6)"
   },

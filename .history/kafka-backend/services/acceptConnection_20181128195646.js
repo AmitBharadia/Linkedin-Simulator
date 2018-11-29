@@ -20,7 +20,7 @@ function handle_request(msg, callback) {
         connect_first_name: msg.connectUser.request_first_name,
         connect_last_name: msg.connectUser.request_last_name,
         connect_summary: msg.connectUser.request_summary,
-        connect_photo: msg.connectUser.request_photo
+        connect_photo: "uploads/img"
       });
 
       newConnection

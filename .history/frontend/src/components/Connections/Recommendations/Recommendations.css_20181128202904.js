@@ -26,7 +26,7 @@ export default {
     textAlign: "center",
     lineHeight: "1.6rem!important",
     maxHeight: "3.2rem",
-    fontSize: "1.5rem",
+    fontSize: "2.2rem",
     fontWeight: "400",
     color: "rgba(0,0,0,.6)"
   },

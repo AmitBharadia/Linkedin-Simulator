@@ -12,14 +12,11 @@ function handle_request(msg, callback) {
   console.log("Message body:" + JSON.stringify(msg));
   Connection.find({ user_id: msg }, { connect_user_id: 1 }, (err, existing) => {
     User.find(
-      {
-        _id: {
-          $not: {
-            $in: existing
-          },
-          $ne: msg
-        }
-      },
+      { _id:{"$not": {
+        "$in": existing
+    },
+    "$ne": msg
+}}},
       {
         first_name: 1,
         last_name: 1,

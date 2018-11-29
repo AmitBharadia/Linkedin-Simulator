@@ -10,14 +10,11 @@ function handle_request(msg, callback) {
     "=====================In the kafka-backend get Recommendation====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  Connection.find({ user_id: msg }, { connect_user_id: 1 }, (err, existing) => {
+  Connection.find({ user_id: msg }, { connect_user_id }, (err, existing) => {
     User.find(
       {
-        _id: {
-          $not: {
-            $in: existing
-          },
-          $ne: msg
+        $not: {
+          $in: existing
         }
       },
       {

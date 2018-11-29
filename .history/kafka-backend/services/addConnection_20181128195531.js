@@ -25,7 +25,7 @@ function handle_request(msg, callback) {
             request_first_name: profile.first_name,
             request_last_name: profile.last_name,
             request_summary: profile.profileSummary,
-            request_photo: profile.profile_url
+            request_photo: "/uploads/photo1"
           });
           newInvitation
             .save()

@@ -36,7 +36,7 @@ class Recommendations extends Component {
             <div class="card" style={{ height: "320px" }}>
               <img
                 class="card-img-top"
-                src={recommendation.profile_url}
+                src={recommendation.}
                 alt="Card image"
                 style={style1.cardimage}
               />
