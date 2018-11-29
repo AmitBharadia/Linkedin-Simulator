@@ -3,10 +3,12 @@ import MainNavbar from "../Common/MainNavbar";
 import ModalProfile from "./ModalProfile";
 import ModalExperience from "./ModalExperience";
 import ModalEducation from "./ModalEducation";
+import ModalMessage from "./ModalMessage";
 import { dummy } from "../../action/dummy";
 import { connect } from "react-redux";
 import "./prof.css";
 import { getprofile } from "../../action/profile";
+
 import jobsFormThird from "../Post Jobs/jobsFormThird";
 
 class Profile extends Component {
@@ -154,6 +156,10 @@ class Profile extends Component {
                     </div>
                     <div class="col">
                       <ModalProfile
+                        class="float-right"
+                        profileData={this.state.data}
+                      />
+                      <ModalMessage
                         class="float-right"
                         profileData={this.state.data}
                       />

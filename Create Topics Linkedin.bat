@@ -15,7 +15,6 @@ call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic get_cityWise
 
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic post_job
-call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic delete_profile
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic profile
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getprofile
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic post_delete
@@ -35,5 +34,10 @@ call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getsavedjobs
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic savejob
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic posted_job
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic response_topic
 
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getChatList
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getMessageDetails
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic sendMessage
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getBasicDetails
 PAUSE

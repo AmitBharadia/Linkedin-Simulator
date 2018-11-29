@@ -79,11 +79,11 @@ var postJobsRouter = require("./routes/postJobs");
 app.use("/postJob", postJobsRouter);
 
 var dummyRouter = require("./routes/dummy");
-app.use("/dummy", requireAuth, dummyRouter);
+app.use("/dummy", dummyRouter);
 
 var searchPeopleRouter = require("./routes/searchPeople");
 
-app.use("/search-people",searchPeopleRouter);
+app.use("/search-people", searchPeopleRouter);
 
 //app.use("/search-people", cache.route(), searchPeopleRouter);
 
@@ -115,22 +115,28 @@ var top10JobsRouter = require("./routes/top10Jobs");
 app.use("/top10jobs", top10JobsRouter);
 
 var savedJobsRouter = require("./routes/savedJobs");
-app.use("/savedJobs",savedJobsRouter);
+app.use("/savedJobs", savedJobsRouter);
 
 var cityWiseJobsRouter = require("./routes/citywise");
-app.use("/cityWiseJobs",cityWiseJobsRouter);
+app.use("/cityWiseJobs", cityWiseJobsRouter);
 
 var clicksOnJobsRouter = require("./routes/clicks");
-app.use("/clicksOnJobs",clicksOnJobsRouter);
-
-
-
+app.use("/clicksOnJobs", clicksOnJobsRouter);
 
 var deleteProfileRouter = require("./routes/deleteProfile");
 app.use("/deleteProfile", deleteProfileRouter);
 
-// var getImageRouter = require('./routes/getImage');
-// app.use('/getImage', getImageRouter);
+var chatListRouter = require("./routes/chatList");
+app.use("/chatList", chatListRouter);
+
+var messageDetailsRouter = require("./routes/messageDetails");
+app.use("/messages", messageDetailsRouter);
+
+var sendMessageRouter = require("./routes/sendMessage");
+app.use("/sendMessage", sendMessageRouter);
+
+var getBasicDetailsRouter = require("./routes/getBasicDetails");
+app.use("/basic-details", getBasicDetailsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
