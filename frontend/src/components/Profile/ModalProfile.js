@@ -45,13 +45,6 @@ class ModalProfile extends Component {
     console.log("Selected Country", this.state.selectedCountry);
   }
   onSubmit(values) {
-    // console.log("Onsubmit values of profile", values);
-    // //this.props.signIn(values);
-    // const data = {
-    //   values
-    // };
-    // console.log("Onsubmit data of profile", data);
-    // this.props.profile(data);
 
 
     console.log(values);
