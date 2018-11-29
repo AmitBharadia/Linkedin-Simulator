@@ -24,11 +24,11 @@ import allJobs from "./components/allJobs/allJobs";
 import savedJobs from "./components/savedJobs/savedJobs";
 import jobApply from "./components/jobApply/jobApply";
 
-import Profile from "./components/Profile/Profile";
 import Admin from "./components/Admin/admin";
 import postJob from "./components/Post Jobs/index";
 
 import GetPostedJobs from "./components/Post Jobs/getPostedJobs";
+import Messaging from "./components/Messagging/index";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -52,10 +52,9 @@ ReactDOM.render(
         <Route path="/connections" component={Connections} />
         <Route path="/admin" component={Admin} />
         <Route path="/allConnections" component={AllConnections} />
-        <Route path="/profile/:id" component={Profile} />
 
-        <Route path="/admin" component={Admin} />
         <Route path="/myJobPosts" component={GetPostedJobs} />
+        <Route path="/messaging" component={Messaging}></Route>
       </div>
     </Router>
   </Provider>,

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 var CONST = require("../const");
+const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
@@ -16,29 +17,24 @@ mongoose.connect(
   }
 );
 
-var Savedjobs = mongoose.model("savedjobs", {
-  job_id: {
-    type: String,
-    required: true
-  },
-  applicant_id: {
-      type: String
-  },
-  recruiter_id:{
+var Message = mongoose.model("messages", {
+  from_id: {
     type: String
   },
-  position:{
-   type:String 
-  },
-  company:{
-    type:String
-  },
-  location:{
+  from_name: {
     type: String
   },
-  savedDate:{ type:Date ,  default: new Date() }
-
-  
+  to_id: {},
+  to_name: {
+    type: String
+  },
+  desc: {
+    type: String
+  },
+  post_date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-module.exports = { Savedjobs };
+module.exports = { Message };

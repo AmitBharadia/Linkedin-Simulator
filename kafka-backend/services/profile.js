@@ -1,4 +1,4 @@
-const Profile = require("../models/Profile");
+
 var { User } = require("../models/User");
 var mongoose = require("mongoose");
 function handle_request(msg, callback) {
@@ -9,41 +9,45 @@ function handle_request(msg, callback) {
   const profileData = {};
   const newExp = {};
   const newEdu = {};
+  //msg.values = msg;
 
-  if (msg.values) {
-    if (msg.values.firstName) {
-      profileData.first_name = msg.values.firstName;
+
+    if (msg.profile_url) {
+      profileData.profile_url = msg.profile_url;
     }
-    if (msg.values.lastName) {
-      profileData.last_name = msg.values.lastName;
+    if (msg.firstName) {
+      profileData.first_name = msg.firstName;
     }
-    if (msg.values.profileHeadline) {
-      profileData.profileHeadline = msg.values.profileHeadline;
+    if (msg.lastName) {
+      profileData.last_name = msg.lastName;
     }
-    if (msg.values.profileEducation) {
-      profileData.profileEducation = msg.values.profileEducation;
+    if (msg.profileHeadline) {
+      profileData.profileHeadline = msg.profileHeadline;
     }
-    if (msg.values.Zipcode) {
-      profileData.Zipcode = msg.values.Zipcode;
+    if (msg.profileEducation) {
+      profileData.profileEducation = msg.profileEducation;
     }
-    if (msg.values.profileLocation) {
-      profileData.profileLocation = msg.values.profileLocation;
+    if (msg.Zipcode) {
+      profileData.Zipcode = msg.Zipcode;
     }
-    if (msg.values.profileIndustry) {
-      profileData.profileIndustry = msg.values.profileIndustry;
+    if (msg.profileLocation) {
+      profileData.profileLocation = msg.profileLocation;
     }
-    if (msg.values.profileContact) {
-      profileData.profileContact = msg.values.profileContact;
+    if (msg.profileIndustry) {
+      profileData.profileIndustry = msg.profileIndustry;
     }
-    if (msg.values.profileSummary) {
-      profileData.profileSummary = msg.values.profileSummary;
+    if (msg.profileContact) {
+      profileData.profileContact = msg.profileContact;
+    }
+    if (msg.profileSummary) {
+      profileData.profileSummary = msg.profileSummary;
     }
     if (msg.countryName) {
       profileData.countryName = msg.countryName;
     }
 
     console.log("Profile logggggs", profileData);
-
+    if(msg.values){
     if (
       msg.values.experienceTitle ||
       msg.values.experienceCompany ||
@@ -94,7 +98,7 @@ function handle_request(msg, callback) {
       );
       console.log("++++++++++++++++++++++++++++++++++***********************");
     }
-
+  }
     User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }).then(profile => {
       if (profile) {
         if (profileData) {
@@ -143,7 +147,6 @@ function handle_request(msg, callback) {
         );
       }
     });
-  }
 }
 
 exports.handle_request = handle_request;

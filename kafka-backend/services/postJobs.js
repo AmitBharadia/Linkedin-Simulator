@@ -29,12 +29,13 @@ async function handle_request(msg, callback) {
                     console.log("Unable to insert data");
                     callback("Unable to insert data", null);
                 }
+                console.log(
+                    "============================Out of the kafka-backend Post Jobs====================="
+                );
+            
 
         });
-    console.log(
-        "============================Out of the kafka-backend Post Jobs====================="
-    );
-
+   
 }
 
 exports.handle_request = handle_request;
