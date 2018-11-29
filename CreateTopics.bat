@@ -1,7 +1,7 @@
 ECHO OFF
 ECHO Creating topics
 d:
-cd /setup SJSU laptop/kafka_2.11-1.1.0/bin/windows
+cd C:/Users/vamsh/Pictures/kafka/bin/windows
 
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic post_signup
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic post_signin
@@ -40,4 +40,7 @@ call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getMessageDetails
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic sendMessage
 call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic getBasicDetails
+
+call kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic jobview
+
 PAUSE
