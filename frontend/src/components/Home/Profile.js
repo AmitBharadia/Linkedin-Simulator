@@ -12,13 +12,13 @@ class Profile extends Component {
             <a href="" id="A_4">
               <img
 
-                src=""
+                src={localStorage.getItem("profile_url") || ""}
                 id="IMG_5"
               />
             </a>{" "}
             <a href="" id="A_6">
               {" "}
-              <span id="SPAN_7">User Name</span>
+              <span id="SPAN_7">{localStorage.getItem("first_name") + " " + localStorage.getItem("last_name")}</span>
             </a>
             <p id="P_8">User Details</p>
           </div>
