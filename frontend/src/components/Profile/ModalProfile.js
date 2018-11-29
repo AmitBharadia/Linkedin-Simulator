@@ -46,7 +46,6 @@ class ModalProfile extends Component {
   }
   onSubmit(values) {
 
-
     console.log(values);
     var form_data = new FormData();
     var files;
@@ -57,12 +56,12 @@ class ModalProfile extends Component {
       }
     });
     form_data.append("id", localStorage.getItem("id"));
-    if(files){
+    if (files) {
       files.forEach(file => {
         form_data.append("files", file);
       });
     }
-   
+
     // We can not print out the form data values
     this.props.profile(form_data);
   }
@@ -120,13 +119,13 @@ class ModalProfile extends Component {
               <div style={styles}>
                 <div class="ml-5 mr-5 mt-5 pb-3">
                   <div class="pl-5 ml-5">
-                  <Field
-                    className="form-control form-control-lg border border border-dark"
-                    accept="image/jpeg, image/png"
-                    name="files"
-                    component={renderDropzoneInput}
-                  />
-</div>
+                    <Field
+                      className="form-control form-control-lg border border border-dark"
+                      accept="image/jpeg, image/png"
+                      name="files"
+                      component={renderDropzoneInput}
+                    />
+                  </div>
                   <Field
                     className="form-control form-control-lg"
                     placeholder="First Name"
@@ -171,7 +170,7 @@ class ModalProfile extends Component {
 
                 <div class="ml-5 mr-5 mt-5 pb-3">
                   <Countries
-                   className="form-control form-control-lg"
+                    className="form-control form-control-lg"
                     ref="country"
                     name="country"
                     empty=" -- Select country --"
@@ -193,7 +192,7 @@ class ModalProfile extends Component {
                   <Field
                     className="form-control form-control-lg"
                     placeholder="Zipcode"
-                    label="Zipcode"
+                    label="Zipcode *"
                     name="Zipcode"
                     component={this.renderField}
                   />
@@ -233,7 +232,7 @@ class ModalProfile extends Component {
                   <Field
                     className="form-control form-control-lg"
                     placeholder="Summary"
-                    label="Summary"
+                    label="Summary *"
                     name="profileSummary"
                     component={this.renderField}
                   />
@@ -300,9 +299,7 @@ const renderDropzoneInput = field => {
         name={field.name}
         onDrop={(filesToUpload, e) => field.input.onChange(filesToUpload)}
       >
-        <div>
-          Upload Profile Photo
-        </div>
+        <div>Upload Profile Photo</div>
       </Dropzone>
       {field.meta.touched && field.meta.error && (
         <span className="error">{field.meta.error}</span>
@@ -322,23 +319,33 @@ function validate(values) {
   const errors = {};
 
   // Validate the inputs from 'values'
-  if (!values.username) {
-    errors.username = "Required";
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.username)
-  ) {
-    errors.username = "Invalid email address";
+  if (!values.profileHeadline) {
+    errors.profileHeadline = "Required";
   }
-  if (!values.password) {
-    errors.password = "Required";
+  if (!values.profileEducation) {
+    errors.profileEducation = "Required";
   }
-
+  if (!values.profileHeadline) {
+    errors.profileHeadline = "Required";
+  }
+  if (!values.Zipcode) {
+    errors.Zipcode = "Required";
+  } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.Zipcode)) {
+    errors.Zipcode = "Invalid zip code";
+  }
+  if (!values.profileSummary) {
+    errors.profileSummary = "Required";
+  }
+  if (!values.profileIndustry) {
+    errors.profileIndustry = "Required";
+  }
   // If errors is empty, the form is fine to submit
   // If errors has *any* properties, redux form assumes form is invalid
   return errors;
 }
 
 export default reduxForm({
+  validate,
   form: "ModalProfileForm"
 })(
   connect(
