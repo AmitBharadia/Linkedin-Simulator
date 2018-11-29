@@ -1,38 +1,72 @@
-
 var { User } = require("../models/User");
 var mongoose = require("mongoose");
+var pool = require("../db/index.js");
 
-function handle_request(msg, callback) {
+async function handle_request(msg, callback) {
   console.log(
     "=====================In the kafka-backend get Profile====================="
   );
-  console.log("Inside the get method of profile in services");
-  console.log("Message details : " + JSON.stringify(msg));
-  if(msg.id){
-    User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }, (err,exiprofile)=>{
-      if(err){
-        console.log("Error occured");
-        callback("Error occured",null)
-      }
-      if (exiprofile) {
-        console.log("Success");
-        callback(null, exiprofile);
-      } else {
-        console.log("Profile not found");
-        callback("Profile not found",null)
+   
+  User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }, (err,exiprofile)=>{
+    if(err){
+      console.log("Error occured");
+      callback("Error occured",null)
+    }
+    if (exiprofile) {
+      if(msg.id !== msg.viewer_id){
         
-      }
-      console.log(
-        "=====================Out of the kafka-backend get Profile====================="
-      );
-    } )
-  }else{
-    callback("Id not set",null);
+       
+      let date = new Date();
+      let d=date.toISOString().split('T')[0];
+      console.log(d);
+      let mysqlquery="INSERT INTO profile_views (user_id, viewer_id, Date ) VALUES ('"+msg.id+"','"+msg.viewer_id+"','"+d+"');"
+    // save the stats in mysql
+    execute_query_with_ID(mysqlquery).then(function(rows) {
+        console.log(rows);
+        if(rows.insertId){    
+
+        console.log("saved in mysql");           
+                          
+    }             
+        })
+      .catch((err) => setImmediate(() => { 
+        console.log("error "+err);
+      }));
+    }
+      console.log("Success");
+      callback(null, exiprofile);
+    } else {
+      console.log("Profile not found");
+      callback("Profile not found",null)
+      
+    }
     console.log(
       "=====================Out of the kafka-backend get Profile====================="
     );
-  }
- 
+  } )
+}
+
+//to insert into database
+function execute_query_with_ID(query){
+  return new Promise(function(resolve, reject) {
+
+      pool.getConnection( function(err,connection) {
+          if(err)
+              reject(err);
+          else{
+               connection.query(query, function (err,result) {
+                      if (err) {
+                          return reject(err);
+                      }
+                      resolve(result);
+                  });
+                  connection.release();
+  
+                  }
+              
+          });
+  
+  });
 }
 
 exports.handle_request = handle_request;

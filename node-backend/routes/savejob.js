@@ -14,7 +14,7 @@ router.get("/", async function(req, res, next) {
   else {
     //send body to kafka server
     kafka.make_request(
-      "getsavedjobs",
+      "admin_getsavedjobs",
       "response_topic",
       { applicant_id: verify.msg },
       function(err, result) {
@@ -48,7 +48,7 @@ router.post("/", async function(req, res, next) {
       "savejob",
       "response_topic",
       {
-        job_uuid: req.body.job_uuid,
+        job_id: req.body.job_id,
         applicant_id: verify.msg,
         recruiter_id: req.body.recruiter_id,
         location: req.body.location,

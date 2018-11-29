@@ -17,7 +17,7 @@ mongoose.connect(
 );
 
 var Savedjobs = mongoose.model("savedjobs", {
-  job_uuid: {
+  job_id: {
     type: String,
     required: true
   },
