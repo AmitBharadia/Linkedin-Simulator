@@ -7,8 +7,14 @@ async function handle_request(msg, callback){
         "=====================In the kafka-backend get all jobs====================="
       );
     console.log("In handle request:"+ JSON.stringify(msg));    
-    try{ 
-        let jobs= await getAllJobs(msg.query);
+    try{
+        let jobs=[]; 
+        if( "jobid" in msg.query){
+
+        jobs= await getAllJobs({_id:mongoose.Types.ObjectId(msg.query.jobid)});
+        }else
+        jobs= await getAllJobs(msg.query);
+        
         let savedjobs= await getSavedJobs(msg.applicant_id);
         callback( null , {status:"success" , msg:jobs , savedjobs:savedjobs});
         console.log(
@@ -37,14 +43,12 @@ function getAllJobs( q) {
          required_skills: 1,
          required_experience: 1,
          required_eductaion:1,
+         seniority:1,
+         industry:1,
          recruiter_id:1
          })
-    .limit(10)
+    .limit(15)
     .exec();  
 }
 
-
 exports.handle_request = handle_request;
-
-
- 

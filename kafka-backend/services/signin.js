@@ -7,7 +7,8 @@ async function handle_request(msg, callback) {
     "=====================In the kafka-backend Sigin====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  var user = msg;
+  
+  let user = msg;
   let queryString =
     "select * from user_cred where username= " +
     mysql.escape(user.username) +

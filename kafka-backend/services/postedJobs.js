@@ -17,11 +17,11 @@ async function handle_request(msg, callback) {
                 console.log("Unable to fetch data");
                 callback("Unable to fetch data", null);
             }
-
+            console.log(
+                "============================Out of the kafka-backend Get Posted Jobs====================="
+            );
         });
-    console.log(
-        "============================Out of the kafka-backend Get Posted Jobs====================="
-    );
+  
 
 }
 
