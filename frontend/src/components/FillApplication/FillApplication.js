@@ -35,6 +35,28 @@ class FillApplication extends Component{
         this.middleNameHandler=this.middleNameHandler.bind(this);
         this.lastNameHandler=this.lastNameHandler.bind(this);
 
+        const {job_id}=props.location.state;
+        console.log("Job id.....",job_id);
+
+        const {recruiter_id}=props.location.state;
+        console.log("Recruiter id",recruiter_id);
+
+        const {location}=props.location.state;
+        console.log("Location",location);
+
+        const {position}=props.location.state;
+        console.log("Position",position);
+
+        const {easyApply}=props.location.state;
+        console.log("easyApply",easyApply);
+
+        const {company}=props.location.state;
+        console.log("company",company);
+
+
+
+
+        
     }
     
    
@@ -122,6 +144,10 @@ class FillApplication extends Component{
     render(){
         const { country, region } = this.state;
         const { handleSubmit } = this.props;
+        const {job_id}=this.props.location.state;
+        const {recruiter_id}=this.props.location.state;
+        const {company}=this.props.location.state;
+        console.log("Job id.....",job_id);
         return(
             <div>
                 <Navbar/>
@@ -132,7 +158,7 @@ class FillApplication extends Component{
                 <h2 style={{"marginLeft":"20px",textAlign:"center"}}>Please fill the information as asked for in the application.</h2>
                 <p style={{"marginLeft":"20px",textAlign:"center"}}>NOTE: The information would be monitored and kept into database for further screening. Please be assured to have authentic information</p>
                 <div className="row" style={{height:"50px","marginTop":"50px"}}>
-                <h2 style={{marginLeft:"20px"}}>Company Name :</h2>
+                <h2 style={{marginLeft:"20px"}}>Company Name : {company}</h2>
                 
                 </div>
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>   
@@ -151,9 +177,9 @@ class FillApplication extends Component{
                     component={this.renderField}
                     
                     /> */}
-                    <div class="form-group form-control-lg ">
+                    <div class="form-group form-control-lg">
                     <label>First Name *</label>
-                    <input className="form-control form-control-lg border border border-dark" type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.firstNameHandler} />
+                    <input className="form-control form-control-lg border border border-dark" type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.firstNameHandler}  />
                     </div>
                 </div>
 
@@ -328,7 +354,7 @@ class FillApplication extends Component{
                             <div class="ml-5 mr-5 mt-5 pb-3" style={{"width":"50%"}}>
                             From
                             <MonthPicker 
-                                className="form-control form-control-lg border border border-dark"
+                                class="form-control form-control-lg border border border-dark"
                                 defaultValue={"Month"}
                                 monthFormat="long"
                                 onChange={(month)=>{this.setState({fromMonth:month});
@@ -337,7 +363,7 @@ class FillApplication extends Component{
                             />
                             
                             <YearPicker 
-                                className="form-control form-control-lg my-modal"
+                                class="form-control form-control-lg border border border-dark"
                                 defaultValue={'Year'}
                                 start={1959}
                                 end={2018}
@@ -389,7 +415,7 @@ class FillApplication extends Component{
             </div>  
 
             </div>
-<div style={{border:"solid 1px lightgray",height:"700px"}}>
+<div style={{border:"solid 1px lightgray",height:"450px"}}>
             <div className="ml-5 mr-5 mt-5" style={{"width":"50%"}}>
                         <h2 style={{marginTop:"20px",textAlign:"center"}}>Add Education</h2>
                         <div class="ml-5 mr-5 mt-5 pb-3">
@@ -520,7 +546,7 @@ class FillApplication extends Component{
                             
                            
                             
-                            <select name="Gender" onChange={this.genderChangeHandler} value={this.state.gender} style={{'width':'100%'}}>
+                            <select className="form-control form-control-lg border border border-dark" name="Gender" onChange={this.genderChangeHandler} value={this.state.gender} style={{'width':'80%'}}>
                                             <option value="" disabled selected hidden>Gender</option>
                                             <option value="Female">Female</option>
                                             <option value="Male">Male</option>
@@ -545,7 +571,7 @@ class FillApplication extends Component{
                 any other employer-specific non-immigrant status, or have an EAD that is tied to a nonimmigrant visa (e.g., for you or your spouse) and cannot be renewed beyond a specific date?)?
                 </h4></div>
 
-                    <select name="Select" onChange={this.sponsorshipChangeHandler} value={this.state.sponsorship} style={{'width':'40%'}}>
+                    <select className="form-control form-control-lg border border border-dark" name="Select" onChange={this.sponsorshipChangeHandler} value={this.state.sponsorship} style={{"marginLeft":"30px",'width':'40%'}}>
                                             <option value="" disabled selected hidden>Select</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -581,7 +607,7 @@ class FillApplication extends Component{
                 to Executive Order 12985.</h4>
                 </div>
 
-                    <select name="Veteran" onChange={this.veteranChangeHandler} value={this.state.veteran} style={{'width':'40%'}}>
+                    <select  className="form-control form-control-lg border border border-dark" name="Veteran" onChange={this.veteranChangeHandler} value={this.state.veteran} style={{"marginLeft":"30px",'width':'40%'}}>
                                             <option value="" disabled selected hidden>Select</option>
                                             <option value="I am not a protected veteran">I am not a protected veteran</option>
                                             <option value="I identify as one or more of the classifications of a protected veteran">I identify as one or more of the classifications of a protected veteran</option>
@@ -633,7 +659,7 @@ class FillApplication extends Component{
             <li><h4>Impairments requiring the use of a wheelchair</h4></li>
             <li><h4>Intellectual disability (previously called mental retardation)</h4></li>
 </ul>
-        <select name="Disability" onChange={this.disabilityChangeHandler} value={this.state.disability} style={{'width':'40%'}}>
+        <select className="form-control form-control-lg border border border-dark" name="Disability" onChange={this.disabilityChangeHandler} value={this.state.disability} style={{"marginLeft":"30px",'width':'40%'}}>
                                             <option value="" disabled selected hidden>Select</option>
                                             <option value="Yes">Yes, I have a disability (or previously had a disability)</option>
                                             <option value="No">No, I don't have a disability</option>
@@ -698,9 +724,53 @@ class FillApplication extends Component{
         );
       }  
 }
+function validate(values) {
+    const errors = {};
+  
+    // Validate the inputs from 'values'
+    if (!values.firstName) {
+      errors.firstName = "Required";
+    }
+    if (!values.lastName) {
+      errors.lastName = "Required";
+    }
+  
+    if (!values.zipcode) {
+      errors.zipcode = "Required";
+    } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.Zipcode)) {
+      errors.Zipcode = "Invalid zip code";
+    }
+  
+    if (!values.primaryPhone) {
+      errors.primaryPhone = "Required";
+    } else if (!/^[2-9]\d{2}[2-9]\d{2}\d{4}$/.test(values.primaryPhone)) {
+      errors.primaryPhone = "Enter valid numbers";
+    }
+    if (!values.experienceCompany) {
+      errors.experienceCompany = "Required";
+    }
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+    if (!values.experienceTitle) {
+      errors.experienceTitle = "Required";
+    }
+    if (!values.educationSchool) {
+      errors.educationSchool = "Required";
+    }
+    if (!values.experienceTitle) {
+      errors.experienceTitle = "Required";
+    }
+  
+    // If errors is empty, the form is fine to submit
+    // If errors has *any* properties, redux form assumes form is invalid
+    return errors;
+  }
 
 export default reduxForm({
-    
+    validate,
     form: "FillApplicationForm"
   })(
     connect(
