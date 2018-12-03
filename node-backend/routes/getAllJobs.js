@@ -107,39 +107,35 @@ async function getfn2(key){
 	console.log(response);
   }
 
+});
 
 
-
-
-
-router.post("/view", async function(req, res, next) {
-
-  let verify = await verifyToken(req.get("Authorization"));
-  console.log(verify);
-
-  if (verify.status == "error") 
-      res.send({ status: "error", msg: verify.msg });
-  else {
-
-    kafka.make_request(
-      "jobview",
-      "response_topic",
-      { applicant_id: verify.msg, recruiter_id: req.body.recruiter_id, job_id:req.body.job_id, 
-        city:req.body.city , job_name:req.body.job_name },
-      function(err, result) {
-        if (err) {
-          res.send({ status: "error", msg: "System Error, Try Again." });
-        } else {
-          console.log(result.msg);
-          res.send({
-            status: result.status,
-            msg: result.msg,
-          });
-        }
-        
+router.post("/view", async function (req, res, next) {
+  console.log(
+    "============================In the rest request insert new job view====================="
+  );
+  console.log(" Request body ", JSON.stringify(req.body))
+  kafka.make_request(
+    "jobview",
+    "response_topic",
+    req.body,
+    function (err, result) {
+      if (err) {
+        res.send({ status: "error", msg: "System Error, Try Again." });
+      } else {
+        console.log(result.msg);
+        res.send({
+          status: result.status,
+          msg: result.msg,
+        });
       }
-    );
-  }
+      console.log(
+        "============================Ou of the rest request insert new job view====================="
+      );
+
+    }
+  );
+  // }
 });
 
 module.exports = router;

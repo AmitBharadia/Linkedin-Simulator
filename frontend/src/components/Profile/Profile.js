@@ -6,10 +6,9 @@ import ModalEducation from "./ModalEducation";
 import ModalMessage from "./ModalMessage";
 import { dummy } from "../../action/dummy";
 import { connect } from "react-redux";
+import ProfileViews from "../Admin/profileViews"
 import "./prof.css";
 import { getprofile } from "../../action/profile";
-
-import jobsFormThird from "../Post Jobs/jobsFormThird";
 
 class Profile extends Component {
   constructor(props) {
@@ -28,12 +27,12 @@ class Profile extends Component {
       countryName: "",
       experience: [],
       education: [],
-      profile_url:""
+      profile_url: ""
     };
   }
   componentDidMount() {
     console.log("Hello");
-    this.props.getprofile({ id: this.props.match.params.id });
+    this.props.getprofile({ id: this.props.match.params.id, viewer_id:localStorage.getItem("id") });
   }
 
   componentWillReceiveProps(newChangedProps) {
@@ -55,7 +54,7 @@ class Profile extends Component {
         countryName: newChangedProps.profile.profile.result.countryName,
         experience: newChangedProps.profile.profile.result.experience,
         education: newChangedProps.profile.profile.result.education,
-        profile_url:newChangedProps.profile.profile.result.profile_url,
+        profile_url: newChangedProps.profile.profile.result.profile_url,
       });
     }
   }
@@ -81,44 +80,44 @@ class Profile extends Component {
     let expDetails = !this.state.experience
       ? ""
       : this.state.experience.map((expdata, i) => {
-          if (expdata.experienceTitle && expdata.experienceCompany) {
-            return (
-              <div class="card mb-3 border-0 ml-2">
-                <div class="card-body">
-                  <h3 class="card-title">{expdata.experienceTitle}</h3>
-                  <h4 class="font-weight-light">
-                    {" "}
-                    {expdata.experienceCompany}
-                  </h4>
-                  <h4>
-                    From:{expdata.ExpFromMonth}/{expdata.ExpFromYear} -{" "}
-                    {expdata.ExpToMonth}/{expdata.ExpToYear}
-                  </h4>
-                </div>
-                <hr />
+        if (expdata.experienceTitle && expdata.experienceCompany) {
+          return (
+            <div class="card mb-3 border-0 ml-2">
+              <div class="card-body">
+                <h3 class="card-title">{expdata.experienceTitle}</h3>
+                <h4 class="font-weight-light">
+                  {" "}
+                  {expdata.experienceCompany}
+                </h4>
+                <h4>
+                  From:{expdata.ExpFromMonth}/{expdata.ExpFromYear} -{" "}
+                  {expdata.ExpToMonth}/{expdata.ExpToYear}
+                </h4>
               </div>
-            );
-          }
-        });
+              <hr />
+            </div>
+          );
+        }
+      });
 
     let eduDetails = !this.state.education
       ? ""
       : this.state.education.map((edudata, i) => {
-          if (edudata.educationSchool && edudata.educationDegree) {
-            return (
-              <div class="card mb-3 border-0 ml-2">
-                <div class="card-body">
-                  <h3 class="card-title">{edudata.educationSchool}</h3>
-                  <h4>{edudata.educationDegree} degree</h4>
-                </div>
-                <hr />
+        if (edudata.educationSchool && edudata.educationDegree) {
+          return (
+            <div class="card mb-3 border-0 ml-2">
+              <div class="card-body">
+                <h3 class="card-title">{edudata.educationSchool}</h3>
+                <h4>{edudata.educationDegree} degree</h4>
               </div>
-            );
-          }
-        });
-        console.log(this.state.profile_url)
+              <hr />
+            </div>
+          );
+        }
+      });
+    console.log(this.state.profile_url)
     return (
-  
+
       <div>
         <MainNavbar />
         <br />
@@ -130,11 +129,22 @@ class Profile extends Component {
               <div class="card-body">
                 <div id="DIV_3" class="border" />{" "}
                 <a href="" id="A_4">
-                  <img
-                    src={this.state.profile_url} 
+                <div class="row">
+                <div class="col">
+                 <img
+                    src={this.state.profile_url}
                     id="IMG_55"
                   />
+                </div>
+
+                <div class="col mt-4">
+                {localStorage.getItem("id")==this.props.match.params.id &&  <ProfileViews />}
+                </div>
+                </div>
                 </a>
+            
+                </div>    
+               
                 <div class="row">
                   <div class="col" />
                 </div>
@@ -163,8 +173,10 @@ class Profile extends Component {
                         class="float-right"
                         profileData={this.state.data}
                       />
+                     
+                     
                     </div>
-                  </div>
+                   
                 </div>
               </div>
             </div>

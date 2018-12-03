@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-import cookie from "react-cookies";
-import { Redirect } from "react-router";
 import MainNavbar from "../Common/MainNavbar";
-
-import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import myStyles from "./AllConnections.css.js";
-import { register } from "../../serviceWorker";
 import { get_allConnections } from "../../action/getNetwork";
 import { removeConnection } from "../../action/getNetwork";
 class AllConnections extends Component {

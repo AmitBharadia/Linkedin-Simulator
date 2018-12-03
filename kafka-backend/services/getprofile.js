@@ -11,21 +11,24 @@ async function handle_request(msg, callback) {
     if(err){
       console.log("Error occured");
       callback("Error occured",null)
+      console.log(
+        "=====================out of the kafka-backend get Profile====================="
+      );
     }
     if (exiprofile) {
       if(msg.id !== msg.viewer_id){
-        
        
       let date = new Date();
       let d=date.toISOString().split('T')[0];
-      console.log(d);
+      //console.log(d);
       let mysqlquery="INSERT INTO profile_views (user_id, viewer_id, Date ) VALUES ('"+msg.id+"','"+msg.viewer_id+"','"+d+"');"
-    // save the stats in mysql
+      console.log("mysqlquery :" + mysqlquery);
+      // save the stats in mysql
     execute_query_with_ID(mysqlquery).then(function(rows) {
         console.log(rows);
         if(rows.insertId){    
 
-        console.log("saved in mysql");           
+        //console.log("saved in mysql");           
                           
     }             
         })
@@ -33,16 +36,19 @@ async function handle_request(msg, callback) {
         console.log("error "+err);
       }));
     }
+
       console.log("Success");
       callback(null, exiprofile);
+      console.log(
+        "=====================Out of the kafka-backend get Profile====================="
+      );
     } else {
       console.log("Profile not found");
       callback("Profile not found",null)
-      
+      console.log(
+        "=====================Out of the kafka-backend get Profile====================="
+      );
     }
-    console.log(
-      "=====================Out of the kafka-backend get Profile====================="
-    );
   } )
 }
 
