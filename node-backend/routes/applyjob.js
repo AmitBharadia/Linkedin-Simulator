@@ -1,22 +1,31 @@
 var express = require("express");
 var router = express.Router();
 var kafka = require("../kafka/client");
+var { upload } = require("../s3");
 var {verifyToken}=require("./verifyToken");
 
-router.post("/", async function(req, res, next) {
+router.post("/",upload.single("resume"), async function(req, res, next) {
+
+ // console.log("Request body:", JSON.stringify(req.body));
+  console.log("Request file:", JSON.stringify(req.file));
   
   console.log(req.headers.authorization);
   let verify= await verifyToken(req.get("Authorization"));
   console.log(verify);   
   if(verify.status == "error")
       res.send( { status:"error" , msg: verify.msg });
-  else{    
+  else{
+    let resumeLink="";
+    if (req.file) {
+      var url = req.file.location;
+      console.log("The URL is : ", url);
+      resumeLink = url;
+    }
 
-    //recruiter_id, job_id, applicant_id, city, applied_date, job_name , resume(file link) , email address , workAuthorization (yes/no) ,  H1BSponsorship(yes/no)
   kafka.make_request(
     "applyjob",
     "response_topic",
-    { details:req.body , applicant_id:verify.msg   },
+    { details:req.body , applicant_id:verify.msg , resumeLink : resumeLink  },
     function(err, result) {
       
         if (err){
@@ -27,6 +36,7 @@ router.post("/", async function(req, res, next) {
             } 
      
       });
+      
     }
      
 });
