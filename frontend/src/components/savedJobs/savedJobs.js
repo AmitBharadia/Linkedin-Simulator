@@ -3,133 +3,143 @@ import React, { Component } from "react";
 //import { Redirect } from "react-router";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
 
 import * as myactions from '../../action/savedJobs';
 import MainNavBar from "../Common/MainNavbar";
 
 class savedJobs extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = 
-        {                    
-            savedJobs:[] ,
-            xx:"",
-            yy:"",
-            appliedjobs:[]         
-        }
+        this.state =
+            {
+                savedJobs: [],
+                xx: "",
+                yy: "",
+                appliedjobs: []
+            }
     }
 
 
-    componentWillMount() {        
-            this.props.INIT();
-      }
-     
+    componentWillMount() {
+        this.props.INIT();
+    }
+
     componentWillReceiveProps(nextProps) {
-       console.log("component will receive props "+ JSON.stringify(nextProps.savedJobs) );
+        console.log("component will receive props " + JSON.stringify(nextProps.savedJobs));
 
-        if (nextProps.savedJobs.status === "success" ) {
-            
-            this.setState({savedJobs: nextProps.savedJobs.msg });   
-        
-        this.setState({ appliedjobs: nextProps.savedJobs.appliedjobs });   
-        
-         let xx='';
+        if (nextProps.savedJobs.status === "success") {
 
-         if(nextProps.savedJobs.msg.length){
+            this.setState({ savedJobs: nextProps.savedJobs.msg });
 
-             xx = nextProps.savedJobs.msg.map( (item,index) =>{                                
+            this.setState({ appliedjobs: nextProps.savedJobs.appliedjobs });
 
-                return (
-                    <div key={item._id} >
-                    {/* <h3 ><font color="blue" size="4"> {item.position} </font> </h3>
-                    <p> location : {item.location} </p> 
-                    <p> company : {item.company} </p>                     
-                    <p> description : {item.description} </p>     */}
+            let xx = '';
 
-              <div class="card border-left-0">
-                <div class="card-body ">
-                  <h2 class="card-title text-primary">{item.position}</h2>
-                  <p class="card-text h4 font-weight-bold">{item.company}</p>
-                  <p class="card-text h4 font-weight-light">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="24px"
-                      height="24px"
-                      x="0"
-                      y="0"
-                      preserveAspectRatio="xMinYMin meet"
-                      class="artdeco-icon"
-                      focusable="false"
-                    >
-                      <path
-                        d="M8,4a2,2,0,1,0,2,2A2,2,0,0,0,8,4ZM8,7.13A1.13,1.13,0,1,1,9.13,6,1.13,1.13,0,0,1,8,7.13ZM8,1A5,5,0,0,0,3,6a5.37,5.37,0,0,0,.41,2S5.91,13,7.22,15.52A0.86,0.86,0,0,0,8,16H8a0.86,0.86,0,0,0,.78-0.48C10.09,13,12.59,8,12.59,8A5.37,5.37,0,0,0,13,6,5,5,0,0,0,8,1Zm2.88,6.24L8,12.92,5.12,7.24A3.49,3.49,0,0,1,4.88,6a3.13,3.13,0,0,1,6.25,0A3.49,3.49,0,0,1,10.88,7.24Z"
-                        class="small-icon"
-                      />
-                    </svg>
-                    {item.location}
-                  </p>
+            if (nextProps.savedJobs.msg.length) {
 
-                  <p class="card-text font-weight-light h4 pl-2">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-                    </div>
-                );
-             });
+                xx = nextProps.savedJobs.msg.map((item, index) => {
 
+                    return (
+                        <div key={item._id} >
+
+                            <div class="card border-left-0">
+                                <div class="card-body ">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h2 class="card-title text-primary">{item.position}</h2>
+                                            <p class="card-text h4 font-weight-bold">{item.company}</p>
+                                            <p class="card-text h4 font-weight-light">
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    width="24px"
+                                                    height="24px"
+                                                    x="0"
+                                                    y="0"
+                                                    preserveAspectRatio="xMinYMin meet"
+                                                    class="artdeco-icon"
+                                                    focusable="false"
+                                                >
+                                                    <path
+                                                        d="M8,4a2,2,0,1,0,2,2A2,2,0,0,0,8,4ZM8,7.13A1.13,1.13,0,1,1,9.13,6,1.13,1.13,0,0,1,8,7.13ZM8,1A5,5,0,0,0,3,6a5.37,5.37,0,0,0,.41,2S5.91,13,7.22,15.52A0.86,0.86,0,0,0,8,16H8a0.86,0.86,0,0,0,.78-0.48C10.09,13,12.59,8,12.59,8A5.37,5.37,0,0,0,13,6,5,5,0,0,0,8,1Zm2.88,6.24L8,12.92,5.12,7.24A3.49,3.49,0,0,1,4.88,6a3.13,3.13,0,0,1,6.25,0A3.49,3.49,0,0,1,10.88,7.24Z"
+                                                        class="small-icon"
+                                                    />
+                                                </svg>
+                                                {item.location}
+                                            </p>
+
+                                            <p class="card-text font-weight-light h4 pl-2">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <button
+                                                type="button"
+                                                class="btn btn-lg btn-primary mr-3"
+                                            // onClick={() => this.props.UNSAVE(job_uuid)}
+                                            >
+                                                <h3>Apply</h3>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                });
+
+            }
+            else {
+                xx = <h2>Sorry No jobs found.  </h2>
+            }
+
+            this.setState({ xx });
         }
-        else{
-            xx= <h2>Sorry No jobs found.  </h2> 
-        }
 
-        this.setState({xx});
-        }   
-        
-    }       
+    }
 
     render() {
 
-         return (
+        return (
             <div>
-                <MainNavBar />    
-                    <h1 class="font-weight-light pl-5 pt-5 ml-5">Saved Jobs</h1>                   
+                <MainNavBar />
+                <h1 class="font-weight-light pl-5 pt-5 ml-5">Saved Jobs</h1>
 
-                     <div class="container">
-                     <div class="row">
+                <div class="container">
+                    <div class="row">
                         <div class="col-sm">
-                            <div style={{ height:"480px" ,overflow:"auto"}}>
-                                {this.state.xx}           
+                            <div style={{ height: "480px", overflow: "auto" }}>
+                                {this.state.xx}
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div style={{ height:"480px" ,overflow:"auto"}}>
-                                {this.state.yy}           
+                            <div style={{ height: "480px", overflow: "auto" }}>
+                                {this.state.yy}
                             </div>
                         </div>
-                        
+
                     </div>
-  
-                    </div>
+
+                </div>
             </div>
-            );
-    
-}
+        );
+
+    }
 }
 
 const mapStateToProps = (state) => {
-    
-     return{
-         savedJobs : state.savedJobs 
-     }
- }
+
+    return {
+        savedJobs: state.savedJobs
+    }
+}
 //Get the current state of the signup page
 
- function matchDispatchToProps(dispatch){
-     
-     return bindActionCreators(myactions,dispatch)
+function matchDispatchToProps(dispatch) {
 
- }  
+    return bindActionCreators(myactions, dispatch)
 
- export default withRouter(connect(mapStateToProps,matchDispatchToProps)(savedJobs));
+}
+
+export default withRouter(connect(mapStateToProps, matchDispatchToProps)(savedJobs));
