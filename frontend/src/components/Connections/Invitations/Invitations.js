@@ -40,9 +40,12 @@ class Invitations extends Component {
               marginTop: "10px",
               width: "100%"
             }}
+           
           >
             <div className="col-md-2">
-              <img src={invitation.request_photo} style={style1.img} />
+              <img src={invitation.request_photo} style={style1.img}  onClick={()=>{
+              this.props.history.push("/profile/" + invitation.request_user_id)
+            }}/>
             </div>
             <div
               className="col-md-4"
@@ -102,4 +105,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { get_invitations, ignoreRequest, acceptRequest }
-)(Invitations);
+)(withRouter(Invitations));

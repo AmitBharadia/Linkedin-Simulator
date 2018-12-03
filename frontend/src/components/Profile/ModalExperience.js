@@ -84,7 +84,7 @@ class ModalExperience extends Component {
             </svg>
           )}
           {localStorage.getItem("id") == this.props.match.params.id && (
-            <h5 class="font-weight-light">Update Experience</h5>
+            <h5 class="font-weight-light">Experience</h5>
           )}
 
           {/* <button onClick={this.openModalEditExperience} style={{'min-height': '48px','width': '40%','position': 'relative','backgroundColor': '#f4a742','borderColor': '#f4a742','color': '#fff','text-shadow': 'none','line-height': '24px','margin-bottom': '0','font-weight': '400','text-align': 'center','cursor': 'pointer','border': '1px solid transparent','padding': '11px 32px','font-size': '1rem'}}>Edit Experience</button> */}
