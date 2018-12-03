@@ -44,7 +44,6 @@ ReactDOM.render(
 
         <Route path="/search-people" component={SearchProfiles} />
         <Route path="/fill-application" component={FillApplication} />
-        <Route path="/profile/:id" component={Profile} />
 
         <Route path="/postJob" component={postJob} />
 
