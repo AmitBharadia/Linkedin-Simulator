@@ -10,7 +10,6 @@ import store from "./store/index";
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile";
 
 import Connections from "./components/Connections/Connections";
 import AllConnections from "./components/AllConnections/AllConnections";

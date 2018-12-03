@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import MainNavbar from "../Common/MainNavbar";
 import { connect } from "react-redux";
-//import { dummy } from "../../action/dummy";
-import { connectRequest } from "../../action/getNetwork";
+import { dummy } from "../../action/dummy";
 
 class SearchProfiles extends Component {
   constructor(props) {
@@ -91,5 +90,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { connectRequest }
+  { dummy }
 )(SearchProfiles);

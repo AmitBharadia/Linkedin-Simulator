@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MainNavbar from "../Common/MainNavbar";
 import { connect } from "react-redux";
 //import { dummy } from "../../action/dummy";
-import { connectRequest } from "../../action/getNetwork";
 
 class SearchProfiles extends Component {
   constructor(props) {
