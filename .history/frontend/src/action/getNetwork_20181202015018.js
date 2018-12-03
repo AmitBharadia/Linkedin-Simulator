@@ -42,7 +42,7 @@ export function connectRequest(requestConnect) {
       .post(`${url}/network/addConnection`, requestConnect)
       .then(response => {
         console.log("Response recieved: " + JSON.stringify(response));
-        alert(response.data.msg);
+        alert();
         dispatch(get_recommendation());
       });
   };

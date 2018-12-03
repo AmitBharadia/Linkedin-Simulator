@@ -53,7 +53,7 @@ function handle_request(msg, callback) {
         }
       )
         .sort({ _id: -1 })
-        .limit(20);
+        .limit(10);
     }
   );
   console.log("Invitation array:" + arr);
