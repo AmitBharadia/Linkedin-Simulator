@@ -104,7 +104,7 @@ class ModalProfile extends Component {
             </svg>
           )}
           {localStorage.getItem("id") == this.props.match.params.id && (
-            <h5 class="font-weight-light">Update Profile</h5>
+            <h5 class="font-weight-light">Profile</h5>
           )}
 
           <Modal

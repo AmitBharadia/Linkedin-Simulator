@@ -44,7 +44,9 @@ class AllConnections extends Component {
               }}
             >
               <div className="col-md-3">
-                <img src={allconnection.connect_photo} style={myStyles.img} />
+                <img src={allconnection.connect_photo} style={myStyles.img}  onClick={()=>{
+            this.props.history.push("/profile/" + allconnection.connect_user_id)
+          }}/>
               </div>
               <div
                 className="col-md-5"
