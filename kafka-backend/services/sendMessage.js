@@ -7,7 +7,6 @@ function handle_request(msg, callback) {
   );
   console.log("Message details : " + JSON.stringify(msg));
   Message.create(msg, (err, message) => {
-    console.log("In Create Job Query");
     if (err) {
       console.log("Error occured");
       callback("Error occured", null);
