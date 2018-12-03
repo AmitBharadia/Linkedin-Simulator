@@ -87,6 +87,7 @@ class allJobs extends Component {
                 >
                   <h3>Unsave</h3>
                 </button>
+                <button class="btn btn-primary"> 
                 <Link
                   to={{
                     pathname: "/fill-application",
@@ -101,8 +102,10 @@ class allJobs extends Component {
                   }}
                 >
                   <h3>{this.state.allJobs[index].easyApply = "yes" ? "Easy Apply" : "Apply"}</h3>
-                </button>
-              ></Link>
+                  </Link>
+                  </button>
+                
+              </div>
 
             </div>
             <div class="w-100" />
@@ -139,7 +142,6 @@ class allJobs extends Component {
             </h4>
           </div>
           </div>
-        </div>
       );
       console.log(yy);
       this.setState({ yy });
@@ -173,6 +175,7 @@ class allJobs extends Component {
                 >
                   <h3>Save</h3>
                 </button>
+               
                 <Link
                   to={{
                     pathname: "/fill-application",
@@ -185,11 +188,13 @@ class allJobs extends Component {
                       location: this.state.allJobs[index].location
                     }
                   }}
-                >
+                > <button class="btn btn-primary"> 
                   <h3>{this.state.allJobs[index].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
-                </button>
+                  </button>
 
-              </Link>
+                  </Link>
+               
+            
 
             </div>
             <div class="w-100" />
@@ -327,7 +332,7 @@ class allJobs extends Component {
                     >
                       <h3>Unsave</h3>
                     </button>
-                  </Link>
+                  
 
                 </div>
                 <div class="w-100" />
@@ -397,6 +402,7 @@ class allJobs extends Component {
                     >
                       <h3>Unsave</h3>
                     </button>
+                   
                     <Link
                       to={{
                         pathname: "/fill-application",
@@ -410,6 +416,7 @@ class allJobs extends Component {
                         }
                       }}
                     >
+                     <button class="btn btn-primary"> 
                       <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                     </button>
 
