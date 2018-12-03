@@ -13,31 +13,11 @@ mongoose.connect(
 );
 
 
-const educationSchema = new Schema({
-  school: {    type: String  },
-  degree: {    type: String  },
-  field: {    type: String },
-  grade: {    type: String  },
-  fromYear: {    type: Date },
-  toYear: {    type: Date }
-});
-
-const experienceSchema = new Schema({
-  title: {    type: String  },
-  company: {    type: String  },
-  location: {    type: String },
-  fromMonth: {    type: Date  },
-  fromYear: {    type: Date },
-  toYear: {    type: Date },
-  toMonth:{    type: Date },
-  description : {type: String}
-});
-
 var Applyjob = mongoose.model("appliedjobs", {
 
-	experience : experienceSchema,
-  	education : educationSchema,
-  	job_id: {    type: String,  required: true},
+  experience : {type:Object },
+  education : {type : Object },
+  job_id: {    type: String,  required: true},
 	ApplyDate:{    type:Date ,    default: new Date()   },
 	applicant_id: {     type: String },
  	recruiter_id: {   type: String },
@@ -60,4 +40,4 @@ var Applyjob = mongoose.model("appliedjobs", {
 });
 
 
-module.exports = { Applyjob };
+module.exports = { Applyjob  };
