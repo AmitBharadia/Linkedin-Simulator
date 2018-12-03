@@ -10,8 +10,6 @@ import ProfileViews from "../Admin/profileViews"
 import "./prof.css";
 import { getprofile } from "../../action/profile";
 
-import jobsFormThird from "../Post Jobs/jobsFormThird";
-
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -142,9 +140,7 @@ class Profile extends Component {
                 <div class="col mt-4">
                 {localStorage.getItem("id")==this.props.match.params.id &&  <ProfileViews />}
                 </div>
-
                 </div>
-                 
                 </a>
             
                 </div>    

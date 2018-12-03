@@ -69,27 +69,3 @@ export function SAVE(job_uuid, user_id,recruiter_id, position, company, location
   };
 }
 
-export function jobView(job_uuid, user_id,recruiter_id, position, company, location) {
-  return dispatch => {
-    axios
-      .post(`${url}/getAllJobs/jobview`, {
-        job_uuid,
-        user_id,
-        recruiter_id,
-        position,
-        company,
-        location
-      })
-      .then(response => {
-        console.log("Response recieved: " + JSON.stringify(response.data));
-
-        dispatch({
-          type: CONST.JOB_SAVE_SUCCESS,
-          payload: response.data
-        });
-      })
-      .catch(error => {
-        dispatch({ type: CONST.JOB_SAVE_ERROR, payload: error });
-      });
-  };
-}
