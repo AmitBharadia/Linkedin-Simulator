@@ -45,13 +45,6 @@ class ModalProfile extends Component {
     console.log("Selected Country", this.state.selectedCountry);
   }
   onSubmit(values) {
-    // console.log("Onsubmit values of profile", values);
-    // //this.props.signIn(values);
-    // const data = {
-    //   values
-    // };
-    // console.log("Onsubmit data of profile", data);
-    // this.props.profile(data);
 
     console.log(values);
     var form_data = new FormData();
@@ -111,7 +104,7 @@ class ModalProfile extends Component {
             </svg>
           )}
           {localStorage.getItem("id") == this.props.match.params.id && (
-            <h5 class="font-weight-light">Update Profile</h5>
+            <h5 class="font-weight-light">Profile</h5>
           )}
 
           <Modal
