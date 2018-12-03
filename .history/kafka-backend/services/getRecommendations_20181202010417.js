@@ -10,26 +10,13 @@ function handle_request(msg, callback) {
     "=====================In the kafka-backend get Recommendation====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  var arr = [];
-  console.log(msg);
-  Invitation.find(
-    { request_user_id: msg },
-    { user_id: 1, _id: 0 },
-    (err, result) => {
-      if (result) {
-        console.log("Inside if");
-        console.log("result:" + result);
-        result.map(res => {
-          console.log("res" + res.user_id);
-          arr.push(res.user_id);
-        });
-      }
-      console.log("arr:" + arr);
+  Invitation.find({ request_user_id: msg }, (result, err) => {
+    result.map(uid => {
       User.find(
         {
           _id: {
             $ne: msg,
-            $nin: arr
+            uid
           }
         },
         {
@@ -53,10 +40,9 @@ function handle_request(msg, callback) {
         }
       )
         .sort({ _id: -1 })
-        .limit(20);
-    }
-  );
-  console.log("Invitation array:" + arr);
+        .limit(6);
+    });
+  });
 }
 
 exports.handle_request = handle_request;

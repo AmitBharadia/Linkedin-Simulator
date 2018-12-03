@@ -24,12 +24,12 @@ function handle_request(msg, callback) {
           arr.push(res.user_id);
         });
       }
-      console.log("arr:" + arr);
+      console.log(arr);
       User.find(
         {
           _id: {
             $ne: msg,
-            $nin: arr
+            $ne: arr
           }
         },
         {
@@ -53,7 +53,7 @@ function handle_request(msg, callback) {
         }
       )
         .sort({ _id: -1 })
-        .limit(20);
+        .limit(2);
     }
   );
   console.log("Invitation array:" + arr);

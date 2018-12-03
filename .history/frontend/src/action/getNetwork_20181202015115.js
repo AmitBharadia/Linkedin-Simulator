@@ -43,7 +43,7 @@ export function connectRequest(requestConnect) {
       .then(response => {
         console.log("Response recieved: " + JSON.stringify(response));
         alert(response.data.msg);
-        dispatch(get_recommendation());
+        //dispatch(get_recommendation());
       });
   };
 }
