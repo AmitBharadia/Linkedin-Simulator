@@ -43,8 +43,10 @@ class AllConnections extends Component {
                 marginTop: "10px"
               }}
             >
-              <div className="col-md-2">
-                <img src="Kriti_Jar.jpg" style={myStyles.img} />
+              <div className="col-md-3">
+                <img src={allconnection.connect_photo} style={myStyles.img}  onClick={()=>{
+            this.props.history.push("/profile/" + allconnection.connect_user_id)
+          }}/>
               </div>
               <div
                 className="col-md-5"
@@ -64,7 +66,7 @@ class AllConnections extends Component {
                   {allconnection.connect_summary}
                 </span>
               </div>
-              <div className="col-md-4" style={{ marginTop: "50px" }}>
+              <div className="col-md-3" style={{ marginTop: "50px" }}>
                 <button
                   class="btn btn-primary"
                   style={myStyles.remove}
@@ -87,7 +89,18 @@ class AllConnections extends Component {
           <br />
           <div className="col-lg-3" />
           <div className="col-lg-6" style={myStyles.div_md7}>
-            <h1>Your connections</h1>
+            <div
+              className="row"
+              style={{
+                width: "100%",
+                borderBottom: "solid 1px lightgray",
+                height: "50px"
+              }}
+            >
+              <h2 style={{ paddingTop: "10px", marginLeft: "20px" }}>
+                Your Connections
+              </h2>
+            </div>
             <div className="container">{data}</div>
           </div>
           <div className="col-lg-3" />

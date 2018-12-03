@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import cookie from "react-cookies";
 import "./Profile.css";
 
 class Profile extends Component {
@@ -11,7 +10,6 @@ class Profile extends Component {
             <div id="DIV_333" clas="border" />{" "}
             <a href="" id="A_4">
               <img
-
                 src={localStorage.getItem("profile_url") || ""}
                 id="IMG_5"
               />

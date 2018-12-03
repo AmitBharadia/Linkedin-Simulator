@@ -1,106 +1,99 @@
 import React, { Component } from "react";
-import NavBar from "../Common/Navbar";
+import MainNavbar from "../Common/MainNavbar";
 import { connect } from "react-redux";
 import { dummy } from "../../action/dummy";
+import { connectRequest } from "../../action/getNetwork";
+import style1 from "../Connections/Recommendations/Recommendations.css";
+import myStyles from "../Connections/Connections.css";
 
-class SearchProfiles extends Component{
+class SearchProfiles extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-    constructor(props){
-        super(props);
+  render() {
+    const { data } = this.props.searchPeaople;
+    console.log("data", data);
 
-      
-       
-    }
-
-    
-
-    
-
-    render(){
-        const {data}=this.props.searchPeaople;
-        console.log("data",data);
-       
-        let details=data.map((mydata,i)=>{
-            return(
-                
-                <div style={{'marginBottom':'50px'}}>
-                <hr/>
-                     <div class="card-body">
-                            
-                            <a href="" id="A_4">
-                                    <img
-                                        height="64"
-                                        width="64"
-                                        src="https://media.licdn.com/dms/image/C5603AQEqgYpgcdt-Sg/profile-displayphoto-shrink_100_100/0?e=1547683200&amp;v=beta&amp;t=OGK1W9t5IfzVDM80ex0DtDiqrdgNNojUiHCA8w3lrVg"
-                                        id="IMG_5"
-                                    />
-                            </a>
-
-                            <p>Username: {mydata.first_name}</p>
-                            <p>Location: {mydata.profileLocation}</p>
-                            <p>Headline: {mydata.profileHeadline}</p>
-
-                            <button className="btn btn-primary btn btn-block">Connect</button>
-                            </div>  
+    let details = data.map((mydata, i) => {
+      if ((i + 1) % 3 == 0) {
+        mydata +=
+          "</div>" + '<div className="row mb-2" style={{ height: "230px" }} />';
+      }
+      return (
+        <div className="col-md-4" style={{ maxHeight: "320px" }}>
+          <div class="card" style={{ height: "320px" }}>
+            <img
+              class="card-img-top"
+              src={mydata.profile_url}
+              alt="Card image"
+              style={style1.cardimage}
+              onClick={()=>{
+                this.props.history.push("/profile/" + mydata._id)
+              }}
+            />
+            <div class="card-body">
+              <h4
+                class="card-title"
+                style={{
+                  textAlign: "center"
+                }}
+              >
+                {mydata.first_name} {mydata.last_name}
+              </h4>
+              <p class="card-text" style={style1.cardtext}>
+                {mydata.profileSummary}
+              </p>
+              <br />
+              <br />
+              <div class="row">
+                <div class="col" />
+                <div class="col">
+                  <button class="btn btn-primary btn-outline-primary " onClick={()=>{
+                    this.props.connectRequest(mydata);
+                  }}>
+                    <h3>CONNECT</h3>
+                  </button>
                 </div>
-            )
-        })
-        
-
-
-        return(
-            <div>
-               <NavBar/>
-                <br/>
-                <br/>
-                <div class="row">
-                    <div class="col">
-                    </div>
-                    
-                    <div class="col-8 pt-6 pl-0">
-                    
-                        <div class="card mb-3" width="150">
-                        Showing {data.length} results
-                        <div class="row" style={{'marginBottom':'50px'}}>
-                        </div>
-                            {/* <div class="card-body">
-                            <a href="" id="A_4">
-                                    <img
-                                        height="64"
-                                        width="64"
-                                        src="https://media.licdn.com/dms/image/C5603AQEqgYpgcdt-Sg/profile-displayphoto-shrink_100_100/0?e=1547683200&amp;v=beta&amp;t=OGK1W9t5IfzVDM80ex0DtDiqrdgNNojUiHCA8w3lrVg"
-                                        id="IMG_5"
-                                    />
-                            </a>
-
-                            <p>Username: </p>
-                            <p>Location: </p>
-                            <p>Headline: </p>
-
-                            <button>Connect</button>
-                            </div>     */}
-                            {details}
-                        </div>
-                    </div>
-                    
-                    <div class="col pt-5">
-                    </div>
-                </div>
-
+                <div class="col" />
+              </div>
             </div>
-        )
-    }
+          </div>
+        </div>
+      );
+    });
 
+    return (
+      <div>
+        <MainNavbar />
+        <br />
+        <br />
+        <div class="row">
+          <div class="col" />
 
+          <div class="col-8 border">
+            <h1 class="font-weight-ligh pl-2 pb-2 border-bottom mb-5 mt-5">
+              Showing {data.length} results
+            </h1>
 
+            {details}
+          </div>
+
+          <div class="col pt-5" />
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-      profile:state.profile,
-      searchPeaople:state.searchPeaople
-    };
+  return {
+    profile: state.profile,
+    searchPeaople: state.searchPeaople
   };
+};
 
-
-export default connect(mapStateToProps,{dummy})(SearchProfiles);
+export default connect(
+  mapStateToProps,
+  { dummy, connectRequest }
+)(SearchProfiles);
