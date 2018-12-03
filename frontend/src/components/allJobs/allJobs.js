@@ -4,10 +4,11 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
+import * as CONST from "../../Const";
 import * as myactions from "../../action/allJobs";
 import MainNavbar from "../Common/MainNavbar";
 import JobFiltersNavBar from "../Common/JobFiltersNavBar";
+import axios from "axios"
 
 import "./allJobs.css";
 
@@ -27,6 +28,19 @@ class allJobs extends Component {
     };
     this.myClick = this.myClick.bind(this);
     this.apply = this.apply.bind(this);
+    this.submitAnalytics = this.submitAnalytics.bind(this)
+  }
+
+  submitAnalytics(job) {
+    job.applicant_id=localStorage.getItem("id");
+    axios
+      .post(`${CONST.ROOT_URL}/getAllJobs/view`, job)
+      .then(response => {
+        console.log("Response recieved: " + JSON.stringify(response.data));
+      })
+      .catch(error => {
+      });
+
   }
   setEasyApply(event) {
     // console.log(event.target.value);
@@ -80,7 +94,7 @@ class allJobs extends Component {
                   class="btn btn-lg btn-primary"
                   onClick={() => this.apply(job_uuid)}
                 >
-                  <h3>Apply</h3>
+                  <h3>{this.state.allJobs[index].easyApply = "yes" ? "Easy Apply" : "Apply"}</h3>
                 </button>
               </div>
             </div>
@@ -141,6 +155,7 @@ class allJobs extends Component {
                   onClick={() =>
                     this.props.SAVE(
                       job_uuid,
+                      localStorage.getItem("id"),
                       this.state.allJobs[index].recruiter_id,
                       this.state.allJobs[index].position,
                       this.state.allJobs[index].company,
@@ -155,7 +170,8 @@ class allJobs extends Component {
                   class="btn btn-lg btn-primary"
                   onClick={() => this.apply(job_uuid)}
                 >
-                  <h3>Apply</h3>
+
+                  <h3>{this.state.allJobs[index].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                 </button>
               </div>
             </div>
@@ -220,10 +236,12 @@ class allJobs extends Component {
       if (nextProps.allJobs.msg.length) {
         xx = nextProps.allJobs.msg.map((item, index) => {
           return (
-            <div key={item._id} onClick={() => this.myClick(item._id, index)
-            //Action for Analytics
-            
-            
+            <div key={item._id} onClick={() => {
+              this.myClick(item._id, index)
+              //Action for Analytics
+              this.submitAnalytics(item);
+            }
+
             }>
               <div class="card border-left-0 ml-3">
                 <div class="card-body pl-5">
@@ -288,14 +306,15 @@ class allJobs extends Component {
                         this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
                       }
                     >
-                      <h3>Save</h3>
+                      <h3>Unsave</h3>
                     </button>
                     <button
                       type="button"
                       class="btn btn-lg btn-primary"
                       onClick={() => this.apply(nextProps.allJobs.msg[0]._id)}
                     >
-                      <h3>Apply</h3>
+
+                      <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                     </button>
                   </div>
                 </div>
@@ -333,7 +352,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                {nextProps.allJobs.msg[0].description}
+                  {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>
@@ -363,14 +382,14 @@ class allJobs extends Component {
                         this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
                       }
                     >
-                      <h3>Save</h3>
+                      <h3>Unsave</h3>
                     </button>
                     <button
                       type="button"
                       class="btn btn-lg btn-primary"
                       onClick={() => this.apply(nextProps.allJobs.msg[0]._id)}
                     >
-                      <h3>Apply</h3>
+                      <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                     </button>
                   </div>
                 </div>

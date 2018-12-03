@@ -22,7 +22,7 @@ class Profile extends Component {
           </div>
           <div id="DIV_9" class="border ">
             <div id="DIV_10">
-              <p class>Number of connections: 1</p>
+              <p class>Number of connections: 0</p>
             </div>
           </div>
         </div>
