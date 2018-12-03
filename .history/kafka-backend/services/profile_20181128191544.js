@@ -1,3 +1,4 @@
+
 var { User } = require("../models/User");
 var mongoose = require("mongoose");
 function handle_request(msg, callback) {
@@ -10,42 +11,43 @@ function handle_request(msg, callback) {
   const newEdu = {};
   //msg.values = msg;
 
-  if (msg.profile_url) {
-    profileData.profile_url = msg.profile_url;
-  }
-  if (msg.firstName) {
-    profileData.first_name = msg.firstName;
-  }
-  if (msg.lastName) {
-    profileData.last_name = msg.lastName;
-  }
-  if (msg.profileHeadline) {
-    profileData.profileHeadline = msg.profileHeadline;
-  }
-  if (msg.profileEducation) {
-    profileData.profileEducation = msg.profileEducation;
-  }
-  if (msg.Zipcode) {
-    profileData.Zipcode = msg.Zipcode;
-  }
-  if (msg.profileLocation) {
-    profileData.profileLocation = msg.profileLocation;
-  }
-  if (msg.profileIndustry) {
-    profileData.profileIndustry = msg.profileIndustry;
-  }
-  if (msg.profileContact) {
-    profileData.profileContact = msg.profileContact;
-  }
-  if (msg.profileSummary) {
-    profileData.profileSummary = msg.profileSummary;
-  }
-  if (msg.countryName) {
-    profileData.countryName = msg.countryName;
-  }
 
-  console.log("Profile logggggs", profileData);
-  if (msg.values) {
+    if (msg.profile_url) {
+      profileData.profile_url = msg.profile_url;
+    }
+    if (msg.firstName) {
+      profileData.first_name = msg.firstName;
+    }
+    if (msg.lastName) {
+      profileData.last_name = msg.lastName;
+    }
+    if (msg.profileHeadline) {
+      profileData.profileHeadline = msg.profileHeadline;
+    }
+    if (msg.profileEducation) {
+      profileData.profileEducation = msg.profileEducation;
+    }
+    if (msg.Zipcode) {
+      profileData.Zipcode = msg.Zipcode;
+    }
+    if (msg.profileLocation) {
+      profileData.profileLocation = msg.profileLocation;
+    }
+    if (msg.profileIndustry) {
+      profileData.profileIndustry = msg.profileIndustry;
+    }
+    if (msg.profileContact) {
+      profileData.profileContact = msg.profileContact;
+    }
+    if (msg.profileSummary) {
+      profileData.profileSummary = msg.profileSummary;
+    }
+    if (msg.countryName) {
+      profileData.countryName = msg.countryName;
+    }
+
+    console.log("Profile logggggs", profileData);
+    if(msg.values){
     if (
       msg.values.experienceTitle ||
       msg.values.experienceCompany ||
@@ -97,55 +99,54 @@ function handle_request(msg, callback) {
       console.log("++++++++++++++++++++++++++++++++++***********************");
     }
   }
-  User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }).then(profile => {
-    if (profile) {
-      if (profileData) {
-        User.findOneAndUpdate(
-          { _id: mongoose.Types.ObjectId(msg.id) },
-          { $set: profileData }
-        ).then((profile, err) => {
+    User.findOne({ _id: mongoose.Types.ObjectId(msg.id) }).then(profile => {
+      if (profile) {
+        if (profileData) {
+          User.findOneAndUpdate({ _id: mongoose.Types.ObjectId(msg.id) }, { $set: profileData }).then(
+            (profile, err) => {
+              console.log("Error ", err, " profile ", profile);
+              if (err) {
+                callback("Error occured", err);
+              }
+              if (profile) {
+                console.log("Primary details updated");
+                callback(null, profile);
+              }
+              console.log(
+                "=====================out of  the kafka-backend update profile====================="
+              );
+            }
+          );
+        }
+        if (newExp) {
+          profile.experience.unshift(newExp);
+        }
+        if (newEdu) {
+          profile.education.unshift(newEdu);
+        }
+
+        profile.save().then((profile, err) => {
           console.log("Error ", err, " profile ", profile);
           if (err) {
             callback("Error occured", err);
           }
           if (profile) {
-            console.log("Primary details updated");
+            // console.log("Primary details updated");
             callback(null, profile);
+          } else {
+            callback("No profile available", null);
           }
           console.log(
             "=====================out of  the kafka-backend update profile====================="
           );
         });
-      }
-      if (newExp) {
-        profile.experience.unshift(newExp);
-      }
-      if (newEdu) {
-        profile.education.unshift(newEdu);
-      }
-
-      profile.save().then((profile, err) => {
-        console.log("Error ", err, " profile ", profile);
-        if (err) {
-          callback("Error occured", err);
-        }
-        if (profile) {
-          // console.log("Primary details updated");
-          callback(null, profile);
-        } else {
-          callback("No profile available", null);
-        }
+      } else {
+        callback("No profile available", null);
         console.log(
           "=====================out of  the kafka-backend update profile====================="
         );
-      });
-    } else {
-      callback("No profile available", null);
-      console.log(
-        "=====================out of  the kafka-backend update profile====================="
-      );
-    }
-  });
+      }
+    });
 }
 
 exports.handle_request = handle_request;

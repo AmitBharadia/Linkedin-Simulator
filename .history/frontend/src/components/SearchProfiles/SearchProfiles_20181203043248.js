@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import MainNavbar from "../Common/MainNavbar";
 import { connect } from "react-redux";
+
 import { dummy } from "../../action/dummy";
 import { connectRequest } from "../../action/getNetwork";
 import style1 from "../Connections/Recommendations/Recommendations.css";
 import myStyles from "../Connections/Connections.css";
 
+
 class SearchProfiles extends Component {
   constructor(props) {
     super(props);
+  }
+  onConnectClick(newConnection) {
+    this.props.connectRequest(newConnection);
   }
 
   render() {
@@ -21,6 +26,28 @@ class SearchProfiles extends Component {
           "</div>" + '<div className="row mb-2" style={{ height: "230px" }} />';
       }
       return (
+
+        <div style={{ marginBottom: "50px" }}>
+          <hr />
+          <div class="card-body">
+            <a href="" id="A_4">
+              <img height="64" width="64" src={mydata.profile_url} id="IMG_5" />
+            </a>
+
+            <p>
+              Username: {mydata.first_name} {mydata.last_name}
+            </p>
+            <p>Location: {mydata.profileLocation}</p>
+            <p>Summary: {mydata.profileSummary}</p>
+
+            <button
+              onClick={this.onConnectClick.bind(this, mydata)}
+              className="btn btn-primary btn btn-block"
+              style={{ width: "100px" }}
+            >
+              Connect
+            </button>
+
         <div className="col-md-4" style={{ maxHeight: "320px" }}>
           <div class="card" style={{ height: "320px" }}>
             <img
@@ -28,8 +55,8 @@ class SearchProfiles extends Component {
               src={mydata.profile_url}
               alt="Card image"
               style={style1.cardimage}
-              onClick={() => {
-                this.props.history.push("/profile/" + mydata._id);
+              onClick={()=>{
+                this.props.history.push("/profile/" + mydata._id)
               }}
             />
             <div class="card-body">
@@ -49,18 +76,16 @@ class SearchProfiles extends Component {
               <div class="row">
                 <div class="col" />
                 <div class="col">
-                  <button
-                    class="btn btn-primary btn-outline-primary "
-                    onClick={() => {
-                      this.props.connectRequest(mydata);
-                    }}
-                  >
+                  <button class="btn btn-primary btn-outline-primary " onClick={()=>{
+                    this.props.connectRequest(mydata);
+                  }}>
                     <h3>CONNECT</h3>
                   </button>
                 </div>
                 <div class="col" />
               </div>
             </div>
+
           </div>
         </div>
       );
@@ -98,5 +123,9 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
+<<<<<<< HEAD
+  { connectRequest }
+=======
   { dummy, connectRequest }
+>>>>>>> 6a2ec7b077375a405fe8d195f64639807247224f
 )(SearchProfiles);

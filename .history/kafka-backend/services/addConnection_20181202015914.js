@@ -16,15 +16,7 @@ function handle_request(msg, callback) {
   }).then(existing => {
     if (existing) {
       callback(null, "Already pending request");
-    }
-    Connection.findOne({
-      user_id: msg.connectUser._id,
-      connect_user_id: msg.userId
-    }).then(connection => {
-      if (connection) {
-        callback(null, "Already connected");
-      }
-
+    } else {
       User.findById(msg.userId)
         .then(profile => {
           const newInvitation = new Invitation({
@@ -43,9 +35,8 @@ function handle_request(msg, callback) {
             .catch(err => callback(err, "Error creating invitation request"));
         })
         .catch(err => callback(err, "User not found"));
-    });
+    }
   });
-
   console.log(
     "======================Out of the kafka-backend add connection====================="
   );

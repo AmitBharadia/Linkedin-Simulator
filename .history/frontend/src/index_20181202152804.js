@@ -10,7 +10,6 @@ import store from "./store/index";
 import Signin from "./components/Signin/Signin";
 import Signup from "./components/Signup/Signup";
 import Home from "./components/Home/Home";
-
 import Profile from "./components/Profile/Profile";
 
 import Connections from "./components/Connections/Connections";
@@ -51,7 +50,7 @@ ReactDOM.render(
         <Route path="/connections" component={Connections} />
         <Route path="/admin" component={Admin} />
         <Route path="/allConnections" component={AllConnections} />
-        <Route path="/profile/:id" component={Profile} />
+
         <Route path="/myJobPosts" component={GetPostedJobs} />
         <Route path="/messaging" component={Messaging} />
       </div>

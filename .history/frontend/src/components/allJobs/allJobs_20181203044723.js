@@ -172,7 +172,7 @@ class allJobs extends Component {
                   class="btn btn-lg btn-outline-primary mr-3"
                   onClick={() =>
                     this.props.SAVE(
-                      //job_uuid,
+                      job_uuid,
                       localStorage.getItem("id"),
                       this.state.allJobs[index].recruiter_id,
                       this.state.allJobs[index].position,
