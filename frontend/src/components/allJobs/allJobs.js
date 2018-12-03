@@ -4,10 +4,11 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
+import * as CONST from "../../Const";
 import * as myactions from "../../action/allJobs";
 import MainNavbar from "../Common/MainNavbar";
 import JobFiltersNavBar from "../Common/JobFiltersNavBar";
+import axios from "axios"
 
 import "./allJobs.css";
 
@@ -27,6 +28,19 @@ class allJobs extends Component {
     };
     this.myClick = this.myClick.bind(this);
     this.apply = this.apply.bind(this);
+    this.submitAnalytics = this.submitAnalytics.bind(this)
+  }
+
+  submitAnalytics(job) {
+    job.applicant_id=localStorage.getItem("id");
+    axios
+      .post(`${CONST.ROOT_URL}/getAllJobs/view`, job)
+      .then(response => {
+        console.log("Response recieved: " + JSON.stringify(response.data));
+      })
+      .catch(error => {
+      });
+
   }
   setEasyApply(event) {
     // console.log(event.target.value);
@@ -42,16 +56,16 @@ class allJobs extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  apply(job_uuid) {
-    console.log("clicked apply " + job_uuid);
+  apply(job_id) {
+    console.log("clicked apply " + job_id);
   }
 
-  myClick(job_uuid, index) {
+  myClick(job_id, index) {
     let status = 0;
 
     this.state.savedjobs.forEach(element => {
-      console.log(element.job_uuid);
-      if (element.job_uuid === job_uuid) status = 1;
+      console.log(element.job_id);
+      if (element.job_id === job_id) status = 1;
     });
 
     if (status) {
@@ -71,16 +85,19 @@ class allJobs extends Component {
                 <button
                   type="button"
                   class="btn btn-lg btn-outline-primary mr-3"
-                  onClick={() => this.props.UNSAVE(job_uuid)}
+                  onClick={() => this.props.UNSAVE(job_id)}
                 >
                   <h3>Unsave</h3>
                 </button>
+                <Link to={{pathname:"/fill-application",state:{job_id:job_id,recruiter_id:this.state.allJobs[index].recruiter_id,
+                position:this.state.allJobs[index].position, location:this.state.allJobs[index].location ,
+                easyApply:this.state.allJobs[index].easyApply, company:this.state.allJobs[index].company }}}>
                 <button
                   type="button"
                   class="btn btn-lg btn-primary"
-                  onClick={() => this.apply(job_uuid)}
+                  onClick={() => this.apply(job_id)}
                 >
-                  <h3>Apply</h3>
+                  <h3>{this.state.allJobs[index].easyApply = "yes" ? "Easy Apply" : "Apply"}</h3>
                 </button>
               </div>
             </div>
@@ -141,6 +158,7 @@ class allJobs extends Component {
                   onClick={() =>
                     this.props.SAVE(
                       job_uuid,
+                      localStorage.getItem("id"),
                       this.state.allJobs[index].recruiter_id,
                       this.state.allJobs[index].position,
                       this.state.allJobs[index].company,
@@ -150,13 +168,24 @@ class allJobs extends Component {
                 >
                   <h3>Save</h3>
                 </button>
-                <button
+                <Link to={{pathname:"/fill-application",state:{job_id:job_id,
+                                                              recruiter_id:this.state.allJobs[index].recruiter_id,
+                                                              position:this.state.allJobs[index].position,
+                                                              company:this.state.allJobs[index].company,
+                                                              easyApply:this.state.allJobs[index].easyApply,
+                                                              location:this.state.allJobs[index].location 
+              }}}><button
                   type="button"
                   class="btn btn-lg btn-primary"
-                  onClick={() => this.apply(job_uuid)}
+                  onClick={() => this.apply(job_id,this.state.allJobs[index].recruiter_id,
+                    this.state.allJobs[index].position,
+                    this.state.allJobs[index].company,
+                    this.state.allJobs[index].location)}
                 >
-                  <h3>Apply</h3>
+
+                  <h3>{this.state.allJobs[index].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                 </button>
+
               </div>
             </div>
             <div class="w-100" />
@@ -220,10 +249,12 @@ class allJobs extends Component {
       if (nextProps.allJobs.msg.length) {
         xx = nextProps.allJobs.msg.map((item, index) => {
           return (
-            <div key={item._id} onClick={() => this.myClick(item._id, index)
-            //Action for Analytics
-            
-            
+            <div key={item._id} onClick={() => {
+              this.myClick(item._id, index)
+              //Action for Analytics
+              this.submitAnalytics(item);
+            }
+
             }>
               <div class="card border-left-0 ml-3">
                 <div class="card-body pl-5">
@@ -260,8 +291,8 @@ class allJobs extends Component {
         let status = 0;
 
         nextProps.allJobs.savedjobs.forEach(element => {
-          console.log(element.job_uuid);
-          if (element.job_uuid === nextProps.allJobs.msg[0]._id) status = 1;
+          console.log(element.job_id);
+          if (element.job_id === nextProps.allJobs.msg[0]._id) status = 1;
         });
 
         if (status) {
@@ -288,15 +319,22 @@ class allJobs extends Component {
                         this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
                       }
                     >
-                      <h3>Save</h3>
+                      <h3>Unsave</h3>
                     </button>
+                    
+                    <Link to={{pathname:"/fill-application",state:{job_id: nextProps.allJobs.msg[0]._id,recruiter_id: nextProps.allJobs.msg[0].recruiter_id,
+                position:nextProps.allJobs.msg[0].position, location:nextProps.allJobs.msg[0].location,easyApply: nextProps.allJobs.msg[0].easyApply,company: nextProps.allJobs.msg[0].company
+                 }}}>
+                    
                     <button
                       type="button"
                       class="btn btn-lg btn-primary"
                       onClick={() => this.apply(nextProps.allJobs.msg[0]._id)}
                     >
-                      <h3>Apply</h3>
+
+                      <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                     </button>
+
                   </div>
                 </div>
                 <div class="w-100" />
@@ -333,7 +371,7 @@ class allJobs extends Component {
               <div class="pt-5">
                 <h2 class="font-weight-light">Job description</h2>
                 <h4 class="font-weight-light">
-                {nextProps.allJobs.msg[0].description}
+                  {nextProps.allJobs.msg[0].description}
                 </h4>
               </div>
             </div>
@@ -363,15 +401,22 @@ class allJobs extends Component {
                         this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
                       }
                     >
-                      <h3>Save</h3>
+                      <h3>Unsave</h3>
                     </button>
+                    <Link to={{pathname:"/fill-application",state:{job_id: nextProps.allJobs.msg[0]._id,recruiter_id: nextProps.allJobs.msg[0].recruiter_id,
+                position:nextProps.allJobs.msg[0].position,
+                 location:nextProps.allJobs.msg[0].location ,
+                  company:nextProps.allJobs.msg[0].company , 
+                  easyApply:nextProps.allJobs.msg[0].easyApply }}}>
+                    
                     <button
                       type="button"
                       class="btn btn-lg btn-primary"
                       onClick={() => this.apply(nextProps.allJobs.msg[0]._id)}
                     >
-                      <h3>Apply</h3>
+                      <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                     </button>
+
                   </div>
                 </div>
                 <div class="w-100" />
