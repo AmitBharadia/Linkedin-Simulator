@@ -2,7 +2,9 @@ var { Applyjob  } = require("../models/Applyjobs");
 var pool = require("../db/index.js");
 
 async function handle_request(msg, callback){
-    
+    console.log(
+        "=====================In the kafka-backend apply job====================="
+      );
     console.log("In handle request:"+ JSON.stringify(msg.region));    
 
     let experience ={     
@@ -24,9 +26,8 @@ async function handle_request(msg, callback){
         toYear: msg.details.EduFromYear,
         grade: msg.details.EdutoYear
     }
-  
    
-    let newjob=new Applyjob({   "applicant_id":msg.applicant_id,
+    let newjob=new Applyjob({   "applicant_id":msg.details.applicant_id,
         job_id :msg.details.job_id ,recruiter_id:msg.details.recruiter_id,  job_name:msg.details.position ,
         region:msg.details.region, gender:msg.details.gender, experience: experience, education: education,
         email:msg.details.email ,  workAuthorization:msg.details.workAuthorization , middleName:msg.details.middleName,
@@ -57,11 +58,15 @@ try{
       }));
 
     callback(null , { status:"success",msg:x });
-
+    console.log(
+        "=====================Out of  the kafka-backend apply job====================="
+      );
 
 }catch(error){
     callback( null , { status:"error",msg:error });
-    
+    console.log(
+        "=====================Out of  the kafka-backend apply job====================="
+      );
 }
 }
 
