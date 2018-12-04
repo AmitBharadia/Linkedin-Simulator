@@ -41,6 +41,7 @@ async function handle_request(msg, callback) {
         }
       });
     }
+    con.release();
   });
 }
 

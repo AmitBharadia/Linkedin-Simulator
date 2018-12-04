@@ -64,7 +64,7 @@ var signinRouter = require("./routes/signin");
 app.use("/signin", signinRouter);
 
 var getAllJobsRouter = require("./routes/getAllJobs");
-app.use("/getAllJobs", requireAuth, getAllJobsRouter);
+app.use("/getAllJobs",  getAllJobsRouter);
 
 var getPostedJobsRouter = require("./routes/getPostedJobs");
 app.use("/myPostedJobs", getPostedJobsRouter);

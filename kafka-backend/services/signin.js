@@ -44,9 +44,12 @@ async function handle_request(msg, callback) {
           console.log(
             "============================Out of the kafka-backend Signin====================="
           );
-        }
+          }
       });
     }
+    console.log("Before :" + pool._freeConnections.length);
+    con.release();
+    console.log("After : " + pool._freeConnections.length);
   });
 }
 

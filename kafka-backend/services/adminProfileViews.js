@@ -43,6 +43,7 @@ pool.getConnection((err, con) => {
       }
     });
   }
+  con.release();
 });
 }
 

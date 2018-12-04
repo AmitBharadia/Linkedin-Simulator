@@ -92,7 +92,7 @@ handleTopicRequest("get_top5Jobs", top5Jobs);
 handleTopicRequest("get_cityWise", cityApp);
 handleTopicRequest("get_top10Jobs", top10Jobs);
 handleTopicRequest("get_clicks", clicksOnJobs);
-handleTopicRequest("get_savedJobs", savedJobs);
+handleTopicRequest("admin_getsavedjobs", savedJobs);
 handleTopicRequest("posted_job", postedJobs);
 handleTopicRequest("post_delete", deleteProfile);
 
@@ -122,5 +122,5 @@ handleTopicRequest("job_application",getJobApplications);
 
 handleTopicRequest("profileViews",profileviews);
 handleTopicRequest("jobsStarted",adminJobsStarted)
-//handleTopicRequest("trackUser",adminTrackUser);
+handleTopicRequest("trackUser",adminTrackUser);
 

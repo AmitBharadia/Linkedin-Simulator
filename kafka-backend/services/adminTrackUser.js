@@ -15,9 +15,9 @@ async function handle_request(msg, callback) {
     " count(distinct st.applicant_id) as started " +
     " from linkedin_master.job_applications_clicked as c  "+ 
     " left join linkedin_master.job_application_submitted as su on su.job_id = c.job_id " +
-    " left join linkedin_master.job_applications_started as st on st.job_id = c.job_id "
+    " left join linkedin_master.job_applications_started as st on st.job_id = c.job_id " +
     " WHERE " +
-    " recruiter_id = " +
+    " c.recruiter_id = " +
     mysql.escape(msg.id) +
     " GROUP BY (c.job_id)";
 
@@ -46,6 +46,7 @@ async function handle_request(msg, callback) {
         }
       });
     }
+    con.release();
   });
 
   console.log("After wait......");
