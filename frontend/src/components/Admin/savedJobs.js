@@ -20,7 +20,7 @@ class SavedJobs extends Component {
 
   componentDidMount() {
     console.log("in Component did mount");
-    axios.get(CONST.ROOT_URL + "/savedJobs").then(res => {
+    axios.get(CONST.ROOT_URL + "/savedJobs", { params: { id: localStorage.getItem("id") } }).then(res => {
       console.log("Status: " + res.status);
       console.log("Data: " + JSON.stringify(res.data.data));
       if (res.status == 200) {
@@ -43,7 +43,7 @@ class SavedJobs extends Component {
           </h2>
         </div>
         <div class="col">
-          <PieChart
+         { this.state.data &&  <PieChart
             labels
             styles={{
               ".chart_lines": {
@@ -71,7 +71,7 @@ class SavedJobs extends Component {
                 dataDisplay: `The value of the ${d.data.key} is ${d.value}`
               });
             }}
-          />
+          /> }
         </div>
       </div>
     );

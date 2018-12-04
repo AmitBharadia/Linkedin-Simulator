@@ -1,6 +1,7 @@
 
 var { Jobs } = require("../models/Jobs");
 var { Savedjobs } = require("../models/Savedjobs");
+var { Applyjob } = require("../models/Applyjobs");
 
 async function handle_request(msg, callback){
     console.log(
@@ -16,21 +17,24 @@ async function handle_request(msg, callback){
         jobs= await getAllJobs(msg.query);
         
         let savedjobs= await getSavedJobs(msg.applicant_id);
-        callback( null , {status:"success" , msg:jobs , savedjobs:savedjobs});
-        console.log(
-            "=====================Out of the kafka-backend get all jobs====================="
-          );
+        let appliedjobs= await getAppliedjobs(msg.applicant_id);
+
+        callback( null , {status:"success" , msg:jobs ,appliedjobs:appliedjobs, savedjobs:savedjobs});
+        console.log("=====================Out of the kafka-backend get all jobs=====================");
       }
     catch (error) {
-            callback( null, { status: "error" ,msg:error });
-            console.log(
-                "=====================In the kafka-backend get all jobs====================="
-              );
+        callback( null, { status: "error" ,msg:error });
+        console.log("=====================In the kafka-backend get all jobs=====================" );
         }    
 }
 
 function getSavedJobs(user_id) {
-    return Savedjobs.find({ applicant_id: user_id}, {job_uuid:1 ,_id:0})
+    return Savedjobs.find({ applicant_id: user_id}, {job_id:1 ,_id:0})
+    .exec();  
+}
+
+function getAppliedjobs(user_id) {
+    return Applyjob.find({ applicant_id: user_id}, { job_id:1 ,_id:0 } )
     .exec();  
 }
 
@@ -48,6 +52,7 @@ function getAllJobs( q) {
          recruiter_id:1
          })
     .limit(15)
+    .sort({"_id":-1})
     .exec();  
 }
 

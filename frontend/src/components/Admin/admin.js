@@ -6,6 +6,8 @@ import Top10Jobs from "./Top10Jobs";
 import CityWiseJobs from "./cityWiseJobs";
 import ClicksOnJobs from "./clicksOnJobs";
 import SavedJobs from "./savedJobs";
+import TrackUser from "./trackUser";
+
 class Admin extends Component {
   render() {
     return (
@@ -36,6 +38,10 @@ class Admin extends Component {
         <div class="pt-5 mt-5">
           <h2 class="font-weight-light text-center">Clicks per job Posting</h2>
           <ClicksOnJobs />
+        </div>
+        <div class="pt-5 mt-5">
+          <h2 class="font-weight-light text-center">Application tracking</h2>
+          <TrackUser />
         </div>
       </div>
     );

@@ -64,7 +64,7 @@ var signinRouter = require("./routes/signin");
 app.use("/signin", signinRouter);
 
 var getAllJobsRouter = require("./routes/getAllJobs");
-app.use("/getAllJobs", requireAuth, getAllJobsRouter);
+app.use("/getAllJobs",  getAllJobsRouter);
 
 var getPostedJobsRouter = require("./routes/getPostedJobs");
 app.use("/myPostedJobs", getPostedJobsRouter);
@@ -77,6 +77,13 @@ app.use("/apply", requireAuth, applyjobRouter);
 
 var postJobsRouter = require("./routes/postJobs");
 app.use("/postJob", postJobsRouter);
+
+var jobsApplicationRouter = require("./routes/getApplications");
+app.use("/myJobApplications", jobsApplicationRouter);
+
+
+var editJobs = require("./routes/editJobs");
+app.use("/editJobs", editJobs);
 
 var dummyRouter = require("./routes/dummy");
 app.use("/dummy", dummyRouter);
@@ -141,8 +148,11 @@ app.use("/basic-details", getBasicDetailsRouter);
 var AdminProfileViewsRouter = require("./routes/adminProfileViews");
 app.use("/profileViews", AdminProfileViewsRouter);
 
-var AdminProfileViewsRouter = require("./routes/adminProfileViews");
-app.use("/profileViews", AdminProfileViewsRouter);
+var AdminJobsStartedRouter = require("./routes/adminJobsStarted");
+app.use("/jobs_started", AdminJobsStartedRouter);
+
+var AdminTrackUserRouter = require("./routes/adminTrackUser");
+app.use("/track_user_info", AdminTrackUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

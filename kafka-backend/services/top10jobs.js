@@ -6,7 +6,7 @@ async function handle_request(msg, callback) {
     "=====================In the kafka-backend citywise====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  msg.id = 1;
+  //msg.id = 1;
 
   let queryString =
     "SELECT " +
@@ -44,6 +44,7 @@ async function handle_request(msg, callback) {
         }
       });
     }
+    con.release();
   });
 }
 

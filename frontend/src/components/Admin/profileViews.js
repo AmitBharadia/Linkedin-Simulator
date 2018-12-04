@@ -19,7 +19,7 @@ class ProfileViews extends Component {
 
   componentDidMount() {
     console.log("in Component did mount");
-    axios.get(CONST.ROOT_URL + "/profileViews",{params:{"id" :localStorage.getItem("id")}}).then(res => {
+    axios.get(CONST.ROOT_URL + "/profileViews", { params: { "id": localStorage.getItem("id") } }).then(res => {
       console.log("Status: " + res.status);
       console.log("Data: " + JSON.stringify(res.data.data));
       if (res.status == 200) {
@@ -34,11 +34,11 @@ class ProfileViews extends Component {
     console.log("data:" + this.state.data);
     return (
       <div>
-        <BarChart
-         
+        {this.state.data && <BarChart
+
           datePattern='%d-%b-%y'
           axes
-          axisLabels={{ x: "Days"}}
+          axisLabels={{ x: "Days" }}
           colorBars
           grid
           height={200}
@@ -54,7 +54,7 @@ class ProfileViews extends Component {
           // ]}
           data={this.state.data}
           margin={{ top: 0, right: 0, bottom: 30, left: 100 }}
-        />
+        />}
         <h2 class="font-weight-light">Number of profile views</h2>
       </div>
     );
