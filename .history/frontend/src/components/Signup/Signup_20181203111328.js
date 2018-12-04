@@ -80,9 +80,9 @@ class Signup extends Component {
                   />
                 </div>
 
-                <div class="ml-5 mr-5 mt-5 ">
+                <div class="ml-5 mr-5 mt-5 " style={{ width: "100%" }}>
                   <Field
-                    className="form-control pull-right"
+                    className="form-control"
                     label="Are you a Recruiter?"
                     name="isRecruiter"
                     type="checkbox"

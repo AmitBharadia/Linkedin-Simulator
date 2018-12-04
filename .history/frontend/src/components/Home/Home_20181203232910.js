@@ -7,8 +7,18 @@ import Posts from "./Posts";
 import News from "./News";
 import axios from "axios";
 import * as CONST from "../../Const/index";
+import { get_connections_count } from "../../action/getNetwork";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log("component mount");
+    this.props.get_connections_count();
+  }
+
   componentWillMount() {
     console.log("Hello");
     axios

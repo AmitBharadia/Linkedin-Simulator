@@ -11,7 +11,6 @@ router.get("/", function(req, res, next) {
 
   console.log("Request Body: " + req.query.id);
   //send body to kafka server
-
   kafka.make_request("posted_job", "response_topic", req.query.id, function(
     err,
     doc
