@@ -6,7 +6,7 @@ async function handle_request(msg, callback) {
     );
     console.log("Message body:" + JSON.stringify(msg));
 
-    Applyjob.find({job_id : '5bf6769e29159b67f0281b25'}, (err, doc) => {
+    Applyjob.find({job_id : msg}, (err, doc) => {
         console.log("In Get Job Applications Query");
         if(doc!=null) {
             console.log("docs : ",doc);

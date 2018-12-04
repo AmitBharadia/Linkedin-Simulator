@@ -62,7 +62,7 @@ ReactDOM.render(
 
           <Route path="/getApplications/:id" component={GetApplications} />
           <Route path="/testpdf" component={GetApplications3} />
-          <Route path="/editPosting/:id" component={EditJobs} />
+          <Route path="/editPosting/:name/:id" component={EditJobs} />
           <Route path="/apply" component={JobApplied} />
 
       </div>

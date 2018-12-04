@@ -60,7 +60,7 @@ class EditJobs extends Component {
                     <div className="flex-container mx-auto col-lg-10 col-10  border border-dark">
                         <h1 className="text-left mx-auto">
                             {" "}
-                            You are currently Editing Job {this.props.match.params.id}
+                            You are currently Editing Job  : {this.props.match.params.name}
                         </h1>
                         <form className="text-left" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                             <div className="py-5 form-row">

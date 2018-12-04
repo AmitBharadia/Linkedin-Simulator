@@ -33,7 +33,7 @@ class JobListItem extends Component{
                                     </p>
 
                                     <div className="blockquote-footer"><strong><a><Link to={"/getApplications/"+ this.props.job._id }>Applications</Link></a></strong></div>
-                                    <div className="blockquote-footer"><strong><a><Link to={"/editPosting/"+ this.props.job._id }>Edit Posting</Link></a></strong></div>
+                                    <div className="blockquote-footer"><strong><a><Link to={"/editPosting/"+ this.props.job.position +"/"+ this.props.job._id }>Edit Posting</Link></a></strong></div>
 
                                 </div>
                             </div>
