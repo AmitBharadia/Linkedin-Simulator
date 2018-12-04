@@ -46,6 +46,7 @@ async function handle_request(msg, callback) {
         }
       });
     }
+    con.release();
   });
 
   console.log("After wait......");

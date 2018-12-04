@@ -73,14 +73,26 @@ class savedJobs extends Component {
                                             </p>
                                         </div>
                                         <div class="col">
-                                            <button
-                                                type="button"
-                                                class="btn btn-lg btn-primary mr-3"
-                                            // onClick={() => this.props.UNSAVE(job_uuid)}
+                                            <Link
+                                                to={{
+                                                    pathname: "/fill-application",
+                                                    state: {
+                                                        job_id: item.job_id,
+                                                        recruiter_id: item.recruiter_id,
+                                                        position: item.position,
+                                                        location: item.location,
+                                                        easyApply: item.easyApply?'yes':'no',
+                                                        company: item.company
+                                                    }
+                                                }}
                                             >
-                                                <h3>Apply</h3>
-                                            </button>
-
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-lg btn-primary mr-3"
+                                                >
+                                                    <h3>{item.easyApply? "Easy Apply": "Apply"}</h3>
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
