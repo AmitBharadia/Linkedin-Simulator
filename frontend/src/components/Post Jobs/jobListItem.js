@@ -1,6 +1,7 @@
 import React ,{Component } from 'react';
 import axios from "axios";
 import cookie from "react-cookies";
+import Link from "react-router-dom/es/Link";
 //import {ROOT_URL} from "../";
 
 class JobListItem extends Component{
@@ -31,7 +32,9 @@ class JobListItem extends Component{
                                         Description : {this.props.job.description}
                                     </p>
 
-                                    <div className="blockquote-footer"><strong><a href= {"/applications/"}>Applications</a></strong></div>
+                                    <div className="blockquote-footer"><strong><a><Link to={"/getApplications/"+ this.props.job._id }>Applications</Link></a></strong></div>
+                                    <div className="blockquote-footer"><strong><a><Link to={"/editPosting/"+ this.props.job._id }>Edit Posting</Link></a></strong></div>
+
                                 </div>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ import searchPeaople from "./searchPeaople";
 import network from "./network";
 
 import { reducer as formReducer } from "redux-form";
+import myJobApplications from "./myJobApplications";
 
 export default combineReducers({
   form: formReducer,
@@ -25,5 +26,6 @@ export default combineReducers({
   myJobs,
   savedJobs,
   allJobs,
-  profile
+  profile,
+  myJobApplications
 });

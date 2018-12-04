@@ -23,6 +23,7 @@ var top10Jobs = require("./services/top10jobs");
 var clicksOnJobs = require("./services/clicksOnJob");
 var savedJobs = require("./services/savedJobs");
 var postJobs = require("./services/postJobs");
+var editJobs = require("./services/editJobs");
 
 var postedJobs = require("./services/postedJobs");
 var deleteProfile = require("./services/deleteProfile");
@@ -31,6 +32,8 @@ var getChatList= require("./services/getChatList");
 var getMessageDetails = require("./services/getMessageDetails");
 var sendMessage=require("./services/sendMessage");
 var getBasicDetails=require("./services/getBasicDetails");
+
+var getJobApplications=require("./services/getJobApplications");
 
 var jobview = require("./services/jobview");
 
@@ -93,6 +96,7 @@ handleTopicRequest("get_clicks", clicksOnJobs);
 handleTopicRequest("get_savedJobs", savedJobs);
 
 handleTopicRequest("post_job", postJobs);
+handleTopicRequest("edit_job", editJobs);
 handleTopicRequest("posted_job", postedJobs);
 
 handleTopicRequest("post_delete", deleteProfile);
@@ -102,3 +106,4 @@ handleTopicRequest("sendMessage",sendMessage);
 handleTopicRequest("getBasicDetails",getBasicDetails);
 
 handleTopicRequest("jobview", jobview);
+handleTopicRequest("job_application",getJobApplications);
