@@ -34,6 +34,8 @@ import GetApplications2 from "./components/Applications/getApplications2";
 import GetApplications3 from "./components/Applications/testPDF";
 import EditJobs from "./components/Post Jobs/editJobPosting";
 
+import JobApplied from "./components/AppliedJobs/appliedJobs";
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -61,7 +63,7 @@ ReactDOM.render(
           <Route path="/getApplications/:id" component={GetApplications} />
           <Route path="/testpdf" component={GetApplications3} />
           <Route path="/editPosting/:id" component={EditJobs} />
-
+          <Route path="/apply" component={JobApplied} />
 
       </div>
     </Router>

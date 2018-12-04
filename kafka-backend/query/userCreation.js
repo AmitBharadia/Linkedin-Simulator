@@ -27,6 +27,7 @@ function createUser(user, callback) {
         }
       });
     }
+    con.release();
   });
 }
 

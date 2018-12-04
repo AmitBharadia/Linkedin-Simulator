@@ -121,5 +121,5 @@ handleTopicRequest("job_application",getJobApplications);
 
 handleTopicRequest("profileViews",profileviews);
 handleTopicRequest("jobsStarted",adminJobsStarted)
-//handleTopicRequest("trackUser",adminTrackUser);
+handleTopicRequest("trackUser",adminTrackUser);
 

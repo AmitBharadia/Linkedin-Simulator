@@ -9,11 +9,11 @@ class JobFiltersNavBar extends Component {
 
   onSubmit(values) {
     console.log(values);
-    var companyList=[]
-    if(values["Google"]){
-      companyList.push("google")
-    }
-    values["company"]=companyList;
+    // var companyList = []
+    // if (values["Google"]) {
+    //   companyList.push("google")
+    // }
+    // values["company"] = companyList;
     this.props.filter(values);
   }
 
@@ -27,7 +27,7 @@ class JobFiltersNavBar extends Component {
               {" "}
               <ul className="navbar-nav mx-auto ">
                 <li class="nav-item">
-                  <a class="nav-link pull-left text-secondary" href="#" onClick={()=>{
+                  <a class="nav-link pull-left text-secondary" href="#" onClick={() => {
                     this.props.history.push("/savedJobs");
                   }}>
                     <h3>
@@ -37,7 +37,9 @@ class JobFiltersNavBar extends Component {
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link mr-5 text-secondary" href="#">
+                  <a class="nav-link mr-5 text-secondary" href="#" onClick={() => {
+                    this.props.history.push("/apply");
+                  }}>
                     <h3>
                       <u>Applied Jobs</u>{" "}
                     </h3>
@@ -45,7 +47,7 @@ class JobFiltersNavBar extends Component {
                 </li>
                 <form
                   class="form-inline"
-                   onSubmit={handleSubmit(this.onSubmit.bind(this))}
+                  onSubmit={handleSubmit(this.onSubmit.bind(this))}
                 >
                   <Field
                     className="form-control form-control-lg"
@@ -57,55 +59,17 @@ class JobFiltersNavBar extends Component {
                   <Field
                     className="form-control form-control-lg"
                     name="location"
-                    placeholder="Location" 
+                    placeholder="Location"
+                    component={this.renderField}
+                  />
+                  <p class="mr-5" />
+                  <Field
+                    className="form-control form-control-lg"
+                    name="company"
+                    placeholder="Company"
                     component={this.renderField}
                   />
 
-                  <li class="nav-item dropdown mr-2 ml-2">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <h3> Company </h3>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">
-                        <Field
-                          className="form-control form-control-lg"
-                          placeholder="Search"
-                          type="checkbox"
-                          name="Facebook"
-                          label="FaceBook"
-                          component={this.renderField}
-                        />
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <Field
-                          className="form-control form-control-lg"
-                          placeholder="Search"
-                          type="checkbox"
-                          name="Google"
-                          label="Google"
-                          component={this.renderField}
-                        />
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <Field
-                          className="form-control form-control-lg"
-                          placeholder="Search"
-                          type="checkbox"
-                          name="Twitter"
-                          label="Twitter"             
-                          component={this.renderField}
-                        />
-                      </a>
-                    </div>
-                  </li>
                   <li class="nav-item dropdown mr-4">
                     <a
                       class="nav-link dropdown-toggle"
@@ -208,7 +172,6 @@ class JobFiltersNavBar extends Component {
 
 
 }
-const optionsList = [{id: 1, name: 'Optoin1'}, {id: 2, name: 'Option 2'}, {id: 3, name: 'Option 3'}]     
 
 
 export default reduxForm({
