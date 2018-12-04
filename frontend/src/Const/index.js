@@ -23,4 +23,6 @@ export const JOB_SAVE_SUCCESS = "jobSaveSuccess";
 
 export const SAVED_JOBS_ERROR = "savedJobsError";
 export const SAVED_JOBS_SUCCESS = "savedJobsSuccess";
+export const MY_JOB_APPLICATIONS = "myJobsApplied";
+export const EDIT_JOBS = "editJobs";
 

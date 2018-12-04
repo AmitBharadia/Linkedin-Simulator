@@ -9,17 +9,8 @@ let queryFilter = (input) => {
 	let q = {};
 
 	for (let key in input) {
-
 		if (key === "jobid") {
 			q["jobid"] = input[key]
-		}
-		else if (key === "company") {
-			var array = JSON.parse(input[key]);
-			let len = array.length;
-			q["$or"] = [];
-			for (let i = 0; i < len; i++) {
-				q["$or"].push({ "company": { $regex: array[i], $options: "i" } });
-			}
 		}
 		else if (key === "seniority") {
 			var array = JSON.parse(input[key]);
@@ -48,11 +39,6 @@ router.get("/", async function (req, res, next) {
 		res.send({ status: "error", msg: verify.msg });
 	else {
 
-		// redisClient.get(JSON.stringify(req.query), function (err, reply) {
-		// 	//console.log(JSON.stringify(reply));
-		// 	if (err)
-		// 		res.send({ "error": err });
-		// 	else if (reply == null) {
 
 		let m = { applicant_id: verify.msg, query: q };
 
@@ -61,34 +47,20 @@ router.get("/", async function (req, res, next) {
 				res.send({ status: "error", msg: "System Error, Try Again." });
 			} else {
 
-				console.log(result.msg);
-				console.log(q);
-				// redisClient.set(JSON.stringify(req.query), JSON.stringify(result), function (err, reply2) {
-				// 	console.log(reply2);
-				// 	redisClient.expire(q, 300);
-				// });
+				//console.log(result.msg);
+				//console.log(q);
+
 				res.send({
 					status: result.status,
 					msg: result.msg,
-					savedjobs: result.savedjobs
+					savedjobs: result.savedjobs,
+					appliedjobs: result.appliedjobs
 				});
 			}
 			console.log("============================Out of the rest request get all job =====================");
 		}
 		);
-		// else {
-		// 	//console.log(reply.toString());
-		// 	let x = JSON.parse(reply);
-		// 	res.send({
 
-		// 		status: x.status,
-		// 		msg: x.msg,
-		// 		savedjobs: x.savedjobs
-		// 	});
-
-		// }
-
-		// });
 
 	}
 

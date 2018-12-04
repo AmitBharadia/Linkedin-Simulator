@@ -12,6 +12,18 @@
     -ms-user-select: none;
     user-select: none;
 }
+#page-numbers {
+    list-style: none;
+    display: flex;
+  }
+  
+#page-numbers > li {
+    margin: 10px;
+    color: blue;
+    user-select: none;
+    cursor: pointer;
+    
+  }
 
 /* Hide the browser's default radio button */
 .maincontainer input {

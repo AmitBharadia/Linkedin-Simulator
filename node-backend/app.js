@@ -64,7 +64,7 @@ var signinRouter = require("./routes/signin");
 app.use("/signin", signinRouter);
 
 var getAllJobsRouter = require("./routes/getAllJobs");
-app.use("/getAllJobs", requireAuth, getAllJobsRouter);
+app.use("/getAllJobs",  getAllJobsRouter);
 
 var getPostedJobsRouter = require("./routes/getPostedJobs");
 app.use("/myPostedJobs", getPostedJobsRouter);
@@ -77,6 +77,13 @@ app.use("/apply", requireAuth, applyjobRouter);
 
 var postJobsRouter = require("./routes/postJobs");
 app.use("/postJob", postJobsRouter);
+
+var jobsApplicationRouter = require("./routes/getApplications");
+app.use("/myJobApplications", jobsApplicationRouter);
+
+
+var editJobs = require("./routes/editJobs");
+app.use("/editJobs", editJobs);
 
 var dummyRouter = require("./routes/dummy");
 app.use("/dummy", dummyRouter);

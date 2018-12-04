@@ -1,7 +1,7 @@
 module.exports.LOCAL_PORT = "3001";
 module.exports.UI_SERVER_URL = "http://localhost:3000";
 module.exports.KAFKA_URL = "localhost:2181";
-module.exports.CONNECTION_LIMIT = 1000;
+module.exports.CONNECTION_LIMIT = 10000;
 module.exports.HOST = "linkedin.cx2nnmpqznns.us-east-1.rds.amazonaws.com";
 module.exports.USER = "linkedin_user";
 module.exports.PASSWORD = "linkedin_pass";
