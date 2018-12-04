@@ -31,11 +31,12 @@ var getChatList= require("./services/getChatList");
 var getMessageDetails = require("./services/getMessageDetails");
 var sendMessage=require("./services/sendMessage");
 var getBasicDetails=require("./services/getBasicDetails");
-
+var getapplyjob=require("./services/getapplyjob");
 var jobview = require("./services/jobview");
 
 var profileviews = require("./services/adminProfileViews");
-
+var adminJobsStarted = require("./services/adminJobsStarted");
+var adminTrackUser = require("./services/adminTrackUser");
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
@@ -71,7 +72,7 @@ function handleTopicRequest(topic_name, fname) {
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
 
-
+handleTopicRequest("getapplyjob",getapplyjob );
 handleTopicRequest("post_invitations", getInvitations);
 handleTopicRequest("get_recommendations", getRecommendations);
 handleTopicRequest("remove_connection", removeConnection);
@@ -107,3 +108,5 @@ handleTopicRequest("getBasicDetails",getBasicDetails);
 
 handleTopicRequest("jobview", jobview);
 handleTopicRequest("profileViews",profileviews);
+handleTopicRequest("jobsStarted",adminJobsStarted)
+//handleTopicRequest("trackUser",adminTrackUser);

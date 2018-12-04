@@ -141,8 +141,11 @@ app.use("/basic-details", getBasicDetailsRouter);
 var AdminProfileViewsRouter = require("./routes/adminProfileViews");
 app.use("/profileViews", AdminProfileViewsRouter);
 
-var AdminProfileViewsRouter = require("./routes/adminProfileViews");
-app.use("/profileViews", AdminProfileViewsRouter);
+var AdminJobsStartedRouter = require("./routes/adminJobsStarted");
+app.use("/jobs_started", AdminJobsStartedRouter);
+
+var AdminTrackUserRouter = require("./routes/adminTrackUser");
+app.use("/track_user_info", AdminTrackUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

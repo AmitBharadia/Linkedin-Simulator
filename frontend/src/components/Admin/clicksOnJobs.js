@@ -19,7 +19,7 @@ class Clicks extends Component {
 
   componentDidMount() {
     console.log("in Component did mount");
-    axios.get(CONST.ROOT_URL + "/clicksOnJobs").then(res => {
+    axios.get(CONST.ROOT_URL + "/clicksOnJobs", { params: { id: localStorage.getItem("id") } }).then(res => {
       console.log("Status: " + res.status);
       console.log("Data: " + JSON.stringify(res.data.data));
       if (res.status == 200) {
@@ -34,7 +34,7 @@ class Clicks extends Component {
     console.log("data:" + this.state.data);
     return (
       <div>
-        <BarChart
+        {this.state.data && <BarChart
           axisLabels={{ x: "My x Axis", y: "My y Axis" }}
           axes
           colorBars
@@ -49,7 +49,7 @@ class Clicks extends Component {
           // ]}
           data={this.state.data}
           margin={{ top: 0, right: 0, bottom: 30, left: 100 }}
-        />
+        />}
         />
       </div>
     );

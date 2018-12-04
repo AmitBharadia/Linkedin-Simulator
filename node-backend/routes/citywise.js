@@ -2,12 +2,12 @@ var express = require("express");
 var router = express.Router();
 var kafka = require("../kafka/client");
 
-router.get("/", async function(req, res, next) {
+router.get("/", async function (req, res, next) {
   console.log(
     "============================In of the rest request clicks ====================="
   );
-  console.log("Request body:" + JSON.stringify(req.body));
-  kafka.make_request("get_cityWise", "response_topic", req.body, function(
+  console.log("Request body:" + JSON.stringify(req.query));
+  kafka.make_request("get_cityWise", "response_topic", req.query, function (
     err,
     results
   ) {

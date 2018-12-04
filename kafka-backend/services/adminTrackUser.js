@@ -3,7 +3,7 @@ var pool = require("../db/index.js");
 var mysql = require("mysql");
 async function handle_request(msg, callback) {
   console.log(
-    "=====================In the kafka-backend top5jobs====================="
+    "=====================In the kafka-backend get track user details====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
   //msg.id = 1;
@@ -11,16 +11,15 @@ async function handle_request(msg, callback) {
   //     "select * from job_application_submitted where recruiter_id= " +
   //     mysql.escape(1);
   let queryString =
-    "SELECT" +
-    " job_name AS x, COUNT(applicant_id) AS y" +
-    " FROM" +
-    " job_application_submitted" +
+    "select c.recruiter_id,c.job_id,su.job_name,count(distinct c.applicant_id) as clicked, count(distinct su.applicant_id) as submitted, " +
+    " count(distinct st.applicant_id) as started " +
+    " from linkedin_master.job_applications_clicked as c  "+ 
+    " left join linkedin_master.job_application_submitted as su on su.job_id = c.job_id " +
+    " left join linkedin_master.job_applications_started as st on st.job_id = c.job_id "
     " WHERE " +
     " recruiter_id = " +
     mysql.escape(msg.id) +
-    " GROUP BY (job_id)" +
-    " ORDER BY y" +
-    " LIMIT 5";
+    " GROUP BY (c.job_id)";
 
   console.log(queryString);
 
@@ -42,7 +41,7 @@ async function handle_request(msg, callback) {
             callback("No such user present", null);
           }
           console.log(
-            "============================Out of the kafka-backend top5Jobs====================="
+            "============================Out of the kafka-backend track user details====================="
           );
         }
       });
