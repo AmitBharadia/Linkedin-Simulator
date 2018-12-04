@@ -40,7 +40,6 @@ class EditJobs extends Component {
     onSubmit(values)
     {
         values.job_id =  this.props.match.params.id;
-
         axios.post(`${CONST.ROOT_URL}/editJobs`,values)
             .then( (response) => {
                 if(response.status === 200) {

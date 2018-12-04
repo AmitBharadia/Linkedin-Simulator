@@ -29,9 +29,7 @@ function handle_request(msg, callback) {
         "======================Out of the kafka-backend get Invitation====================="
       );
     }
-  )
-    .sort({ _id: 1 })
-    .limit(1);
+  );
 }
 
 exports.handle_request = handle_request;

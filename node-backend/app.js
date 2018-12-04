@@ -81,6 +81,8 @@ app.use("/postJob", postJobsRouter);
 var jobsApplicationRouter = require("./routes/getApplications");
 app.use("/myJobApplications", jobsApplicationRouter);
 
+var getEditJobs = require("./routes/getEditJobs");
+app.use("/getEditJobs", getEditJobs);
 
 var editJobs = require("./routes/editJobs");
 app.use("/editJobs", editJobs);
