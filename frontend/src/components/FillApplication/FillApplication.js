@@ -38,7 +38,9 @@ class FillApplication extends Component {
             disability: "",
             job_id: jobDetails.job_id || "",
             recruiter_id: jobDetails.recruiter_id || "",
-            position: jobDetails.position || ""
+            position: jobDetails.position || "",
+            company:jobDetails.company || "",
+            location:jobDetails.location || "",
         }
         this.firstNameHandler = this.firstNameHandler.bind(this);
         this.middleNameHandler = this.middleNameHandler.bind(this);
@@ -166,7 +168,9 @@ class FillApplication extends Component {
                 applicant_id: localStorage.getItem("id"),
                 job_id: this.state.job_id,
                 recruiter_id: this.state.recruiter_id,
-                position: this.state.position
+                position: this.state.position,
+                company:this.state.company,
+                location: this.state.location
             }
             console.log("Onsubmit values of dataaaaaaaa fill application", data);
         } else {
@@ -182,7 +186,9 @@ class FillApplication extends Component {
                 applicant_id: localStorage.getItem("id"),
                 job_id: this.state.job_id,
                 recruiter_id: this.state.recruiter_id,
-                position: this.state.position
+                position: this.state.position,
+                company:this.state.company,
+                location: this.state.location
             }
             console.log("Onsubmit values of dataaaaaaaa fill application", data);
         }

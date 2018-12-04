@@ -4,17 +4,6 @@ var kafka = require("../kafka/client");
 var { upload } = require("../s3");
 var { verifyToken } = require("./verifyToken");
 router.get("/", async function (req, res, next) {
-
-  // console.log("Request body:", JSON.stringify(req.body));
-  //  console.log("Request file:", JSON.stringify(req.file));
-
-  //  console.log(req.headers.authorization);
-  //  let verify= await verifyToken(req.get("Authorization"));
-  //  console.log(verify);   
-  //  if(verify.status == "error")
-  //      res.send( { status:"error" , msg: verify.msg });
-  //  else{
-
   kafka.make_request(
     "getapplyjob",
     "response_topic",
@@ -27,8 +16,7 @@ router.get("/", async function (req, res, next) {
         console.log(result.msg);
         res.send({ status: result.status, msg: result.msg });
       }
-    });
-  //}     
+    });  
 });
 
 router.post("/", upload.single("resume"), async function (req, res, next) {
@@ -38,12 +26,6 @@ router.post("/", upload.single("resume"), async function (req, res, next) {
   // console.log("Request body:", JSON.stringify(req.body));
   console.log("Request file:", JSON.stringify(req.body.filename));
 
-  // console.log(req.headers.authorization);
-  // let verify= await verifyToken(req.get("Authorization"));
-  // console.log(verify);   
-  // if(verify.status == "error")
-  //     res.send( { status:"error" , msg: verify.msg });
-  // else{
   let resumeLink = "";
   if (req.file) {
     var url = "https://s3.amazonaws.com/linkedin-273/CompanyLogo/" + req.body.filename;
