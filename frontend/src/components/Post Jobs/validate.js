@@ -22,6 +22,29 @@ function validate(values) {
         errors.Seniority = "Enter Seniority";
     }
 
+    // if (!values.experience) {
+    //     errors.company = "Enter experience";
+    // }
+    //
+    // if (!values.easyApply) {
+    //     errors.company = "Enter easyApply";
+    // }
+
+    if (!values.description) {
+        errors.description = "Enter description";
+    }
+
+    if (!values.industry) {
+        errors.industry = "Enter industry";
+    }
+
+    if (!values.function) {
+        errors.function = "Enter function";
+    }
+
+
+
+
     // If errors is empty, the form is fine to submit
     // If errors has *any* properties, redux form assumes form is invalid
     return errors;

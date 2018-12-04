@@ -29,6 +29,10 @@ import postJob from "./components/Post Jobs/index";
 
 import GetPostedJobs from "./components/Post Jobs/getPostedJobs";
 import Messaging from "./components/Messagging/index";
+import GetApplications from "./components/Applications/getApplications";
+import GetApplications2 from "./components/Applications/getApplications2";
+import GetApplications3 from "./components/Applications/testPDF";
+import EditJobs from "./components/Post Jobs/editJobPosting";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -53,6 +57,12 @@ ReactDOM.render(
         <Route path="/profile/:id" component={Profile} />
         <Route path="/myJobPosts" component={GetPostedJobs} />
         <Route path="/messaging" component={Messaging} />
+
+          <Route path="/getApplications/:id" component={GetApplications} />
+          <Route path="/testpdf" component={GetApplications3} />
+          <Route path="/editPosting/:id" component={EditJobs} />
+
+
       </div>
     </Router>
   </Provider>,

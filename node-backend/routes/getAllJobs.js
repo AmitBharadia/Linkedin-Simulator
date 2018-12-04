@@ -70,7 +70,8 @@ router.get("/", async function (req, res, next) {
 				res.send({
 					status: result.status,
 					msg: result.msg,
-					savedjobs: result.savedjobs
+					savedjobs: result.savedjobs,
+					appliedjobs: result.appliedjobs
 				});
 			}
 			console.log("============================Out of the rest request get all job =====================");
