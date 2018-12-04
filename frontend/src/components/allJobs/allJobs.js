@@ -16,6 +16,10 @@ class allJobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      currentPage:1,
+      jobsPerPage:5,
+
       allJobs: [],
       xx: "",
       yy: "",
@@ -29,6 +33,14 @@ class allJobs extends Component {
     this.myClick = this.myClick.bind(this);
     this.apply = this.apply.bind(this);
     this.submitAnalytics = this.submitAnalytics.bind(this);
+    this.handleClickPagination = this.handleClickPagination.bind(this); 
+  }
+
+  handleClickPagination = (e) => {
+    console.log(e.target.id);
+    console.log( typeof(e.target.id));
+    this.setState({ currentPage: Number(e.target.id) });
+    console.log(this.state.currentPage );
   }
 
   submitAnalytics(job) {
@@ -38,7 +50,7 @@ class allJobs extends Component {
       .then(response => {
         console.log("Response recieved: " + JSON.stringify(response.data));
       })
-      .catch(error => {});
+      .catch(error => { });
   }
   setEasyApply(event) {
     // console.log(event.target.value);
@@ -80,14 +92,14 @@ class allJobs extends Component {
                 {this.state.allJobs[index].location}
               </h3>
               <div class="mt-5 pt-3">
-                <button
+                {/* <button
                   type="button"
                   class="btn btn-lg btn-outline-primary mr-3"
                   onClick={() => this.props.UNSAVE(job_id)}
                 >
                   <h3>Unsave</h3>
-                </button>
-                <button class="btn btn-primary"> 
+                </button> */}
+
                 <Link
                   to={{
                     pathname: "/fill-application",
@@ -100,11 +112,12 @@ class allJobs extends Component {
                       company: this.state.allJobs[index].company
                     }
                   }}
-                >
-                  <h3>{this.state.allJobs[index].easyApply = "yes" ? "Easy Apply" : "Apply"}</h3>
-                  </Link>
+                > <button class="btn btn-primary">
+                    <h3>{this.state.allJobs[index].easyApply = "yes" ? "Easy Apply" : "Apply"}</h3>
                   </button>
-                
+                </Link>
+
+
               </div>
 
             </div>
@@ -141,7 +154,7 @@ class allJobs extends Component {
               {this.state.allJobs[index].description}
             </h4>
           </div>
-          </div>
+        </div>
       );
       console.log(yy);
       this.setState({ yy });
@@ -175,7 +188,7 @@ class allJobs extends Component {
                 >
                   <h3>Save</h3>
                 </button>
-               
+
                 <Link
                   to={{
                     pathname: "/fill-application",
@@ -188,49 +201,49 @@ class allJobs extends Component {
                       location: this.state.allJobs[index].location
                     }
                   }}
-                > <button class="btn btn-primary"> 
-                  <h3>{this.state.allJobs[index].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
+                > <button class="btn btn-primary">
+                    <h3>{this.state.allJobs[index].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
                   </button>
 
-                  </Link>
-               
-            
+                </Link>
 
-            </div>
-            <div class="w-100" />
-            <div class="card-group text-left w-100 ">
-              <div class="card border-left-0">
-                <div class="card-body">
-                  <h3 class="card-title font-weight-light">Job</h3>
-                  <p class="card-text h5 font-weight-light">15 Applicant</p>
-                  <p class="card-text h5 font-weight-light">Experience Level</p>
-                </div>
+
+
               </div>
-              <div class="card">
-                <div class="card-body">
-                  <h3 class="card-title font-weight-light">Company</h3>
-                  <p class="card-text h5 font-weight-light">1504 Employee</p>
-                  <p class="card-text h5 font-weight-light">Internet</p>
+              <div class="w-100" />
+              <div class="card-group text-left w-100 ">
+                <div class="card border-left-0">
+                  <div class="card-body">
+                    <h3 class="card-title font-weight-light">Job</h3>
+                    <p class="card-text h5 font-weight-light">15 Applicant</p>
+                    <p class="card-text h5 font-weight-light">Experience Level</p>
+                  </div>
                 </div>
-              </div>
-              <div class="card border-right-0 ">
-                <div class="card-body">
-                  <h3 class="card-title font-weight-light">Connection</h3>
-                  <p class="card-text h5 font-weight-light">1 Connection</p>
-                  <p class="card-text h5 font-weight-light">
-                    125 Company Alumini
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="card-title font-weight-light">Company</h3>
+                    <p class="card-text h5 font-weight-light">1504 Employee</p>
+                    <p class="card-text h5 font-weight-light">Internet</p>
+                  </div>
+                </div>
+                <div class="card border-right-0 ">
+                  <div class="card-body">
+                    <h3 class="card-title font-weight-light">Connection</h3>
+                    <p class="card-text h5 font-weight-light">1 Connection</p>
+                    <p class="card-text h5 font-weight-light">
+                      125 Company Alumini
                   </p>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="pt-5">
+              <h2 class="font-weight-light">Job description</h2>
+              <h4 class="font-weight-light">
+                {this.state.allJobs[index].description}
+              </h4>
+            </div>
           </div>
-          <div class="pt-5">
-            <h2 class="font-weight-light">Job description</h2>
-            <h4 class="font-weight-light">
-              {this.state.allJobs[index].description}
-            </h4>
-          </div>
-        </div>
         </div>
       );
       console.log(yy);
@@ -243,13 +256,14 @@ class allJobs extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(
-      "component will receive props " + JSON.stringify(nextProps.allJobs)
-    );
+    // console.log(
+    //   "component will receive props " + JSON.stringify(nextProps.allJobs)
+    // );
 
     if (nextProps.allJobs.status === "success") {
+
       this.setState({ allJobs: nextProps.allJobs.msg });
-      console.log(nextProps.allJobs.savedjobs);
+    //  console.log(nextProps.allJobs.savedjobs);
 
       this.setState({ savedjobs: nextProps.allJobs.savedjobs });
 
@@ -302,7 +316,7 @@ class allJobs extends Component {
         let status = 0;
 
         nextProps.allJobs.savedjobs.forEach(element => {
-          console.log(element.job_id);
+         // console.log(element.job_id);
           if (element.job_id === nextProps.allJobs.msg[0]._id) status = 1;
         });
 
@@ -323,7 +337,7 @@ class allJobs extends Component {
                     {nextProps.allJobs.msg[0].location}
                   </h3>
                   <div class="mt-5 pt-3">
-                    <button
+                    {/* <button
                       type="button"
                       class="btn btn-lg btn-outline-primary mr-3"
                       onClick={() =>
@@ -331,51 +345,51 @@ class allJobs extends Component {
                       }
                     >
                       <h3>Unsave</h3>
-                    </button>
-                  
+                    </button> */}
 
+
+                  </div>
+                  <div class="w-100" />
+                  <div class="card-group text-left w-100 ">
+                    <div class="card border-left-0">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Job</h3>
+                        <p class="card-text h5 font-weight-light">15 Applicant</p>
+                        <p class="card-text h5 font-weight-light">
+                          Experience Level
+                      </p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Company</h3>
+                        <p class="card-text h5 font-weight-light">
+                          1504 Employee
+                      </p>
+                        <p class="card-text h5 font-weight-light">Internet</p>
+                      </div>
+                    </div>
+                    <div class="card border-right-0 ">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Connection</h3>
+                        <p class="card-text h5 font-weight-light">1 Connection</p>
+                        <p class="card-text h5 font-weight-light">
+                          125 Company Alumini
+                      </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="w-100" />
-                <div class="card-group text-left w-100 ">
-                  <div class="card border-left-0">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Job</h3>
-                      <p class="card-text h5 font-weight-light">15 Applicant</p>
-                      <p class="card-text h5 font-weight-light">
-                        Experience Level
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Company</h3>
-                      <p class="card-text h5 font-weight-light">
-                        1504 Employee
-                      </p>
-                      <p class="card-text h5 font-weight-light">Internet</p>
-                    </div>
-                  </div>
-                  <div class="card border-right-0 ">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Connection</h3>
-                      <p class="card-text h5 font-weight-light">1 Connection</p>
-                      <p class="card-text h5 font-weight-light">
-                        125 Company Alumini
-                      </p>
-                    </div>
-                  </div>
+                <div class="pt-5">
+                  <h2 class="font-weight-light">Job description</h2>
+                  <h4 class="font-weight-light">
+                    {nextProps.allJobs.msg[0].description}
+                  </h4>
                 </div>
               </div>
-              <div class="pt-5">
-                <h2 class="font-weight-light">Job description</h2>
-                <h4 class="font-weight-light">
-                  {nextProps.allJobs.msg[0].description}
-                </h4>
-              </div>
-            </div>
             </div>
           );
-          console.log(yy);
+         // console.log(yy);
         } else {
           yy = (
             <div class="">
@@ -396,13 +410,23 @@ class allJobs extends Component {
                     <button
                       type="button"
                       class="btn btn-lg btn-outline-primary mr-3"
+                      // onClick={() =>
+                      //   this.props.SAVE(nextProps.allJobs.msg[0]._id)
+                      // }
+
                       onClick={() =>
-                        this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
-                      }
+                        this.props.SAVE(
+                          nextProps.allJobs.msg[0]._id,
+                          localStorage.getItem("id"),
+                          nextProps.allJobs.msg[0].recruiter_id,
+                          nextProps.allJobs.msg[0].position,
+                          nextProps.allJobs.msg[0].company,
+                          nextProps.allJobs.msg[0].location
+                        )}
                     >
-                      <h3>Unsave</h3>
+                      <h3>SAVE</h3>
                     </button>
-                   
+
                     <Link
                       to={{
                         pathname: "/fill-application",
@@ -416,53 +440,53 @@ class allJobs extends Component {
                         }
                       }}
                     >
-                     <button class="btn btn-primary"> 
-                      <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
-                    </button>
+                      <button class="btn btn-primary">
+                        <h3>{nextProps.allJobs.msg[0].easyApply == "yes" ? "Easy Apply" : "Apply"}</h3>
+                      </button>
 
-                  </Link>
+                    </Link>
+                  </div>
+                  <div class="w-100" />
+                  <div class="card-group text-left w-100 ">
+                    <div class="card border-left-0">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Job</h3>
+                        <p class="card-text h5 font-weight-light">15 Applicant</p>
+                        <p class="card-text h5 font-weight-light">
+                          Experience Level
+                      </p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Company</h3>
+                        <p class="card-text h5 font-weight-light">
+                          1504 Employee
+                      </p>
+                        <p class="card-text h5 font-weight-light">Internet</p>
+                      </div>
+                    </div>
+                    <div class="card border-right-0 ">
+                      <div class="card-body">
+                        <h3 class="card-title font-weight-light">Connection</h3>
+                        <p class="card-text h5 font-weight-light">1 Connection</p>
+                        <p class="card-text h5 font-weight-light">
+                          125 Company Alumini
+                      </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="w-100" />
-                <div class="card-group text-left w-100 ">
-                  <div class="card border-left-0">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Job</h3>
-                      <p class="card-text h5 font-weight-light">15 Applicant</p>
-                      <p class="card-text h5 font-weight-light">
-                        Experience Level
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Company</h3>
-                      <p class="card-text h5 font-weight-light">
-                        1504 Employee
-                      </p>
-                      <p class="card-text h5 font-weight-light">Internet</p>
-                    </div>
-                  </div>
-                  <div class="card border-right-0 ">
-                    <div class="card-body">
-                      <h3 class="card-title font-weight-light">Connection</h3>
-                      <p class="card-text h5 font-weight-light">1 Connection</p>
-                      <p class="card-text h5 font-weight-light">
-                        125 Company Alumini
-                      </p>
-                    </div>
-                  </div>
+                <div class="pt-5">
+                  <h2 class="font-weight-light">Job description</h2>
+                  <h4 class="font-weight-light">
+                    {nextProps.allJobs.msg[0].description}
+                  </h4>
                 </div>
               </div>
-              <div class="pt-5">
-                <h2 class="font-weight-light">Job description</h2>
-                <h4 class="font-weight-light">
-                  {nextProps.allJobs.msg[0].description}
-                </h4>
-              </div>
-            </div>
             </div>
           );
-          console.log(yy);
+         // console.log(yy);
         }
       } else {
         xx = <h2>Sorry No jobs found. </h2>;
@@ -475,6 +499,30 @@ class allJobs extends Component {
   }
 
   render() {
+    const { xx , currentPage , jobsPerPage } = this.state;
+    const IndexOfLastJob = currentPage*jobsPerPage ; 
+    const IndexOfFirstJob = IndexOfLastJob - jobsPerPage;
+
+    const CurrentJob = xx.slice(IndexOfFirstJob , IndexOfLastJob );
+
+    const pageNumbers=[];
+    for(let i=1;i<=Math.ceil(xx.length/jobsPerPage);i++){
+        pageNumbers.push(i)
+    }
+
+    const renderPageNumbers = pageNumbers.map(number=>{
+        return (
+            <li
+              key={number}
+              id={number}
+              onClick={this.handleClickPagination}
+            >
+              {number}
+            </li>
+        )
+    })
+
+
     return (
       <div>
         <MainNavbar />
@@ -484,7 +532,8 @@ class allJobs extends Component {
           <div class="row">
             <div class="col-sm">
               <div class="pl-3" style={{ height: "480px", overflow: "auto" }}>
-                {this.state.xx}
+              {/*  {this.state.xx}  */}
+                {CurrentJob}             
               </div>
             </div>
             <div class="col-sm">
@@ -492,6 +541,11 @@ class allJobs extends Component {
                 {this.state.yy}
               </div>
             </div>
+          </div>
+          <div>
+          <ul id='page-numbers' class="h2" style={{'marginLeft':'50%','marginTop':'25px','color': 'black','float': 'left','padding': '8px 16px','textDecoration': 'none',' border': '1px solid black' }}>
+                 {renderPageNumbers}
+              </ul>
           </div>
         </div>
       </div>

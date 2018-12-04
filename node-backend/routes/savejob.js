@@ -22,7 +22,7 @@ router.get("/", async function (req, res, next) {
           res.send({ status: "error", msg: "System Error, Try Again." });
         } else {
           console.log(result.msg);
-          res.send({ status: result.status, msg: result.msg });
+          res.send({ status: result.status, msg: result.msg , appliedjobs: result.appliedjobs });
         }
         console.log(
           "============================Out of the rest request get  saved a job ====================="

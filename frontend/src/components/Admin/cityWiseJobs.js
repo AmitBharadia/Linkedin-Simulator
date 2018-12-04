@@ -28,7 +28,6 @@ class Clicks extends Component {
         });
       }
     });
-
   }
 
   render() {

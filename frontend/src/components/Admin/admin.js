@@ -27,7 +27,7 @@ class Admin extends Component {
         </div>
         <div class="pt-5 mt-5">
           <h2 class="font-weight-light text-center">
-            Top 10 Jobs Posting with avh applications/month
+            Top 10 Jobs Posting with avg applications/month
           </h2>
           <Top10Jobs />
         </div>
@@ -40,8 +40,8 @@ class Admin extends Component {
           <ClicksOnJobs />
         </div>
         <div class="pt-5 mt-5">
-          <h2 class="font-weight-light text-center">Clicks per job Posting</h2>
-            {/*<TrackUser />*/}
+          <h2 class="font-weight-light text-center">Application tracking</h2>
+          <TrackUser />
         </div>
       </div>
     );
