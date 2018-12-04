@@ -32,7 +32,7 @@
           <entry key="html" value="1" />
           <entry key="jade" value="3" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="336" />
+          <entry key="js" value="339" />
           <entry key="json" value="3" />
           <entry key="png" value="1" />
           <entry key="rnc" value="1" />
@@ -46,7 +46,7 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="3" />
           <entry key="Jade" value="3" />
-          <entry key="JavaScript" value="338" />
+          <entry key="JavaScript" value="341" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -73,15 +73,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/jobListItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="35" column="105" selection-start-line="35" selection-start-column="94" selection-end-line="35" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Applications/testPDF.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="882">
@@ -97,19 +88,34 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
-              <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/action/postJobs.js">
+        <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="584">
+              <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node-backend/routes/getPostedJobs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -127,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/node-backend/routes/postJobs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+              <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -136,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/editJobPosting.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2079">
-              <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+              <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -148,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/node-backend/routes/editJobs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="131">
-              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -157,7 +163,7 @@
         <entry file="file://$PROJECT_DIR$/kafka-backend/services/editJobs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="298">
-              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -230,7 +236,6 @@
         <option value="$PROJECT_DIR$/frontend/src/reducers/reducers.js" />
         <option value="$PROJECT_DIR$/frontend/src/action/myJobApplications.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/getApplications.js" />
-        <option value="$PROJECT_DIR$/node-backend/routes/getPostedJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/getApplications2.js" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/kafka-backend/models/Applications.js" />
@@ -239,16 +244,17 @@
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/ApplicationListItem.js" />
         <option value="$PROJECT_DIR$/node-backend/routes/getResume.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/jobListItem.js" />
-        <option value="$PROJECT_DIR$/frontend/src/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/action/editJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/Const/index.js" />
         <option value="$PROJECT_DIR$/node-backend/app.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/editJobPosting.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/validate.js" />
         <option value="$PROJECT_DIR$/node-backend/routes/editJobs.js" />
-        <option value="$PROJECT_DIR$/kafka-backend/server.js" />
         <option value="$PROJECT_DIR$/kafka-backend/services/editJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/testPDF.js" />
+        <option value="$PROJECT_DIR$/frontend/src/index.js" />
+        <option value="$PROJECT_DIR$/kafka-backend/server.js" />
+        <option value="$PROJECT_DIR$/node-backend/routes/getPostedJobs.js" />
       </list>
     </option>
   </component>
@@ -292,28 +298,13 @@
             <path>
               <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="node-backend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Applications" type="462c0819:PsiDirectoryNode" />
+              <item name="node-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -383,12 +374,12 @@
       <workItem from="1542668681700" duration="2473000" />
       <workItem from="1542913835308" duration="438000" />
       <workItem from="1543808449191" duration="5576000" />
-      <workItem from="1543864969644" duration="21905000" />
+      <workItem from="1543864969644" duration="22508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155510000" />
+    <option name="totallyTimeSpent" value="156113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,7 +406,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.19148937" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.13333334" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -556,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-backend/routes/getPostedJobs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kafka-backend/models/Applications.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -682,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
-          <folding>
-            <element signature="e#737#788#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Applications/getApplications.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -743,7 +717,7 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/action/postJobs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
-          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -753,21 +727,21 @@
     <entry file="file://$PROJECT_DIR$/node-backend/routes/postJobs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Post Jobs/editJobPosting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
-          <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+          <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
@@ -788,24 +762,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node-backend/routes/editJobs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
-          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kafka-backend/services/editJobs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -823,6 +790,27 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-backend/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node-backend/routes/getPostedJobs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

@@ -4,14 +4,16 @@ var jwt = require("jsonwebtoken");
 var CONST = require("../const");
 var kafka = require("../kafka/client");
 
-router.get("/", function(req, res, next) {
+router.get("/", function (req, res, next) {
   console.log(
     "============================In of the rest request GetPostedJob ====================="
   );
 
   console.log("Request Body: " + req.query.id);
   //send body to kafka server
-  kafka.make_request("posted_job", "response_topic", req.query.id, function(
+
+  kafka.make_request("posted_job", "response_topic", req.query.id, function (
+
     err,
     doc
   ) {
@@ -36,7 +38,7 @@ router.get("/", function(req, res, next) {
   });
 });
 
-router.get("/getpic", function(req, res, next) {
+router.get("/getpic", function (req, res, next) {
   console.log(
     "============================In of the rest request Get S3URL ====================="
   );

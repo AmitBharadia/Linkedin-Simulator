@@ -19,7 +19,7 @@ class Clicks extends Component {
 
   componentDidMount() {
     console.log("in Component did mount");
-    axios.get(CONST.ROOT_URL + "/cityWiseJobs").then(res => {
+    axios.get(CONST.ROOT_URL + "/cityWiseJobs", { params: { id: localStorage.getItem("id") } }).then(res => {
       console.log("Status: " + res.status);
       console.log("Data: " + JSON.stringify(res.data.data));
       if (res.status == 200) {
@@ -28,6 +28,7 @@ class Clicks extends Component {
         });
       }
     });
+
   }
 
   render() {
@@ -42,7 +43,7 @@ class Clicks extends Component {
           </h2>
         </div>
         <div class="col">
-          <PieChart
+          {this.state.data && <PieChart
             labels
             styles={{
               ".chart_lines": {
@@ -69,7 +70,7 @@ class Clicks extends Component {
                 dataDisplay: `The value of the ${d.data.key} is ${d.value}`
               });
             }}
-          />
+          />}
         </div>
       </div>
     );

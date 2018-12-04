@@ -33,21 +33,28 @@ var getMessageDetails = require("./services/getMessageDetails");
 var sendMessage=require("./services/sendMessage");
 var getBasicDetails=require("./services/getBasicDetails");
 
+
 var getJobApplications=require("./services/getJobApplications");
+
+
+var getapplyjob=require("./services/getapplyjob");
 
 var jobview = require("./services/jobview");
 
+var profileviews = require("./services/adminProfileViews");
+var adminJobsStarted = require("./services/adminJobsStarted");
+var adminTrackUser = require("./services/adminTrackUser");
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
   //console.log("server is running ");
   consumer.on("message", function(message) {
-    console.log("message received for " + topic_name + " ", fname);
+    console.log("MESSAGE  received for " + topic_name + " ", fname);
     console.log(JSON.stringify(message.value));
     var data = JSON.parse(message.value);
 
     fname.handle_request(data.data, function(err, res) {
-      console.log("Result :" + JSON.stringify(res) + " Error : " + err);
+      //console.log("Result :" + JSON.stringify(res) + " Error : " + err);
       var payloads = [
         {
           topic: data.replyTo,
@@ -59,7 +66,7 @@ function handleTopicRequest(topic_name, fname) {
           partition: 0
         }
       ];
-      console.log("Payload:", JSON.stringify(payloads));
+     console.log("Payload:", JSON.stringify(payloads));
       producer.send(payloads, function(err, data) {});
       return;
     });
@@ -71,39 +78,48 @@ function handleTopicRequest(topic_name, fname) {
 //second argument is a function that will handle this topic request
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
+
+handleTopicRequest("getapplyjob",getapplyjob );
 handleTopicRequest("post_invitations", getInvitations);
 handleTopicRequest("get_recommendations", getRecommendations);
 handleTopicRequest("remove_connection", removeConnection);
 handleTopicRequest("ignore_Invitation", ignoreInvitation);
 handleTopicRequest("add_connection", addConnection);
 handleTopicRequest("accept_connection", acceptConnection);
-handleTopicRequest("get_connection_count", getConnectionCount);
-
-handleTopicRequest("get_all_connections", getAllConnection);
-handleTopicRequest("getAllJobs", getAllJobs);
-handleTopicRequest("savejob", savejob);
 handleTopicRequest("getsavedjobs", getsavedjobs);
-handleTopicRequest("applyjob", applyjob);
-
-handleTopicRequest("get_people", searchPeople);
-handleTopicRequest("profile", profile);
-handleTopicRequest("getprofile", getprofile);
 handleTopicRequest("get_top5Jobs", top5Jobs);
 handleTopicRequest("get_cityWise", cityApp);
 handleTopicRequest("get_top10Jobs", top10Jobs);
 handleTopicRequest("get_clicks", clicksOnJobs);
-
 handleTopicRequest("get_savedJobs", savedJobs);
+handleTopicRequest("posted_job", postedJobs);
+handleTopicRequest("post_delete", deleteProfile);
 
+
+
+handleTopicRequest("get_connection_count", getConnectionCount);
+handleTopicRequest("get_all_connections", getAllConnection);
+handleTopicRequest("getAllJobs", getAllJobs);
+handleTopicRequest("savejob", savejob);
+handleTopicRequest("applyjob", applyjob);
+handleTopicRequest("get_people", searchPeople);
+handleTopicRequest("profile", profile);
+handleTopicRequest("getprofile", getprofile);
 handleTopicRequest("post_job", postJobs);
 handleTopicRequest("edit_job", editJobs);
 handleTopicRequest("posted_job", postedJobs);
 
-handleTopicRequest("post_delete", deleteProfile);
+
 handleTopicRequest("getChatList",getChatList);
 handleTopicRequest("getMessageDetails",getMessageDetails);
 handleTopicRequest("sendMessage",sendMessage);
 handleTopicRequest("getBasicDetails",getBasicDetails);
 
 handleTopicRequest("jobview", jobview);
+
 handleTopicRequest("job_application",getJobApplications);
+
+handleTopicRequest("profileViews",profileviews);
+handleTopicRequest("jobsStarted",adminJobsStarted)
+//handleTopicRequest("trackUser",adminTrackUser);
+

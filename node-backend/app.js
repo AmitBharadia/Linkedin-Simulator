@@ -16,7 +16,7 @@ var app = express();
 //Allows request from other origin an access
 app.use(cors({ origin: CONST.UI_SERVER_URL, credentials: true }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", CONST.UI_SERVER_URL);
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
@@ -145,13 +145,22 @@ app.use("/sendMessage", sendMessageRouter);
 var getBasicDetailsRouter = require("./routes/getBasicDetails");
 app.use("/basic-details", getBasicDetailsRouter);
 
+var AdminProfileViewsRouter = require("./routes/adminProfileViews");
+app.use("/profileViews", AdminProfileViewsRouter);
+
+var AdminJobsStartedRouter = require("./routes/adminJobsStarted");
+app.use("/jobs_started", AdminJobsStartedRouter);
+
+var AdminTrackUserRouter = require("./routes/adminTrackUser");
+app.use("/track_user_info", AdminTrackUserRouter);
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

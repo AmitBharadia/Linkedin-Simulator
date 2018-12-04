@@ -33,12 +33,15 @@ class Recommendations extends Component {
         }
         return (
           <div className="col-md-4" style={{ maxHeight: "320px" }}>
-            <div class="card" style={{ height: "320px" }}>
+            <div class="card" style={{ height: "320px" }}  >
               <img
                 class="card-img-top"
                 src={recommendation.profile_url}
                 alt="Card image"
                 style={style1.cardimage}
+                onClick={()=>{
+                  this.props.history.push("/profile/" +  recommendation._id)
+                 }}
               />
               <div class="card-body">
                 <h4
@@ -88,4 +91,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { get_recommendation, connectRequest }
-)(Recommendations);
+)(withRouter(Recommendations));
