@@ -17,6 +17,7 @@ import axios from "axios";
 import Dropzone from "react-dropzone";
 
 class FillApplication extends Component {
+
   constructor(props) {
     super(props);
     var jobDetails = props.location.state;
@@ -41,8 +42,10 @@ class FillApplication extends Component {
       disability: "",
       job_id: jobDetails.job_id || "",
       recruiter_id: jobDetails.recruiter_id || "",
-      position: jobDetails.position || ""
-    };
+      position: jobDetails.position || "",
+      company: jobDetails.company || "",
+      location: jobDetails.location || "",
+    }
     this.firstNameHandler = this.firstNameHandler.bind(this);
     this.middleNameHandler = this.middleNameHandler.bind(this);
     this.lastNameHandler = this.lastNameHandler.bind(this);
@@ -75,12 +78,15 @@ class FillApplication extends Component {
     this.setState({ region: val });
   }
 
+
+
   componentDidMount() {
     if (this.props.location.state.easyApply == "yes") {
-      console.log("Easy apply applied");
+      console.log("Easy apply applied")
       this.props.getprofile({ id: localStorage.getItem("id") });
-    } else if (this.props.location.state.easyApply == "no") {
-      console.log("Hi not");
+    }
+    else if (this.props.location.state.easyApply == "no") {
+      console.log("Hi not")
     }
     var data = {
       job_id: this.state.job_id,
@@ -88,7 +94,7 @@ class FillApplication extends Component {
       applicant_id: localStorage.getItem("id"),
       city: this.state.region || "San Jose",
       position: this.state.position
-    };
+    }
 
     axios.post(CONST.ROOT_URL + "/jobs_started", data).then(res => {
       console.log("Status: " + res.status);
@@ -100,6 +106,7 @@ class FillApplication extends Component {
       }
     });
   }
+
 
   componentWillReceiveProps(newChangedProps) {
     if (newChangedProps.profile.profile.result) {
@@ -133,6 +140,7 @@ class FillApplication extends Component {
 
     if (this.props.location.state.easyApply === "no") {
       data = {
+
         firstName: values.firstName,
         middleName: values.middleName,
         lastName: values.lastName,
@@ -164,8 +172,10 @@ class FillApplication extends Component {
         applicant_id: localStorage.getItem("id"),
         job_id: this.state.job_id,
         recruiter_id: this.state.recruiter_id,
-        position: this.state.position
-      };
+        position: this.state.position,
+        company: this.state.company,
+        location: this.state.location
+      }
       console.log("Onsubmit values of dataaaaaaaa fill application", data);
     } else {
       data = {
@@ -180,21 +190,23 @@ class FillApplication extends Component {
         applicant_id: localStorage.getItem("id"),
         job_id: this.state.job_id,
         recruiter_id: this.state.recruiter_id,
-        position: this.state.position
-      };
+        position: this.state.position,
+        company: this.state.company,
+        location: this.state.location
+      }
       console.log("Onsubmit values of dataaaaaaaa fill application", data);
     }
 
     var formData = new FormData();
 
     // Object.keys(data).forEach(key=>{
-    //     formData.append(key,"testy");
+    //     formData.append(key,"testy");            
     // })
 
     formData.append("data", JSON.stringify(data));
 
     var file;
-    Object.keys(values).forEach(key => {
+    Object.keys(values).forEach((key) => {
       if (key == "resume") {
         file = values[key];
       }
@@ -1264,7 +1276,7 @@ class FillApplication extends Component {
     } = field;
     const className = `form-group form-control-lg ${
       touched && error ? "has-danger" : ""
-    }`;
+      }`;
     //console.log("className : " + className);
     return (
       <div class="form-group form-control-lg has-danger">

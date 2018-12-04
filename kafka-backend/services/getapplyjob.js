@@ -25,7 +25,7 @@ async function handle_request(msg, callback){
 }
 
 function getAppliedjobs(user_id) {
-    return Applyjob.find({ applicant_id: user_id}, { ApplyDate:1 , position:1,job_id:1,_id:0 } )
+    return Applyjob.find({ applicant_id: user_id}, { ApplyDate:1 , position:1,job_id:1,company:1,location:1 } )
     .exec();  
 }
 

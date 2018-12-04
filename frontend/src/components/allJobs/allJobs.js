@@ -92,13 +92,13 @@ class allJobs extends Component {
                 {this.state.allJobs[index].location}
               </h3>
               <div class="mt-5 pt-3">
-                <button
+                {/* <button
                   type="button"
                   class="btn btn-lg btn-outline-primary mr-3"
                   onClick={() => this.props.UNSAVE(job_id)}
                 >
                   <h3>Unsave</h3>
-                </button>
+                </button> */}
 
                 <Link
                   to={{
@@ -337,7 +337,7 @@ class allJobs extends Component {
                     {nextProps.allJobs.msg[0].location}
                   </h3>
                   <div class="mt-5 pt-3">
-                    <button
+                    {/* <button
                       type="button"
                       class="btn btn-lg btn-outline-primary mr-3"
                       onClick={() =>
@@ -345,7 +345,7 @@ class allJobs extends Component {
                       }
                     >
                       <h3>Unsave</h3>
-                    </button>
+                    </button> */}
 
 
                   </div>
@@ -410,11 +410,21 @@ class allJobs extends Component {
                     <button
                       type="button"
                       class="btn btn-lg btn-outline-primary mr-3"
+                      // onClick={() =>
+                      //   this.props.SAVE(nextProps.allJobs.msg[0]._id)
+                      // }
+
                       onClick={() =>
-                        this.props.UNSAVE(nextProps.allJobs.msg[0]._id)
-                      }
+                        this.props.SAVE(
+                          nextProps.allJobs.msg[0]._id,
+                          localStorage.getItem("id"),
+                          nextProps.allJobs.msg[0].recruiter_id,
+                          nextProps.allJobs.msg[0].position,
+                          nextProps.allJobs.msg[0].company,
+                          nextProps.allJobs.msg[0].location
+                        )}
                     >
-                      <h3>Unsave</h3>
+                      <h3>SAVE</h3>
                     </button>
 
                     <Link

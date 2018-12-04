@@ -125,11 +125,7 @@ class savedJobs extends Component {
                                 {this.state.xx}
                             </div>
                         </div>
-                        <div class="col-sm">
-                            <div style={{ height: "480px", overflow: "auto" }}>
-                                {this.state.yy}
-                            </div>
-                        </div>
+                        
 
                     </div>
 
