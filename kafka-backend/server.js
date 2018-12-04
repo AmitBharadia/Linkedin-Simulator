@@ -109,4 +109,4 @@ handleTopicRequest("getBasicDetails",getBasicDetails);
 handleTopicRequest("jobview", jobview);
 handleTopicRequest("profileViews",profileviews);
 handleTopicRequest("jobsStarted",adminJobsStarted)
-//handleTopicRequest("trackUser",adminTrackUser);
+  handleTopicRequest("trackUser",adminTrackUser);
