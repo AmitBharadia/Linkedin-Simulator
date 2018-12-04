@@ -32,7 +32,7 @@
           <entry key="html" value="1" />
           <entry key="jade" value="3" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="359" />
+          <entry key="js" value="360" />
           <entry key="json" value="3" />
           <entry key="png" value="1" />
           <entry key="rnc" value="1" />
@@ -46,7 +46,7 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="3" />
           <entry key="Jade" value="3" />
-          <entry key="JavaScript" value="361" />
+          <entry key="JavaScript" value="362" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -85,11 +85,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Applications/ApplicationListItem.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
               <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kafka-backend/services/getInvitations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -139,8 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-backend/routes/applyjob.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+            <state relative-caret-position="1155">
+              <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -191,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kafka-backend/models/Jobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/jobsFormThird.js" />
         <option value="$PROJECT_DIR$/frontend/src/action/postJobs.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Post Jobs/jobsFormSecond.js" />
@@ -242,6 +250,7 @@
         <option value="$PROJECT_DIR$/node-backend/s3/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/testPDF.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Applications/ApplicationListItem.js" />
+        <option value="$PROJECT_DIR$/kafka-backend/services/getInvitations.js" />
       </list>
     </option>
   </component>
@@ -280,6 +289,17 @@
             <path>
               <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
               <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
+              <item name="kafka-backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Linkedin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Linkedin" type="462c0819:PsiDirectoryNode" />
+              <item name="kafka-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -352,12 +372,12 @@
       <workItem from="1543808449191" duration="5576000" />
       <workItem from="1543864969644" duration="32297000" />
       <workItem from="1543945078364" duration="395000" />
-      <workItem from="1543950834452" duration="794000" />
+      <workItem from="1543950834452" duration="1602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167091000" />
+    <option name="totallyTimeSpent" value="167899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -370,6 +390,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21150033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -383,7 +404,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.41560283" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4794326" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -416,13 +437,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/action/myJobApplications.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node-backend/routes/getBasicDetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-63" />
@@ -722,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node-backend/routes/applyjob.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+        <state relative-caret-position="1155">
+          <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -738,6 +752,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-backend/services/getInvitations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
         </state>
       </provider>
     </entry>
