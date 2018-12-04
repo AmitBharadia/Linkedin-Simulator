@@ -6,7 +6,7 @@ async function handle_request(msg, callback) {
     "=====================In the kafka-backend top5jobs====================="
   );
   console.log("Message body:" + JSON.stringify(msg));
-  msg.id = 1;
+  //msg.id = 1;
   //   let queryString =
   //     "select * from job_application_submitted where recruiter_id= " +
   //     mysql.escape(1);
@@ -15,9 +15,9 @@ async function handle_request(msg, callback) {
     " job_name AS x, COUNT(applicant_id) AS y" +
     " FROM" +
     " job_application_submitted" +
-    " WHERE" +
-    " recruiter_id =" +
-    msg.id +
+    " WHERE " +
+    " recruiter_id = " +
+    mysql.escape(msg.id) +
     " GROUP BY (job_id)" +
     " ORDER BY y" +
     " LIMIT 5";

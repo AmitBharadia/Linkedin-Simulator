@@ -39,7 +39,7 @@ var User = mongoose.model("users", {
     type: String
   },
   Zipcode: {
-    type: Number
+    type: String
   },
   profileLocation: {
     type: String
