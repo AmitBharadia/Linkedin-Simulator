@@ -1279,19 +1279,19 @@ class FillApplication extends Component {
 function validate(values) {
   const errors = {};
 
-  // Validate the inputs from 'values'
-  if (!values.firstName) {
-    errors.firstName = "Required";
-  }
-  if (!values.lastName) {
-    errors.lastName = "Required";
-  }
+  //     // Validate the inputs from 'values'
+  //     if (!values.firstName) {
+  //       errors.firstName = "Required";
+  //     }
+  //     if (!values.lastName) {
+  //       errors.lastName = "Required";
+  //     }
 
-  if (!values.zipcode) {
-    errors.zipcode = "Required";
-  } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.zipcode)) {
-    errors.zipcode = "Invalid zip code";
-  }
+  //     if (!values.zipcode) {
+  //       errors.zipcode = "Required";
+  //     } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.Zipcode)) {
+  //       errors.Zipcode = "Invalid zip code";
+  //     }
 
   if (!values.primaryPhone) {
     errors.primaryPhone = "Required";
@@ -1300,26 +1300,26 @@ function validate(values) {
   ) {
     errors.primaryPhone = "Enter valid numbers";
   }
-  if (!values.experienceCompany) {
-    errors.experienceCompany = "Required";
-  }
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-  if (!values.experienceTitle) {
-    errors.experienceTitle = "Required";
-  }
-  if (!values.educationSchool) {
-    errors.educationSchool = "Required";
-  }
-  if (!values.experienceTitle) {
-    errors.experienceTitle = "Required";
-  }
+  //     if (!values.experienceCompany) {
+  //       errors.experienceCompany = "Required";
+  //     }
+  //     if (!values.email) {
+  //       errors.email = "Required";
+  //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  //       errors.email = "Invalid email address";
+  //     }
+  //     if (!values.experienceTitle) {
+  //       errors.experienceTitle = "Required";
+  //     }
+  //     if (!values.educationSchool) {
+  //       errors.educationSchool = "Required";
+  //     }
+  //     if (!values.experienceTitle) {
+  //       errors.experienceTitle = "Required";
+  //     }
 
-  // If errors is empty, the form is fine to submit
-  // If errors has *any* properties, redux form assumes form is invalid
+  //     // If errors is empty, the form is fine to submit
+  //     // If errors has *any* properties, redux form assumes form is invalid
   return errors;
 }
 

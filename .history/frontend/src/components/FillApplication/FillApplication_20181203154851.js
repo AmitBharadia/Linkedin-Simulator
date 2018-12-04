@@ -1290,7 +1290,7 @@ function validate(values) {
   if (!values.zipcode) {
     errors.zipcode = "Required";
   } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.zipcode)) {
-    errors.zipcode = "Invalid zip code";
+    errors.Zipcode = "Invalid zip code";
   }
 
   if (!values.primaryPhone) {

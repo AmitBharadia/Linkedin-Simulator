@@ -38,7 +38,7 @@ class ProfileViews extends Component {
     console.log("data:" + this.state.data);
     return (
       <div>
-        {this.state.data && this.state.data.length > 0 && (
+        {this.state.data.length > 0 && (
           <BarChart
             datePattern="%d-%b-%y"
             axes
@@ -60,9 +60,7 @@ class ProfileViews extends Component {
             margin={{ top: 0, right: 0, bottom: 30, left: 100 }}
           />
         )}
-        {this.state.data && this.state.data.length > 0 && (
-          <h2 class="font-weight-light">Number of profile views</h2>
-        )}
+        <h2 class="font-weight-light">Number of profile views</h2>
       </div>
     );
   }

@@ -59,10 +59,8 @@ class ProfileViews extends Component {
             data={this.state.data}
             margin={{ top: 0, right: 0, bottom: 30, left: 100 }}
           />
-        )}
-        {this.state.data && this.state.data.length > 0 && (
-          <h2 class="font-weight-light">Number of profile views</h2>
-        )}
+        )
+        <h2 class="font-weight-light">Number of profile views</h2>}
       </div>
     );
   }

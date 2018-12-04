@@ -7,6 +7,7 @@ import Posts from "./Posts";
 import News from "./News";
 import axios from "axios";
 import * as CONST from "../../Const/index";
+import { get_connections_count } from "../../action/getNetwork";
 
 class Home extends Component {
   componentWillMount() {
