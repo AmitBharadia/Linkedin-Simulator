@@ -9,34 +9,36 @@ import axios from "axios";
 import * as CONST from "../../Const/index";
 
 class Home extends Component {
+
   componentWillMount() {
     console.log("Hello");
     axios
-      .get(CONST.ROOT_URL + "/basic-details", {
+    .get(CONST.ROOT_URL + "/basic-details", {
         params: { id: localStorage.getItem("id") }
-      })
-      .then(res => {
+    })
+    .then(res => {
         console.log("Status: " + res.status);
         console.log("Data: " + JSON.stringify(res.data.data));
         if (res.status == 200) {
-          var details = "";
-          if (res.data.data) {
-            details = res.data.data;
+          var details="";
+          if(res.data.data){
+            details =res.data.data;
           }
-          if (details) {
-            if (details.first_name) {
-              localStorage.setItem("first_name", details.first_name);
+          if(details){
+            if(details.first_name){
+              localStorage.setItem("first_name",details.first_name)
             }
-            if (details.last_name) {
-              localStorage.setItem("last_name", details.last_name);
+            if(details.last_name){
+              localStorage.setItem("last_name",details.last_name)
             }
-            if (details.profile_url) {
-              localStorage.setItem("profile_url", details.profile_url);
+            if(details.profile_url){
+              localStorage.setItem("profile_url",details.profile_url)
             }
           }
         }
-      });
+    });
   }
+
 
   render() {
     return (

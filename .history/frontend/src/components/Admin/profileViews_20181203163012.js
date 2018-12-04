@@ -38,7 +38,7 @@ class ProfileViews extends Component {
     console.log("data:" + this.state.data);
     return (
       <div>
-        {this.state.data && (
+        {this.state.data && this.state.data.length > 0 && (
           <BarChart
             datePattern="%d-%b-%y"
             axes

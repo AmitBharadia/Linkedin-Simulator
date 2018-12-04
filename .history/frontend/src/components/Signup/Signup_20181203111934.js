@@ -80,7 +80,7 @@ class Signup extends Component {
                   />
                 </div>
 
-                <div class="ml-5 mr-5 mt-5 ">
+                <div class="ml-5 mr-5 mt-5 checkbox">
                   <Field
                     className="form-control pull-right"
                     label="Are you a Recruiter?"

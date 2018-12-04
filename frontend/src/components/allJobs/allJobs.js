@@ -16,6 +16,10 @@ class allJobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      currentPage:1,
+      jobsPerPage:5,
+
       allJobs: [],
       xx: "",
       yy: "",
@@ -29,6 +33,14 @@ class allJobs extends Component {
     this.myClick = this.myClick.bind(this);
     this.apply = this.apply.bind(this);
     this.submitAnalytics = this.submitAnalytics.bind(this);
+    this.handleClickPagination = this.handleClickPagination.bind(this); 
+  }
+
+  handleClickPagination = (e) => {
+    console.log(e.target.id);
+    console.log( typeof(e.target.id));
+    this.setState({ currentPage: Number(e.target.id) });
+    console.log(this.state.currentPage );
   }
 
   submitAnalytics(job) {
@@ -244,13 +256,14 @@ class allJobs extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(
-      "component will receive props " + JSON.stringify(nextProps.allJobs)
-    );
+    // console.log(
+    //   "component will receive props " + JSON.stringify(nextProps.allJobs)
+    // );
 
     if (nextProps.allJobs.status === "success") {
+
       this.setState({ allJobs: nextProps.allJobs.msg });
-      console.log(nextProps.allJobs.savedjobs);
+    //  console.log(nextProps.allJobs.savedjobs);
 
       this.setState({ savedjobs: nextProps.allJobs.savedjobs });
 
@@ -303,7 +316,7 @@ class allJobs extends Component {
         let status = 0;
 
         nextProps.allJobs.savedjobs.forEach(element => {
-          console.log(element.job_id);
+         // console.log(element.job_id);
           if (element.job_id === nextProps.allJobs.msg[0]._id) status = 1;
         });
 
@@ -376,7 +389,7 @@ class allJobs extends Component {
               </div>
             </div>
           );
-          console.log(yy);
+         // console.log(yy);
         } else {
           yy = (
             <div class="">
@@ -473,7 +486,7 @@ class allJobs extends Component {
               </div>
             </div>
           );
-          console.log(yy);
+         // console.log(yy);
         }
       } else {
         xx = <h2>Sorry No jobs found. </h2>;
@@ -486,6 +499,30 @@ class allJobs extends Component {
   }
 
   render() {
+    const { xx , currentPage , jobsPerPage } = this.state;
+    const IndexOfLastJob = currentPage*jobsPerPage ; 
+    const IndexOfFirstJob = IndexOfLastJob - jobsPerPage;
+
+    const CurrentJob = xx.slice(IndexOfFirstJob , IndexOfLastJob );
+
+    const pageNumbers=[];
+    for(let i=1;i<=Math.ceil(xx.length/jobsPerPage);i++){
+        pageNumbers.push(i)
+    }
+
+    const renderPageNumbers = pageNumbers.map(number=>{
+        return (
+            <li
+              key={number}
+              id={number}
+              onClick={this.handleClickPagination}
+            >
+              {number}
+            </li>
+        )
+    })
+
+
     return (
       <div>
         <MainNavbar />
@@ -495,7 +532,8 @@ class allJobs extends Component {
           <div class="row">
             <div class="col-sm">
               <div class="pl-3" style={{ height: "480px", overflow: "auto" }}>
-                {this.state.xx}
+              {/*  {this.state.xx}  */}
+                {CurrentJob}             
               </div>
             </div>
             <div class="col-sm">
@@ -503,6 +541,11 @@ class allJobs extends Component {
                 {this.state.yy}
               </div>
             </div>
+          </div>
+          <div>
+          <ul id='page-numbers' class="h2" style={{'marginLeft':'50%','marginTop':'25px','color': 'black','float': 'left','padding': '8px 16px','textDecoration': 'none',' border': '1px solid black' }}>
+                 {renderPageNumbers}
+              </ul>
           </div>
         </div>
       </div>
