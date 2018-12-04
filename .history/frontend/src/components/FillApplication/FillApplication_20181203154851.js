@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../Common/MainNavbar";
+import Navbar from "../Common/Navbar";
 import { dummy } from "../../action/dummy";
 import { Field, reduxForm, change } from "redux-form";
 import { connect } from "react-redux";
@@ -82,23 +82,6 @@ class FillApplication extends Component {
     } else if (this.props.location.state.easyApply == "no") {
       console.log("Hi not");
     }
-    var data = {
-      job_id: this.state.job_id,
-      recruiter_id: this.state.recruiter_id,
-      applicant_id: localStorage.getItem("id"),
-      city: this.state.region || "San Jose",
-      position: this.state.position
-    };
-
-    axios.post(CONST.ROOT_URL + "/jobs_started", data).then(res => {
-      console.log("Status: " + res.status);
-      console.log("Data: " + JSON.stringify(res.data));
-      if (res.status == 200) {
-        this.setState({
-          data: res.data.data
-        });
-      }
-    });
   }
 
   componentWillReceiveProps(newChangedProps) {
@@ -140,7 +123,7 @@ class FillApplication extends Component {
         zipcode: values.zipcode,
         primaryPhone: values.primaryPhone,
         country: this.state.country,
-        region: this.state.region || "San Jose",
+        region: this.state.region,
         workphone: values.workPhone,
         email: values.emailID,
         experienceTitle: values.experienceTitle,
@@ -185,35 +168,18 @@ class FillApplication extends Component {
       console.log("Onsubmit values of dataaaaaaaa fill application", data);
     }
 
-    var formData = new FormData();
-
-    // Object.keys(data).forEach(key=>{
-    //     formData.append(key,"testy");
-    // })
-
-    formData.append("data", JSON.stringify(data));
-
-    var file;
-    Object.keys(values).forEach(key => {
-      if (key == "resume") {
-        file = values[key];
-      }
-    });
-
-    if (file != null) {
-      file.forEach(file => {
-        formData.append("resume", file);
-        formData.append("filename", file.name);
-      });
+    var body = new FormData();
+    body.append("formdata", JSON.stringify(data));
+    for (var key in values.files) {
+      body.append("file", values.files[key]);
     }
 
     axios
-      .post(`${CONST.ROOT_URL}/apply`, formData)
+      .post(`${CONST.ROOT_URL}/apply`, body)
       .then(response => {
         //console.log("Response recieved: " + JSON.stringify(response.data));
 
-        alert("Form sbmitted");
-        this.props.history.push("/allJobs");
+        alert(response.msg);
       })
       .catch(error => {
         alert(error);
@@ -644,14 +610,14 @@ class FillApplication extends Component {
                   className="ml-5 mr-5 mt-5"
                   style={{ width: "30%", marginBottom: "50px" }}
                 >
-                  {/* <Field
-                                        className="form-control form-control-lg"
-                                        placeholder="Attach Resume"
-                                        label="Add Resume"
-                                        name="resume"
-                                        type="file"
-                                        component={this.renderField}
-                                    /> */}
+                  <Field
+                    className="form-control form-control-lg"
+                    placeholder="Attach Resume"
+                    label="Add Resume"
+                    name="resume"
+                    type="file"
+                    component={this.renderField}
+                  />
 
                   <Field name="resume" component={this.renderDropzoneInput} />
                 </div>
@@ -758,6 +724,7 @@ class FillApplication extends Component {
                           awarded pursuant to Executive Order 12985.
                         </h4>
                       </div>
+
                       <select
                         className="form-control form-control-lg border border border-dark"
                         name="Veteran"
@@ -780,6 +747,7 @@ class FillApplication extends Component {
                         </option>
                       </select>
                     </div>
+
                     <div>
                       <div class="ml-5 mr-5 mt-5 pb-3" style={{ width: "80%" }}>
                         <h4>
@@ -979,12 +947,9 @@ class FillApplication extends Component {
                                         name="resume"
                                         type="file"
                                         component={this.renderField}
+
                                     /> */}
-                  <Field
-                    name="resume"
-                    component={this.renderDropzoneInput}
-                    required
-                  />
+                  <Field name="resume" component={this.renderDropzoneInput} />
                 </div>
 
                 <div
@@ -1089,6 +1054,7 @@ class FillApplication extends Component {
                           awarded pursuant to Executive Order 12985.
                         </h4>
                       </div>
+
                       <select
                         className="form-control form-control-lg border border border-dark"
                         name="Veteran"
@@ -1111,6 +1077,7 @@ class FillApplication extends Component {
                         </option>
                       </select>
                     </div>
+
                     <div>
                       <div class="ml-5 mr-5 mt-5 pb-3" style={{ width: "80%" }}>
                         <h4>
@@ -1288,11 +1255,10 @@ class FillApplication extends Component {
       <div>
         <Dropzone
           name={field.name}
-          accept="application/pdf"
+          accept="*"
           onDrop={(filesToUpload, e) => {
             field.input.onChange(filesToUpload);
           }}
-          required
         >
           <div>Upload resume</div>
         </Dropzone>
@@ -1324,7 +1290,7 @@ function validate(values) {
   if (!values.zipcode) {
     errors.zipcode = "Required";
   } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.zipcode)) {
-    errors.zipcode = "Invalid zip code";
+    errors.Zipcode = "Invalid zip code";
   }
 
   if (!values.primaryPhone) {
@@ -1352,8 +1318,8 @@ function validate(values) {
     errors.experienceTitle = "Required";
   }
 
-  //     // If errors is empty, the form is fine to submit
-  //     // If errors has *any* properties, redux form assumes form is invalid
+  // If errors is empty, the form is fine to submit
+  // If errors has *any* properties, redux form assumes form is invalid
   return errors;
 }
 

@@ -79,11 +79,10 @@ class Signup extends Component {
                     component={this.renderField}
                   />
                 </div>
-
+                <Lable>label="Are you a Recruiter?"</Lable>
                 <div class="ml-5 mr-5 mt-5 ">
                   <Field
                     className="form-control pull-right"
-                    label="Are you a Recruiter?"
                     name="isRecruiter"
                     type="checkbox"
                     component={this.renderField}

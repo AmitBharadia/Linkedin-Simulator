@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Profile.css";
 import { get_connections_count } from "../../action/getNetwork";
-import { connect } from "react-redux";
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -42,13 +42,4 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    connectioncount: state.network.connectioncount
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { get_connections_count }
-)(Profile);
+export default Profile;

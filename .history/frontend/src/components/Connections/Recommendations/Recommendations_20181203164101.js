@@ -32,8 +32,8 @@ class Recommendations extends Component {
             "</div>" + '<div className="row" style={{ height: "230px" }} />';
         }
         return (
-          <div className="col-md-4" style={{ maxHeight: "380px" }}>
-            <div class="card" style={{ height: "380px" }}>
+          <div className="col-md-4" style={{ maxHeight: "350px" }}>
+            <div class="card" style={{ height: "350px" }}>
               <img
                 class="card-img-top"
                 src={recommendation.profile_url}
