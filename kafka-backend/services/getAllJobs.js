@@ -48,6 +48,7 @@ function getAllJobs( q) {
          recruiter_id:1
          })
     .limit(15)
+    .sort({"_id":-1})
     .exec();  
 }
 

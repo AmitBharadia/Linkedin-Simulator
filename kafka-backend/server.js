@@ -31,20 +31,23 @@ var getChatList= require("./services/getChatList");
 var getMessageDetails = require("./services/getMessageDetails");
 var sendMessage=require("./services/sendMessage");
 var getBasicDetails=require("./services/getBasicDetails");
-
+var getapplyjob=require("./services/getapplyjob");
 var jobview = require("./services/jobview");
 
+var profileviews = require("./services/adminProfileViews");
+var adminJobsStarted = require("./services/adminJobsStarted");
+var adminTrackUser = require("./services/adminTrackUser");
 function handleTopicRequest(topic_name, fname) {
   var consumer = connection.getConsumer(topic_name);
   var producer = connection.getProducer();
   //console.log("server is running ");
   consumer.on("message", function(message) {
-    console.log("message received for " + topic_name + " ", fname);
+    console.log("MESSAGE  received for " + topic_name + " ", fname);
     console.log(JSON.stringify(message.value));
     var data = JSON.parse(message.value);
 
     fname.handle_request(data.data, function(err, res) {
-      console.log("Result :" + JSON.stringify(res) + " Error : " + err);
+      //console.log("Result :" + JSON.stringify(res) + " Error : " + err);
       var payloads = [
         {
           topic: data.replyTo,
@@ -56,7 +59,7 @@ function handleTopicRequest(topic_name, fname) {
           partition: 0
         }
       ];
-      console.log("Payload:", JSON.stringify(payloads));
+     console.log("Payload:", JSON.stringify(payloads));
       producer.send(payloads, function(err, data) {});
       return;
     });
@@ -69,7 +72,7 @@ function handleTopicRequest(topic_name, fname) {
 handleTopicRequest("post_signin", signin);
 handleTopicRequest("post_signup", signup);
 
-
+handleTopicRequest("getapplyjob",getapplyjob );
 handleTopicRequest("post_invitations", getInvitations);
 handleTopicRequest("get_recommendations", getRecommendations);
 handleTopicRequest("remove_connection", removeConnection);
@@ -104,3 +107,6 @@ handleTopicRequest("sendMessage",sendMessage);
 handleTopicRequest("getBasicDetails",getBasicDetails);
 
 handleTopicRequest("jobview", jobview);
+handleTopicRequest("profileViews",profileviews);
+handleTopicRequest("jobsStarted",adminJobsStarted)
+//handleTopicRequest("trackUser",adminTrackUser);

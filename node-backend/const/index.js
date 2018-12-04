@@ -10,5 +10,5 @@ module.exports.SECRET = "Passphrase for encryption should be 45-50 char long";
 module.exports.awsS3Key = "eocyijlS/8Y2BDeiRUGXJ6F8ZijmGa15mGfaQ2v6";
 module.exports.awsS3Id = "AKIAIXD2UYNVFTD6OE5Q";
 module.exports.awsS3Region = "us-east-1";
-module.exports.ResumesBucket = "linkedin-273/Resumes";
+module.exports.ResumesBxucket = "linkedin-273/Resumes";
 module.exports.CompanyLogosBucket = "linkedin-273/CompanyLogo";

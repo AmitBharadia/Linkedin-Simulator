@@ -44,11 +44,12 @@ export function filter(values) {
   };
 }
 
-export function SAVE(job_uuid, recruiter_id, position, company, location) {
+export function SAVE(job_uuid, user_id,recruiter_id, position, company, location) {
   return dispatch => {
     axios
       .post(`${url}/save`, {
         job_uuid,
+        user_id,
         recruiter_id,
         position,
         company,
@@ -67,3 +68,4 @@ export function SAVE(job_uuid, recruiter_id, position, company, location) {
       });
   };
 }
+
