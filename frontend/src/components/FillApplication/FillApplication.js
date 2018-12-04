@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from '../Common/Navbar';
+import Navbar from '../Common/MainNavbar';
 import { dummy } from "../../action/dummy";
 import { Field, reduxForm, change } from "redux-form";
 import { connect } from "react-redux";
@@ -62,14 +62,7 @@ class FillApplication extends Component {
 
         const { company } = props.location.state;
         console.log("company", company);
-
-
-
     }
-
-
-
-
 
     selectCountry(val) {
         this.setState({ country: val });
@@ -89,6 +82,23 @@ class FillApplication extends Component {
         else if (this.props.location.state.easyApply == "no") {
             console.log("Hi not")
         }
+        var data={
+            job_id:this.state.job_id,
+            recruiter_id:this.state.recruiter_id,
+            applicant_id:localStorage.getItem("id"),
+            city:this.state.region || "San Jose",
+            position:this.state.position
+        }
+ 
+        axios.post(CONST.ROOT_URL + "/jobs_started",data).then(res => {
+            console.log("Status: " + res.status);
+            console.log("Data: " + JSON.stringify(res.data));
+            if (res.status == 200) {
+              this.setState({
+                data: res.data.data
+              });
+            }
+          });
     }
 
 
@@ -132,7 +142,7 @@ class FillApplication extends Component {
                 zipcode: values.zipcode,
                 primaryPhone: values.primaryPhone,
                 country: this.state.country,
-                region: this.state.region,
+                region: this.state.region || "San Jose",
                 workphone: values.workPhone,
                 email: values.emailID,
                 experienceTitle: values.experienceTitle,
@@ -177,18 +187,35 @@ class FillApplication extends Component {
             console.log("Onsubmit values of dataaaaaaaa fill application", data);
         }
 
-        var body = new FormData();
-        body.append("formdata", JSON.stringify(data));
-        for (var key in values.files) {
-          body.append("file", values.files[key]);
+        var formData = new FormData();
+        
+        // Object.keys(data).forEach(key=>{
+        //     formData.append(key,"testy");            
+        // })
+
+        formData.append("data",JSON.stringify(data));
+
+        var file;
+        Object.keys(values).forEach((key) => {
+            if (key == "resume") {
+                file = values[key];
+            }
+        });
+        
+        if(file != null)
+        {
+        file.forEach(file => {
+            formData.append("resume", file);
+            formData.append("filename", file.name);
+        });
         }
 
-
-        axios.post(`${CONST.ROOT_URL}/apply`, body)
+        axios.post(`${CONST.ROOT_URL}/apply`, formData)
             .then(response => {
                 //console.log("Response recieved: " + JSON.stringify(response.data));
 
-                alert(response.msg);
+                alert("Form sbmitted");
+                this.props.history.push("/allJobs");
             })
             .catch(error => {
                 alert(error);
@@ -645,7 +672,7 @@ class FillApplication extends Component {
 
                                 <div className="ml-5 mr-5 mt-5" style={{ "width": "30%", "marginBottom": "50px" }}>
 
-                                    <Field
+                                    {/* <Field
                                         className="form-control form-control-lg"
                                         placeholder="Attach Resume"
                                         label="Add Resume"
@@ -653,7 +680,7 @@ class FillApplication extends Component {
                                         type="file"
                                         component={this.renderField}
 
-                                    />
+                                    /> */}
 
                                     <Field
                                         name="resume"
@@ -864,6 +891,7 @@ class FillApplication extends Component {
                                     <Field
                                         name="resume"
                                         component={this.renderDropzoneInput}
+                                        required
                                     />
                                 </div>
 
@@ -1071,10 +1099,12 @@ class FillApplication extends Component {
             <div>
                 <Dropzone
                     name={field.name}
-                    accept="*"
+                    accept="application/pdf"
                     onDrop={(filesToUpload, e) => {
                         field.input.onChange(filesToUpload);
                     }}
+                    required
+                    
                 >
                     <div>
                         Upload resume
@@ -1098,42 +1128,44 @@ class FillApplication extends Component {
 function validate(values) {
     const errors = {};
 
-    //     // Validate the inputs from 'values'
-    //     if (!values.firstName) {
-    //       errors.firstName = "Required";
-    //     }
-    //     if (!values.lastName) {
-    //       errors.lastName = "Required";
-    //     }
+        // Validate the inputs from 'values'
+        if (!values.firstName) {
+          errors.firstName = "Required";
+        }
+        if (!values.lastName) {
+          errors.lastName = "Required";
+        }
 
-    //     if (!values.zipcode) {
-    //       errors.zipcode = "Required";
-    //     } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.Zipcode)) {
-    //       errors.Zipcode = "Invalid zip code";
-    //     }
-
-    //     if (!values.primaryPhone) {
-    //       errors.primaryPhone = "Required";
-    //     } else if (!/^[2-9]\d{2}[2-9]\d{2}\d{4}$/.test(values.primaryPhone)) {
-    //       errors.primaryPhone = "Enter valid numbers";
-    //     }
-    //     if (!values.experienceCompany) {
-    //       errors.experienceCompany = "Required";
-    //     }
-    //     if (!values.email) {
-    //       errors.email = "Required";
-    //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    //       errors.email = "Invalid email address";
-    //     }
-    //     if (!values.experienceTitle) {
-    //       errors.experienceTitle = "Required";
-    //     }
-    //     if (!values.educationSchool) {
-    //       errors.educationSchool = "Required";
-    //     }
-    //     if (!values.experienceTitle) {
-    //       errors.experienceTitle = "Required";
-    //     }
+        if (!values.zipcode) {
+            errors.zipcode = "Required";
+          } else if (!/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(values.zipcode)) {
+            errors.zipcode = "Invalid zip code";
+          }
+        
+          if (!values.primaryPhone) {
+            errors.primaryPhone = "Required";
+          } else if (
+            !/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/.test(values.primaryPhone)
+          ) {
+            errors.primaryPhone = "Enter valid numbers";
+          }
+        if (!values.experienceCompany) {
+          errors.experienceCompany = "Required";
+        }
+        if (!values.email) {
+          errors.email = "Required";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+          errors.email = "Invalid email address";
+        }
+        if (!values.experienceTitle) {
+          errors.experienceTitle = "Required";
+        }
+        if (!values.educationSchool) {
+          errors.educationSchool = "Required";
+        }
+        if (!values.experienceTitle) {
+          errors.experienceTitle = "Required";
+        }
 
     //     // If errors is empty, the form is fine to submit
     //     // If errors has *any* properties, redux form assumes form is invalid

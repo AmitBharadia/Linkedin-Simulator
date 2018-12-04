@@ -43,6 +43,10 @@ class MainNavbar extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+
+    if(!localStorage.getItem("id") ){
+      this.props.history.push("/signin");
+    }
     var redirectVal = "";
     if (this.state.isDeleted) {
       redirectVal = <Redirect to="/signin" />;
