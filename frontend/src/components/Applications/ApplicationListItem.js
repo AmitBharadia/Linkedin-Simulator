@@ -29,7 +29,7 @@ class ApplicationListItem extends Component{
                                         <a className="text-dark" href="#">{this.props.application.email}</a>
                                     </h3>
                                     <p>
-                                        Resume : <a href={this.props.application.resume}> My Resume</a>
+                                        Resume : <a href={this.props.application.resume} target="_blank"> My Resume</a>
                                     </p>
 
 

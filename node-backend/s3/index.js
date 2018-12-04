@@ -15,6 +15,7 @@ const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: CONST.CompanyLogosBucket,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: "public-read",
     key: function(req, file, cb) {
       console.log(file);
