@@ -28,7 +28,7 @@ async function handle_request(msg, callback){
     }
    
     let newjob=new Applyjob({   "applicant_id":msg.details.applicant_id,
-        job_id :msg.details.job_id ,recruiter_id:msg.details.recruiter_id,  job_name:msg.details.position ,
+        job_id :msg.details.job_id ,recruiter_id:msg.details.recruiter_id,  position:msg.details.position ,
         region:msg.details.region, gender:msg.details.gender, experience: experience, education: education,
         email:msg.details.email ,  workAuthorization:msg.details.workAuthorization , middleName:msg.details.middleName,
         firstName:msg.details.firstName ,lastName:msg.details.lastName , address:msg.details.address , country:msg.details.country,
@@ -43,8 +43,9 @@ try{
     let date = new Date();
       let d=date.toISOString().split('T')[0];
       //console.log(d);
-      let mysqlquery="INSERT INTO job_application_submitted (applicant_id, job_id,recruiter_id,city,job_name,applied_date) VALUES ('"+msg.applicant_id+"','"+msg.job_id+"','"+msg.recruiter_id+"','"+msg.city+"','"+msg.job_name+"','"+d+"');"
+      let mysqlquery="INSERT INTO job_application_submitted (applicant_id, job_id,recruiter_id,city,job_name,applied_date) VALUES ('"+msg.details.applicant_id+"','"+msg.details.job_id+"','"+msg.details.recruiter_id+"','"+msg.details.region+"','"+msg.details.position+"','"+d+"');"
     // save the stats in mysql
+    console.log("mysqlquery :", mysqlquery);
     execute_query_with_ID(mysqlquery).then(function(rows) {
         //console.log(rows);
         if(rows.insertId){    

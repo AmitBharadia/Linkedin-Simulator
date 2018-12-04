@@ -28,8 +28,6 @@ class jobApply extends Component {
       }       
 
     render() {
-         
-
          return (
             <div>
                 <Navbar />    
