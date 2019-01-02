@@ -12,7 +12,7 @@
 
 ## System Design
 
-![alt text](Capture.jpg)
+![alt text](Capture.JPG)
 
 </br> 
 
