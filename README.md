@@ -15,6 +15,7 @@
 ![alt text](Capture.JPG)
 
 </br> 
+### Technology stack 
 
 <table>
 <thead>
@@ -71,3 +72,6 @@
 </tbody>
 </table>
 <br/>
+
+## Screenshots
+
