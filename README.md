@@ -1,3 +1,3 @@
 # Linkedin-Simulator
 
-![alt text]()
+![alt text](linkedin-logo.jpg)
