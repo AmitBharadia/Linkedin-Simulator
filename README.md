@@ -12,6 +12,10 @@
 
 ## System Design
 
+![alt text](Capture.jpg)
+
+</br> 
+
 <table>
 <thead>
 <tr>
