@@ -50,10 +50,6 @@
 		<td>Redis</td>
 	</tr>
 	<tr>
-		<td>Search and Analytics Engine</td>
-		<td>Elasticsearch</td>
-	</tr>
-	<tr>
 		<td>API Testing</td>
 		<td>Mocha, Postman</td>
 	</tr>
@@ -64,10 +60,6 @@
 	<tr>
 		<td>Database</td>
 		<td>MySQL (Google Cloud Platform), MongoDB (Mongo Atlas on AWS)</td>
-	</tr>
-    <tr>
-		<td>Deployment</td>
-		<td>Google Compute Engine</td>
 	</tr>
 </tbody>
 </table>
