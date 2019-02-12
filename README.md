@@ -59,7 +59,7 @@
 	</tr>
 	<tr>
 		<td>Database</td>
-		<td>MySQL (Google Cloud Platform), MongoDB (Mongo Atlas on AWS)</td>
+		<td>MySQL (Amazon RDS), MongoDB </td>
 	</tr>
 </tbody>
 </table>
