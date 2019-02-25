@@ -14,8 +14,9 @@
 
 ![alt text](Capture.JPG)
 
-</br> 
-### Technology stack 
+</br>
+
+## Technology stack 
 
 <table>
 <thead>
@@ -67,25 +68,25 @@
 
 ## Screenshots
 
-#### Login/Signup
+## Login/Signup
 ![alt text](Screenshots/image006.gif)
 <br/>
----------------------------------------------------------------------------------------------------
+
 
 ![alt text](Screenshots/image011.gif)
 <br/>
 
-#### User Profile
+## User Profile
 ![alt text](Screenshots/image064.gif)
 ![alt text](Screenshots/image063.gif)
  <br/>
 
-#### Jobs Search and Apply
+## Jobs Search and Apply
 ![alt text](Screenshots/image029.gif)
 ![alt text](Screenshots/image032.gif)
 <br/>
 
-#### Network
+## Network
 ![alt text](Screenshots/image038.gif)
 <br/>
 ![alt text](Screenshots/image039.gif)
@@ -93,7 +94,7 @@
 ![alt text](Screenshots/image041.gif)
 <br/>
 
-#### Chat
+## Chat
 ![alt text](Screenshots/image059.gif)
 <br/>
 
@@ -101,11 +102,11 @@
 ![alt text](Screenshots/image017.gif)
 <br/>
 
-#### View Posted Jobs
+## View Posted Jobs
 ![alt text](Screenshots/image024.gif)
 <br/>
 
-#### User Analytics
+## User Analytics
 ![alt text](Screenshots/image067.gif)
 <br/>
 ![alt text](Screenshots/image068.gif)
