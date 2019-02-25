@@ -70,6 +70,8 @@
 #### Login/Signup
 ![alt text](Screenshots/image006.gif)
 <br/>
+---------------------------------------------------------------------------------------------------
+
 ![alt text](Screenshots/image011.gif)
 <br/>
 
